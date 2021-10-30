@@ -10,4 +10,4 @@ export default {
     lightGray: '#BCBCBC',
     mediumGray: '#3D3F3D',
     darkerGray: '#252525',
-}
+};

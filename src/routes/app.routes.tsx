@@ -10,14 +10,14 @@ import { Viewer } from "../pages/Viewer/Viewer.screen";
 
 const Stack = createNativeStackNavigator();
 
-const app: React.FC = () => (
+const AppRoutes: React.FC = () => (
   <Stack.Navigator initialRouteName="dashboard" screenOptions={{ headerShown: false }}>
     <Stack.Screen name="dashboard" component={Dashboard} />
-    <Stack.Screen name="profile" component={Profile} />
+    {/* <Stack.Screen name="profile" component={Profile} />
     <Stack.Screen name="homeworks" component={Homeworks} />
     <Stack.Screen name="mathscore" component={Mathscore} />
-    <Stack.Screen name="viewer" component={Viewer} />
+    <Stack.Screen name="viewer" component={Viewer} /> */}
   </Stack.Navigator>
 );
 
-export default app;
+export default AppRoutes;

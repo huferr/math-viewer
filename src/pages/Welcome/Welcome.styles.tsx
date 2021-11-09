@@ -37,6 +37,7 @@ export const WhiteTitle = styled.Text`
 export const IconWrapper = styled.View`
   width: 100%;
   margin-top: 40px;
+  margin-bottom: 40px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -50,4 +51,20 @@ font-size: 64px;
   opacity: 0.6;
   text-align: right;
   margin: 0 0 40px 30px;
+`;
+
+export const ByText = styled.Text`
+  font-size: 18px;
+  font-weight: 500;
+  color: ${colors.white};
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const NameText = styled.Text`
+  font-size: 18px;
+  font-weight: 700;
+  font-style: italic;
+  color: ${colors.primary};
 `;

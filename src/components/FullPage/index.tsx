@@ -1,0 +1,1 @@
+export { FullPage } from "./FullPage.component";

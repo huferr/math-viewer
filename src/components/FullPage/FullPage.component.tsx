@@ -1,35 +1,69 @@
 import React from "react";
+import { Button } from "..";
 import { GoBackIcon } from "../../assets/icons/go-back";
-import { Body, Container, GoBackButton, Header, Title, TitleContainer } from "./FullPage.styles";
-
-export interface FullPageProps {
-  title?: string,
-  goBack?: boolean,
-  onPressGoBack?: () => void,
-  children: Element,
-}
+import { Body, ButtonContainer, Container, Footer, GoBackButton, GreenTitle, Header, MessageContainer, TextWrapper, TitleContainer, WhiteTitle } from "./FullPage.styles";
+import { FullPageProps } from "./FullPage.types";
 
 export const FullPage: React.FC<FullPageProps> = (props) => {
-  const {title, goBack, onPressGoBack, children} = props;
+  const {
+    whiteTitle,
+    greenTitle,
+    greenTitleFirst,
+    goBack,
+    onPressGoBack,
+    children,
+    footerMessage,
+    buttons,
+    onlyOneButton,
+    buttonPrimary,
+    buttonSecondary,
+    onPressPrimary,
+    onPressSecondary
+  } = props;
+
   return (
     <Container>
       <Body>
         <Header>
           {goBack && 
             <>
-              <GoBackButton activeOpacity={0.8}>
+              <GoBackButton activeOpacity={0.8} onPress={onPressGoBack}>
                 <GoBackIcon />
               </GoBackButton>
             </>
           }
-          {title && 
+          {whiteTitle && 
            <>
              <TitleContainer>
-               <Title>{title}</Title>
+               {greenTitleFirst ? 
+                 (
+                   <TextWrapper>
+                     <GreenTitle>{greenTitle}</GreenTitle>{whiteTitle ? "  " : null}<WhiteTitle>{whiteTitle}</WhiteTitle>
+                   </TextWrapper>
+                 )
+                 : (
+                   <TextWrapper>
+                     <WhiteTitle>{whiteTitle}</WhiteTitle>{greenTitle ? "  " : null}<GreenTitle>{greenTitle}</GreenTitle>
+                   </TextWrapper>
+                 )}
              </TitleContainer>
            </>}
         </Header>
         {children}
+        <Footer>
+          {buttons && (
+            <ButtonContainer onlyOneButton={onlyOneButton}>
+              {buttonSecondary && <Button onPress={onPressSecondary} type="secondary" title="Forgot my password"/>}
+              {buttonPrimary && <Button onPress={onPressPrimary} type="primary" title="Continue"/>}
+            </ButtonContainer>
+          )}
+          {footerMessage && (
+            <MessageContainer>
+              {footerMessage}  
+            </MessageContainer>
+          )}
+          
+        </Footer>  
       </Body>
     </Container>
   );

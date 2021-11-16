@@ -18,7 +18,9 @@ export const FullPage: React.FC<FullPageProps> = (props) => {
     buttonPrimary,
     buttonSecondary,
     onPressPrimary,
-    onPressSecondary
+    onPressSecondary,
+    buttonSecondaryTitle,
+    buttonPrimaryTitle,
   } = props;
 
   return (
@@ -53,8 +55,8 @@ export const FullPage: React.FC<FullPageProps> = (props) => {
         <Footer>
           {buttons && (
             <ButtonContainer onlyOneButton={onlyOneButton}>
-              {buttonSecondary && <Button onPress={onPressSecondary} type="secondary" title="Forgot my password"/>}
-              {buttonPrimary && <Button onPress={onPressPrimary} type="primary" title="Continue"/>}
+              {buttonSecondary && <Button onPress={onPressSecondary} type="secondary" title={buttonSecondaryTitle}/>}
+              {buttonPrimary && <Button onPress={onPressPrimary} type="primary" title={buttonPrimaryTitle}/>}
             </ButtonContainer>
           )}
           {footerMessage && (

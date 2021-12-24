@@ -10,7 +10,6 @@ export const FullPage: React.FC<FullPageProps> = (props) => {
     whiteTitle,
     greenTitle,
     greenTitleFirst,
-    goBack,
     onPressGoBack,
     children,
     footerMessage,
@@ -83,9 +82,7 @@ export const FullPage: React.FC<FullPageProps> = (props) => {
           <MessageContainer>
             {footerMessage}  
           </MessageContainer>
-        )}
-          
-        {/*  */}
+        )} 
    
       </KeyboardAvoidingViewContainer> 
       

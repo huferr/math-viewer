@@ -21,6 +21,7 @@ export const Register: React.FC = () => {
       buttonPrimary
       buttonPrimaryTitle="Continue"
       verticalBounce={false}
+      enableAvoidingView={false}
     >
       <TopIcon>λ</TopIcon>
       <Input style={{marginTop: 10}} placeholder="Nickname" errorText="Nickname do caralho"/>

@@ -23,24 +23,22 @@ export const FullPage: React.FC<FullPageProps> = (props) => {
     buttonSecondaryTitle,
     buttonPrimaryTitle,
     verticalBounce,
+    enableAvoidingView,
   } = props;
 
   return (
     <Container>
-      <KeyboardAvoidingViewContainer
-        behavior={Platform.select({ ios: "padding" })}
-        enabled
-      >
+     
         
-        <Header>
-          {goBack && 
+      <Header>
+        {goBack && 
             <>
               <GoBackButton activeOpacity={0.8} onPress={onPressGoBack}>
                 <GoBackIcon />
               </GoBackButton>
             </>
-          }
-          {whiteTitle && 
+        }
+        {whiteTitle && 
            <>
              <TitleContainer>
                {greenTitleFirst ? 
@@ -56,8 +54,12 @@ export const FullPage: React.FC<FullPageProps> = (props) => {
                  )}
              </TitleContainer>
            </>}
-        </Header>
-      
+      </Header>
+      <KeyboardAvoidingViewContainer
+        behavior={Platform.select({ ios: "padding" })}
+        enabled={enableAvoidingView}
+        keyboardVerticalOffset={Platform.select({ios: 20, android: 500})}
+      >
         <ScrollViewPage
           showsVerticalScrollIndicator={false}
           showsHorizontalScrollIndicator={false}
@@ -70,20 +72,20 @@ export const FullPage: React.FC<FullPageProps> = (props) => {
             {children}
           </Body>
         </ScrollViewPage>
-        <Footer>
-          {buttons && (
-            <ButtonContainer onlyOneButton={onlyOneButton}>
-              {buttonSecondary && <Button onPress={onPressSecondary} type="secondary" title={buttonSecondaryTitle}/>}
-              {buttonPrimary && <Button onPress={onPressPrimary} type="primary" title={buttonPrimaryTitle}/>}
-            </ButtonContainer>
-          )}
-          {footerMessage && (
-            <MessageContainer>
-              {footerMessage}  
-            </MessageContainer>
-          )}
+       
+        {buttons && (
+          <ButtonContainer onlyOneButton={onlyOneButton}>
+            {buttonSecondary && <Button onPress={onPressSecondary} type="secondary" title={buttonSecondaryTitle}/>}
+            {buttonPrimary && <Button onPress={onPressPrimary} type="primary" title={buttonPrimaryTitle}/>}
+          </ButtonContainer>
+        )}
+        {footerMessage && (
+          <MessageContainer>
+            {footerMessage}  
+          </MessageContainer>
+        )}
           
-        </Footer> 
+        {/*  */}
    
       </KeyboardAvoidingViewContainer> 
       

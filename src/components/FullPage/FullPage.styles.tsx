@@ -58,7 +58,8 @@ export const Footer = styled.View`
 
 export const ButtonContainer = styled.View<FullPageProps>`
   width: 100%;
-  height: 120px;
+  padding: 0 ${metrics.basePadding}px;
+  height: ${(props) => props.onlyOneButton ? "auto" : "120px" };
   flex-direction: column;
   justify-content: ${(props) => props.onlyOneButton ? "flex-end" : "space-between" };
 `;

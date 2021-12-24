@@ -28,6 +28,7 @@ export const Login: React.FC = () => {
       buttonSecondaryTitle="Forgot my password"
       footerMessage={handleFooterMessage()}
       verticalBounce={false}
+      enableAvoidingView={false}
     >
       <Pi>π</Pi>
       <Input style={{marginTop: 70}} placeholder="Email" errorText="Email do caralho"/>

@@ -15,4 +15,5 @@ export interface FullPageProps {
   buttonSecondaryTitle?: string,
   buttonPrimaryTitle?: string,
   verticalBounce?: boolean,
+  enableAvoidingView?: boolean,
   }

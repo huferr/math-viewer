@@ -27,6 +27,7 @@ export const Welcome: React.FC = () => {
       buttonSecondaryTitle="Sign Up"
       onPressSecondary={() => NavigateTo("signup", navigation, {})}
       footerMessage={handleFooterMessage()}
+      verticalBounce={false}
     >
       <Lambda>λ</Lambda>
       <Title>Math{"\n"}<WhiteTitle>Viewer</WhiteTitle></Title>

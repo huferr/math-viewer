@@ -8,6 +8,13 @@ export const Login: React.FC = () => {
   const navigation = useNavigation();
   const goBack = () => navigation.goBack();
 
+  const handleFooterMessage = () => (
+    <FooterMessage>
+      <PhraseText>&quot;The book of the world is written in mathematical language.&quot;</PhraseText>
+      <AuthorText>- Galileu Galilei</AuthorText>
+    </FooterMessage>
+  ); 
+
   return (
     <FullPage 
       whiteTitle="Login to" 
@@ -19,12 +26,8 @@ export const Login: React.FC = () => {
       buttonPrimaryTitle="Continue"
       buttonSecondary
       buttonSecondaryTitle="Forgot my password"
-      footerMessage={
-        <FooterMessage>
-          <PhraseText>&quot;The book of the world is written in mathematical language.&quot;</PhraseText>
-          <AuthorText>- Galileu Galilei</AuthorText>
-        </FooterMessage>
-      }
+      footerMessage={handleFooterMessage()}
+      verticalBounce={false}
     >
       <Pi>π</Pi>
       <Input style={{marginTop: 70}} placeholder="Email" errorText="Email do caralho"/>

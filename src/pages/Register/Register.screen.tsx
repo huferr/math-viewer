@@ -8,6 +8,13 @@ export const Register: React.FC = () => {
   const navigation = useNavigation();
   const goBack = () => navigation.goBack();
 
+  const handleFooterMessage = () => (
+    <FooterMessage>
+      <PhraseText>&quot;What we know is a drop. What we ignore is an ocean.&quot;</PhraseText>
+      <AuthorText>- Isaac Newton</AuthorText>
+    </FooterMessage>
+  );
+
   return (
     <FullPage 
       whiteTitle="Register to" 
@@ -18,12 +25,8 @@ export const Register: React.FC = () => {
       onlyOneButton
       buttonPrimary
       buttonPrimaryTitle="Continue"
-      footerMessage={
-        <FooterMessage>
-          <PhraseText>&quot;What we know is a drop. What we ignore is an ocean.&quot;</PhraseText>
-          <AuthorText>- Isaac Newton</AuthorText>
-        </FooterMessage>
-      }
+      footerMessage={handleFooterMessage()}
+      verticalBounce={false}
     >
       <Lambda>λ</Lambda>
       <Input style={{marginTop: 10}} placeholder="Nickname" errorText="Nickname do caralho"/>

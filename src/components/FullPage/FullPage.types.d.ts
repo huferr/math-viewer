@@ -14,4 +14,5 @@ export interface FullPageProps {
   onPressSecondary?: () => void,
   buttonSecondaryTitle?: string,
   buttonPrimaryTitle?: string,
+  verticalBounce?: boolean,
   }

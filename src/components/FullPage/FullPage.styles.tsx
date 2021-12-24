@@ -6,14 +6,18 @@ import { FullPageProps } from "./FullPage.types";
 export const Container = styled.SafeAreaView`
   flex: 1;
   background-color: ${colors.darkerGray};
-`;
-
-export const Body = styled.View`
-  flex: 1;
   padding: ${metrics.basePadding}px;
 `;
 
-export const Header = styled.View``;
+export const Body = styled.View`
+  padding: ${metrics.basePadding}px;
+`;
+
+export const ScrollViewPage = styled.ScrollView``;
+
+export const Header = styled.View`
+padding: ${metrics.basePadding}px;
+`;
 
 export const GoBackButton = styled.TouchableOpacity`
   width: 30px;
@@ -43,7 +47,7 @@ export const GreenTitle = styled.Text`
 
 export const Footer = styled.View`
   width: 100%;
-  margin: 0 ${metrics.basePadding}px;
+  padding: ${metrics.basePadding}px;
   position: absolute;
   bottom: 10px;
 `;

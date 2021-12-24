@@ -9,6 +9,10 @@ export const Container = styled.SafeAreaView`
   padding: ${metrics.basePadding}px;
 `;
 
+export const KeyboardAvoidingViewContainer = styled.KeyboardAvoidingView`
+  flex: 1;
+`;
+
 export const Body = styled.View`
   padding: ${metrics.basePadding}px;
 `;

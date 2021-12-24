@@ -1,7 +1,8 @@
 import React from "react";
+import { KeyboardAvoidingView, Platform } from "react-native";
 import { Button } from "..";
 import { GoBackIcon } from "../../assets/icons/go-back";
-import { Body, ButtonContainer, Container, Footer, GoBackButton, GreenTitle, Header, MessageContainer, ScrollViewPage, TextWrapper, TitleContainer, WhiteTitle } from "./FullPage.styles";
+import { Body, ButtonContainer, Container, Footer, GoBackButton, GreenTitle, Header, MessageContainer, KeyboardAvoidingViewContainer, ScrollViewPage, TextWrapper, TitleContainer, WhiteTitle } from "./FullPage.styles";
 import { FullPageProps } from "./FullPage.types";
 
 export const FullPage: React.FC<FullPageProps> = (props) => {
@@ -26,17 +27,20 @@ export const FullPage: React.FC<FullPageProps> = (props) => {
 
   return (
     <Container>
-      
+      <KeyboardAvoidingViewContainer
+        behavior={Platform.select({ ios: "padding" })}
+        enabled
+      >
         
-      <Header>
-        {goBack && 
+        <Header>
+          {goBack && 
             <>
               <GoBackButton activeOpacity={0.8} onPress={onPressGoBack}>
                 <GoBackIcon />
               </GoBackButton>
             </>
-        }
-        {whiteTitle && 
+          }
+          {whiteTitle && 
            <>
              <TitleContainer>
                {greenTitleFirst ? 
@@ -52,33 +56,36 @@ export const FullPage: React.FC<FullPageProps> = (props) => {
                  )}
              </TitleContainer>
            </>}
-      </Header>
-      <ScrollViewPage
-        showsVerticalScrollIndicator={false}
-        showsHorizontalScrollIndicator={false}
-        alwaysBounceVertical={verticalBounce}
-        keyboardShouldPersistTaps="always"
-        keyboardDismissMode="on-drag"
-      >
-        <Body>
-          {children}
-        </Body>
-      </ScrollViewPage>
-      <Footer>
-        {buttons && (
-          <ButtonContainer onlyOneButton={onlyOneButton}>
-            {buttonSecondary && <Button onPress={onPressSecondary} type="secondary" title={buttonSecondaryTitle}/>}
-            {buttonPrimary && <Button onPress={onPressPrimary} type="primary" title={buttonPrimaryTitle}/>}
-          </ButtonContainer>
-        )}
-        {footerMessage && (
-          <MessageContainer>
-            {footerMessage}  
-          </MessageContainer>
-        )}
-          
-      </Footer>  
+        </Header>
+      
+        <ScrollViewPage
+          showsVerticalScrollIndicator={false}
+          showsHorizontalScrollIndicator={false}
+          alwaysBounceVertical={verticalBounce}
+          keyboardShouldPersistTaps="always"
+          keyboardDismissMode="on-drag"
+        >
         
+          <Body>
+            {children}
+          </Body>
+        </ScrollViewPage>
+        <Footer>
+          {buttons && (
+            <ButtonContainer onlyOneButton={onlyOneButton}>
+              {buttonSecondary && <Button onPress={onPressSecondary} type="secondary" title={buttonSecondaryTitle}/>}
+              {buttonPrimary && <Button onPress={onPressPrimary} type="primary" title={buttonPrimaryTitle}/>}
+            </ButtonContainer>
+          )}
+          {footerMessage && (
+            <MessageContainer>
+              {footerMessage}  
+            </MessageContainer>
+          )}
+          
+        </Footer> 
+   
+      </KeyboardAvoidingViewContainer> 
       
     </Container>
   );

@@ -13,7 +13,6 @@ export const Register: React.FC = () => {
     <FullPage 
       whiteTitle="Register to" 
       greenTitle="Math" 
-      goBack
       onPressGoBack={() => goBack()}
       onPressPrimary={() => NavigateTo("verifyEmail", navigation, {})}
       buttons

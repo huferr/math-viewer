@@ -14,7 +14,6 @@ export const VerifyEmail: React.FC = () => {
     <FullPage 
       whiteTitle="Verify your" 
       greenTitle="Email" 
-      goBack
       onPressGoBack={() => goBack()}
       buttons
       onlyOneButton

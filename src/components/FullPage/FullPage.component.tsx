@@ -31,7 +31,7 @@ export const FullPage: React.FC<FullPageProps> = (props) => {
      
         
       <Header>
-        {goBack && 
+        {onPressGoBack && 
             <>
               <GoBackButton activeOpacity={0.8} onPress={onPressGoBack}>
                 <GoBackIcon />

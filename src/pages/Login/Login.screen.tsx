@@ -19,7 +19,6 @@ export const Login: React.FC = () => {
     <FullPage 
       whiteTitle="Login to" 
       greenTitle="Math" 
-      goBack
       onPressGoBack={() => goBack()}
       buttons
       buttonPrimary

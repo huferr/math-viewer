@@ -43,13 +43,6 @@ export const Title = styled.Text<{green?: boolean, bold?: boolean}>`
   color: ${(props) => props.green ? colors.primary : colors.white};
 `;
 
-export const Footer = styled.View`
-  width: 100%;
-  padding: ${metrics.basePadding}px;
-  position: absolute;
-  bottom: 10px;
-`;
-
 export const ButtonContainer = styled.View<FullPageProps>`
   width: 100%;
   padding: 0px ${metrics.basePadding}px

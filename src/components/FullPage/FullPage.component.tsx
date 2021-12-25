@@ -1,5 +1,5 @@
 import React from "react";
-import { KeyboardAvoidingView, Platform } from "react-native";
+import { Platform } from "react-native";
 import { Button } from "..";
 import { GoBackIcon } from "../../assets/icons/go-back";
 import { Body, ButtonContainer, Container, Footer, GoBackButton, GreenTitle, Header, MessageContainer, KeyboardAvoidingViewContainer, ScrollViewPage, TextWrapper, TitleContainer, WhiteTitle } from "./FullPage.styles";
@@ -28,7 +28,6 @@ export const FullPage: React.FC<FullPageProps> = (props) => {
   return (
     <Container>
      
-        
       <Header>
         {onPressGoBack && 
             <>

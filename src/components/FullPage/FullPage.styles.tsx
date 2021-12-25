@@ -14,13 +14,13 @@ export const KeyboardAvoidingViewContainer = styled.KeyboardAvoidingView`
 `;
 
 export const Body = styled.View`
-  padding: ${metrics.basePadding}px;
+  padding: 0 ${metrics.basePadding}px;
 `;
 
 export const ScrollViewPage = styled.ScrollView``;
 
 export const Header = styled.View`
-padding: ${metrics.basePadding}px;
+  padding: ${metrics.basePadding}px;
 `;
 
 export const GoBackButton = styled.TouchableOpacity`
@@ -58,7 +58,7 @@ export const Footer = styled.View`
 
 export const ButtonContainer = styled.View<FullPageProps>`
   width: 100%;
-  padding: 0 ${metrics.basePadding}px;
+  padding: 0px ${metrics.basePadding}px
   height: ${(props) => props.onlyOneButton ? "auto" : "120px" };
   flex-direction: column;
   justify-content: ${(props) => props.onlyOneButton ? "flex-end" : "space-between" };

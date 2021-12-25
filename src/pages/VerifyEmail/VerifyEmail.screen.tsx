@@ -10,11 +10,11 @@ export const VerifyEmail: React.FC = () => {
   const {
     isToOnboarding,
     isToDashboard,
-    isToSuccessRecovery
+    isToNewPassword
   } = route.params as {
       isToOnboarding: boolean,
       isToDashboard: boolean,
-      isToSuccessRecovery: boolean
+      isToNewPassword: boolean
     };
   const navigation = useNavigation();
   const goBack = () => navigation.goBack();
@@ -26,8 +26,8 @@ export const VerifyEmail: React.FC = () => {
     if(value === "12345" && isToOnboarding) NavigateTo("onboarding", navigation, {});
     // validade and go to dashboard screen
     if(value === "11111" && isToDashboard) NavigateTo("welcome", navigation, {});
-    // validate and go to successRecovery screen
-    if(value === "22222" && isToSuccessRecovery) NavigateTo("successRecovery", navigation, {});
+    // validate and go to newPassword screen
+    if(value === "22222" && isToNewPassword) NavigateTo("newPassword", navigation, {});
   };
  
   return (

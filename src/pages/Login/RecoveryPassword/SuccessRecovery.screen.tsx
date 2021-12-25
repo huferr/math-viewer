@@ -17,8 +17,7 @@ export const SuccessRecovery: React.FC = () => {
     <>
       <Content>
         <Title bold>Done.</Title>
-        <Title green>New password</Title>
-        <Title green>created!</Title>
+        <Title green>Password changed!</Title>
       </Content>
     </>
   );

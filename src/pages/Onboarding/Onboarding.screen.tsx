@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Content, Title, TitleWrapper } from "./Register.styles";
+import { Content, Title, TitleWrapper } from "./Onboarding.styles";
 import { useNavigation } from "@react-navigation/core";
 import { NavigateTo } from "../../helpers";
 

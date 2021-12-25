@@ -1,2 +1,2 @@
 export { Login } from "./Login.screen";
-export { RecoveryPassword } from "./RecoveryPassword";
+export { RecoveryPassword, SuccessRecovery } from "./RecoveryPassword";

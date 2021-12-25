@@ -14,7 +14,7 @@ export const Register: React.FC = () => {
       whiteTitle="Register to" 
       greenTitle="Math" 
       onPressGoBack={() => goBack()}
-      onPressPrimary={() => NavigateTo("verifyEmail", navigation, {})}
+      onPressPrimary={() => NavigateTo("verifyEmail", navigation, {onboarding: true as boolean})}
       buttons
       onlyOneButton
       buttonPrimary

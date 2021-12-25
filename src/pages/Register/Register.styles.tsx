@@ -1,6 +1,5 @@
 import styled from "styled-components/native";
 import colors from "../../styles/colors";
-import metrics from "../../styles/metrics";
 
 export const TopIcon = styled.Text<{green?: boolean}>`
   margin-top: 10px;

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { FullPage, InputPinCode } from "../../components";
-import { TopIcon, Subtitle } from "./Register.styles";
+import { TopIcon, Subtitle } from "./VerifyEmail.styles";
 import { useNavigation } from "@react-navigation/core";
+import { FullPage, InputPinCode } from "../../components";
 import { NavigateTo } from "../../helpers";
 
 export const VerifyEmail: React.FC = () => {

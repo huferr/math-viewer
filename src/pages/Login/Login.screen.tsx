@@ -7,7 +7,6 @@ import { NavigateTo } from "../../helpers";
 export const Login: React.FC = () => {
 
   const navigation = useNavigation();
-  const goBack = () => navigation.goBack();
 
   const handleFooterMessage = () => (
     <FooterMessage>

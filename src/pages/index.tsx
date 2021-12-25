@@ -1,3 +1,4 @@
 export { Welcome } from "./Welcome";
 export { Login } from "./Login";
-export { Register, VerifyEmail, Onboarding } from "./Register";
+export { Register, Onboarding } from "./Register";
+export { VerifyEmail } from "./VerifyEmail";

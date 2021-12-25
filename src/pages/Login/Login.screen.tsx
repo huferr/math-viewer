@@ -23,9 +23,10 @@ export const Login: React.FC = () => {
       buttons
       buttonPrimary
       buttonPrimaryTitle="Continue"
-      onPressPrimary={() => NavigateTo("verifyEmail", navigation, {})}
+      onPressPrimary={() => NavigateTo("verifyEmail", navigation, {isToDashboard: true as boolean})}
       buttonSecondary
       buttonSecondaryTitle="Forgot my password"
+      onPressSecondary={() => NavigateTo("recoveryPassword", navigation, {})}
       footerMessage={handleFooterMessage()}
       verticalBounce={false}
       enableAvoidingView={false}

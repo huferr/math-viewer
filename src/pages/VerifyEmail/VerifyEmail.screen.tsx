@@ -7,15 +7,27 @@ import { useRoute } from "@react-navigation/native";
 
 export const VerifyEmail: React.FC = () => {
   const route = useRoute();
-  const { onboarding } = route.params as {onboarding: boolean};
+  const {
+    isToOnboarding,
+    isToDashboard,
+    isToSuccessRecovery
+  } = route.params as {
+      isToOnboarding: boolean,
+      isToDashboard: boolean,
+      isToSuccessRecovery: boolean
+    };
   const navigation = useNavigation();
   const goBack = () => navigation.goBack();
 
   const [code, setCode] = useState("");
 
   const goToNextPage = (value: string) => {
-    if(value === "12345" && onboarding) NavigateTo("onboarding", navigation, {});
-    if(value === "11111" && !onboarding) NavigateTo("welcome", navigation, {});
+    // validade and go to onboarding screen
+    if(value === "12345" && isToOnboarding) NavigateTo("onboarding", navigation, {});
+    // validade and go to dashboard screen
+    if(value === "11111" && isToDashboard) NavigateTo("welcome", navigation, {});
+    // validate and go to successRecovery screen
+    if(value === "22222" && isToSuccessRecovery) NavigateTo("successRecovery", navigation, {});
   };
  
   return (
@@ -30,9 +42,9 @@ export const VerifyEmail: React.FC = () => {
       onPressSecondary={() => {}}
       verticalBounce={false}
     >
+      {console.log(route.params)}
       <TopIcon green>∆</TopIcon>
-      <Subtitle>Enter the verification code we sent you in your email
-      </Subtitle>
+      <Subtitle>Enter the verification code we sent you in your email</Subtitle>
       <InputPinCode
         secure
         size={5} 

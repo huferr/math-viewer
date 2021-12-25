@@ -7,16 +7,15 @@ import { Profile } from "../pages/Profile/Profile.screen";
 import { Homeworks } from "../pages/Homeworks/Homeworks.screen";
 import { Mathscore } from "../pages/Mathscore/Mathscore.screen";
 import { Viewer } from "../pages/Viewer/Viewer.screen";
-import { Login } from "../pages/Login/Login.screen";
 
 const Stack = createNativeStackNavigator();
 
 export const AppRoutes: React.FC = () => (
-  <Stack.Navigator initialRouteName="Dashboard" screenOptions={{ headerShown: false }}>
-    {/* <Stack.Screen name="Dashboard" component={Dashboard} /> */}
-    {/* <Stack.Screen name="profile" component={Profile} />
+  <Stack.Navigator initialRouteName="dashboard" screenOptions={{ headerShown: false }}>
+    <Stack.Screen name="dashboard" component={Dashboard} />
+    <Stack.Screen name="profile" component={Profile} />
     <Stack.Screen name="homeworks" component={Homeworks} />
     <Stack.Screen name="mathscore" component={Mathscore} />
-    <Stack.Screen name="viewer" component={Viewer} /> */}
+    <Stack.Screen name="viewer" component={Viewer} />
   </Stack.Navigator>
 );

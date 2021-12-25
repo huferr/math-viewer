@@ -2,6 +2,7 @@ import React from "react";
 import { FullPage, Input } from "../../components";
 import { AuthorText, FooterMessage, PhraseText, Pi } from "./Login.styles";
 import { useNavigation } from "@react-navigation/core";
+import { NavigateTo } from "../../helpers";
 
 export const Login: React.FC = () => {
 
@@ -19,7 +20,7 @@ export const Login: React.FC = () => {
     <FullPage 
       whiteTitle="Login to" 
       greenTitle="Math" 
-      onPressGoBack={() => goBack()}
+      onPressGoBack={() => NavigateTo("welcome", navigation, {})}
       buttons
       buttonPrimary
       buttonPrimaryTitle="Continue"

@@ -20,13 +20,13 @@ export const Register: React.FC = () => {
       buttonPrimary
       buttonPrimaryTitle="Continue"
       verticalBounce={false}
-      enableAvoidingView={false}
+      enableAvoidingView={true}
     >
       <TopIcon>λ</TopIcon>
       <Input style={{marginTop: 10}} placeholder="Nickname" errorText="Nickname do caralho"/>
       <Input style={{marginTop: 10}} placeholder="Email" errorText="Email do caralho"/>
       <Input style={{marginTop: 10}} placeholder="Password" errorText="Password do caralho"/>
-      <Input style={{marginTop: 10}} placeholder="Confirm" errorText="Confirm password do caralho"/>
+      <Input style={{marginTop: 10}} placeholder="Confirm password" errorText="Confirm password do caralho"/>
     </FullPage>
   );
 };

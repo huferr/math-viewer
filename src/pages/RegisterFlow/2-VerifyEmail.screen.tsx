@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FullPage, InputPinCode } from "../../components";
 import { TopIcon, Subtitle } from "./Register.styles";
 import { useNavigation } from "@react-navigation/core";
+import { NavigateTo } from "../../helpers";
 
 export const VerifyEmail: React.FC = () => {
 
@@ -9,11 +10,15 @@ export const VerifyEmail: React.FC = () => {
   const goBack = () => navigation.goBack();
 
   const [code, setCode] = useState("");
+
+  const nextPage = (value: string) => {
+    if(value === "12345") NavigateTo("onboarding", navigation, {});
+  };
  
   return (
     <FullPage 
       whiteTitle="Verify your" 
-      greenTitle="Email" 
+      greenTitle="Email"
       onPressGoBack={() => goBack()}
       buttons
       onlyOneButton
@@ -30,6 +35,7 @@ export const VerifyEmail: React.FC = () => {
         size={5} 
         value={code} 
         onChange={setCode}
+        onFinish={nextPage}
       />
     </FullPage>
   );

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import { Content, Title, TitleWrapper } from "./Onboarding.styles";
+import { Content, Title, TitleWrapper } from "./Register.styles";
 import { useNavigation } from "@react-navigation/core";
-import { NavigateTo } from "../../../helpers";
+import { NavigateTo } from "../../helpers";
 
 export const Onboarding: React.FC = () => {
 

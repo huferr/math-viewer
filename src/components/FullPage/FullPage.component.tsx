@@ -2,7 +2,7 @@ import React from "react";
 import { Platform } from "react-native";
 import { Button } from "..";
 import { GoBackIcon } from "../../assets/icons/go-back";
-import { Body, ButtonContainer, Container, Footer, GoBackButton, GreenTitle, Header, MessageContainer, KeyboardAvoidingViewContainer, ScrollViewPage, TextWrapper, TitleContainer, WhiteTitle } from "./FullPage.styles";
+import { Body, ButtonContainer, Container, GoBackButton, Header, MessageContainer, KeyboardAvoidingViewContainer, ScrollViewPage, TextWrapper, TitleContainer, Title } from "./FullPage.styles";
 import { FullPageProps } from "./FullPage.types";
 
 export const FullPage: React.FC<FullPageProps> = (props) => {
@@ -42,12 +42,12 @@ export const FullPage: React.FC<FullPageProps> = (props) => {
                {greenTitleFirst ? 
                  (
                    <TextWrapper>
-                     <GreenTitle>{greenTitle}</GreenTitle>{whiteTitle ? "  " : null}<WhiteTitle>{whiteTitle}</WhiteTitle>
+                     <Title green>{greenTitle}</Title>{whiteTitle ? "  " : null}<Title bold>{whiteTitle}</Title>
                    </TextWrapper>
                  )
                  : (
                    <TextWrapper>
-                     <WhiteTitle>{whiteTitle}</WhiteTitle>{greenTitle ? "  " : null}<GreenTitle>{greenTitle}</GreenTitle>
+                     <Title bold>{whiteTitle}</Title>{greenTitle ? "  " : null}<Title green>{greenTitle}</Title>
                    </TextWrapper>
                  )}
              </TitleContainer>

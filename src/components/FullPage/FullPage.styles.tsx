@@ -37,16 +37,10 @@ export const TitleContainer = styled.View`
 
 export const TextWrapper = styled.Text``;
 
-export const WhiteTitle = styled.Text`
+export const Title = styled.Text<{green?: boolean, bold?: boolean}>`
   font-size: 36px;
-  font-weight: 700;
-  color: ${colors.white};
-`;
-
-export const GreenTitle = styled.Text`
-  font-size: 36px;
-  font-weight: 300;
-  color: ${colors.primary};
+  font-weight: ${(props) => props.bold ? 700 : 300};
+  color: ${(props) => props.green ? colors.primary : colors.white};
 `;
 
 export const Footer = styled.View`

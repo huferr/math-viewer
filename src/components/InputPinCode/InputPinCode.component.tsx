@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { Platform } from "react-native";
 import {
   Container,
@@ -24,21 +24,15 @@ export const InputPinCode: React.FC<InputPinCodeProps> = (props) => {
 
   const codeDigitsArray = new Array(size).fill(0);
   const ref = useRef<any>(null);
-  let hasErrors = Boolean(error);
-  const [showErrors, setShowErrors] = useState<boolean>(true);
+  const hasErrors = Boolean(error);
 
   const handleOnPress = () => ref?.current?.focus();
   const clearInput = () => ref?.current?.clear();
 
   useEffect(() => {
     if (onFinish && value.length === size) onFinish(value);
-    if (value.length < size) { setShowErrors(false); hasErrors = false; }
     if (value === "") clearInput();
   }, [value]);
-
-  useEffect(() => {
-    if (hasErrors && value.length === size) setShowErrors(true);
-  }, [hasErrors, value]);
 
   // Snazzy Input logic
   const toDigitInput = (_value: number, idx: number) => {
@@ -56,7 +50,7 @@ export const InputPinCode: React.FC<InputPinCodeProps> = (props) => {
 
         {idx === value.length && <Indicator />}
           
-        {hasErrors && showErrors && <Indicator color={colors.danger} />}
+        {hasErrors && <Indicator color={colors.danger} />}
           
       </KeyView>
     );
@@ -86,7 +80,7 @@ export const InputPinCode: React.FC<InputPinCodeProps> = (props) => {
           returnKeyType="default"
         />
       </Container>
-      {hasErrors && showErrors ? (
+      {hasErrors ? (
         <Feedback>
           <ErrorText>
             {error}

@@ -2,8 +2,38 @@ import React from "react";
 import { Platform } from "react-native";
 import { Button } from "..";
 import { GoBackIcon } from "../../assets/icons/go-back";
-import { Body, ButtonContainer, Container, GoBackButton, Header, MessageContainer, KeyboardAvoidingViewContainer, ScrollViewPage, TextWrapper, TitleContainer, Title } from "./FullPage.styles";
-import { FullPageProps } from "./FullPage.types";
+import { Heading } from "../../styles";
+import { 
+  Body,
+  ButtonContainer,
+  Container,
+  GoBackButton,
+  Header,
+  MessageContainer,
+  KeyboardAvoidingViewContainer,
+  ScrollViewPage,
+  TextWrapper,
+  TitleContainer,
+} from "./FullPage.styles";
+
+export interface FullPageProps {
+  whiteTitle?: string,
+  greenTitle?: string,
+  greenTitleFirst?: boolean,
+  onPressGoBack?: () => void,
+  children: Element,
+  footerMessage?: Element,
+  buttons?: boolean,
+  onlyOneButton?: boolean,
+  buttonPrimary?: boolean,
+  buttonSecondary?: boolean,
+  onPressPrimary?: () => void,
+  onPressSecondary?: () => void,
+  buttonSecondaryTitle?: string,
+  buttonPrimaryTitle?: string,
+  verticalBounce?: boolean,
+  enableAvoidingView?: boolean,
+  }
 
 export const FullPage: React.FC<FullPageProps> = (props) => {
   const {
@@ -36,22 +66,22 @@ export const FullPage: React.FC<FullPageProps> = (props) => {
               </GoBackButton>
             </>
         }
-        {whiteTitle && 
-           <>
-             <TitleContainer>
-               {greenTitleFirst ? 
-                 (
-                   <TextWrapper>
-                     <Title green>{greenTitle}</Title>{whiteTitle ? "  " : null}<Title bold>{whiteTitle}</Title>
-                   </TextWrapper>
-                 )
-                 : (
-                   <TextWrapper>
-                     <Title bold>{whiteTitle}</Title>{greenTitle ? "  " : null}<Title green>{greenTitle}</Title>
-                   </TextWrapper>
-                 )}
-             </TitleContainer>
-           </>}
+        {whiteTitle ? 
+          <>
+            <TitleContainer>
+              {greenTitleFirst ? 
+                (
+                  <TextWrapper>
+                    <Heading green>{greenTitle}</Heading>{whiteTitle ? "  " : null}<Heading bold>{whiteTitle}</Heading>
+                  </TextWrapper>
+                )
+                : (
+                  <TextWrapper>
+                    <Heading bold>{whiteTitle}</Heading>{greenTitle ? "  " : null}<Heading green>{greenTitle}</Heading>
+                  </TextWrapper>
+                )}
+            </TitleContainer>
+          </> : null}
       </Header>
       <KeyboardAvoidingViewContainer
         behavior={Platform.select({ ios: "padding" })}

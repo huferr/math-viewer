@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
 import colors from "../../styles/colors";
 import metrics from "../../styles/metrics";
-import { FullPageProps } from "./FullPage.types";
+import { FullPageProps } from "./FullPage.component";
 
 export const Container = styled.SafeAreaView`
   flex: 1;
@@ -36,12 +36,6 @@ export const TitleContainer = styled.View`
 `;
 
 export const TextWrapper = styled.Text``;
-
-export const Title = styled.Text<{green?: boolean, bold?: boolean}>`
-  font-size: 36px;
-  font-weight: ${(props) => props.bold ? 700 : 300};
-  color: ${(props) => props.green ? colors.primary : colors.white};
-`;
 
 export const ButtonContainer = styled.View<FullPageProps>`
   width: 100%;

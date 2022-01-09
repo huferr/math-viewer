@@ -7,6 +7,7 @@ interface TypographyProps {
   italic?: boolean;
   marginTop?: number;
   marginBottom?: number;
+  textAlign?: "left" | "center" | "right";
 }
 
 export const Heading = styled.Text<TypographyProps>`
@@ -28,7 +29,7 @@ export const Subtitle = styled.Text<TypographyProps>`
   margin-bottom: ${props => props.marginBottom || 0}px;
   color: ${props => props.green ? colors.primary : colors.white};
   font-weight: ${props => props.bold ? 700 : 300};
-  text-align: center;
+  text-align: ${props => props.textAlign || "center"};
 `;
 
 export const Paragraph = styled.Text``;

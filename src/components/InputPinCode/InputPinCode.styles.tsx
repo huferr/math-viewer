@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
 import { ActivityIndicator } from "react-native";
-import { InputPinCodeProps } from "./InputPinCode.types";
 import colors from "../../styles/colors";
+import { InputPinCodeProps } from "./InputPinCode.component";
 
 export const Container = styled.View`
   justify-content: center;

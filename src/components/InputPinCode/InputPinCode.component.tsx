@@ -13,9 +13,19 @@ import {
   ErrorText,
 } from "./InputPinCode.styles";
 
-import { InputPinCodeProps } from "./InputPinCode.types";
 import colors from "../../styles/colors";
 import { isIos } from "../../helpers";
+
+export interface InputPinCodeProps {
+  autofocus?: boolean;
+  size: number;
+  value: string;
+  loading?: boolean;
+  secure?: boolean;
+  error?: string;
+  onFinish?: (value: string) => void;
+  onChange?: (value: string) => void;
+}
 
 export const InputPinCode: React.FC<InputPinCodeProps> = (props) => {
   const {

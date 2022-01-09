@@ -1,6 +1,6 @@
 import React from "react";
 import { FullPage, Input } from "../../components";
-import { AuthorText, FooterMessage, TopIcon, PhraseText } from "./Register.styles";
+import { TopIcon } from "./Register.styles";
 import { useNavigation } from "@react-navigation/core";
 import { NavigateTo } from "../../helpers/navigateTo";
 

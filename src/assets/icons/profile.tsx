@@ -2,7 +2,7 @@ import React from "react";
 import { Path, Svg } from "react-native-svg";
 
 export function ProfileIcon(props: React.SVGProps<Svg>): JSX.Element {
-  const { width = 20, height = 20, fill = "none" } = props;
+  const { width = 23, height = 23, fill = "none" } = props;
   
   return (
     <Svg width={width} height={height} viewBox="0 0 20 20" fill={fill}>

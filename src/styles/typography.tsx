@@ -14,6 +14,12 @@ export const Heading = styled.Text<TypographyProps>`
   color: ${props => props.green ? colors.primary : colors.white};
 `;
 
+export const HeadingSmall = styled.Text<TypographyProps>`
+  font-size: 24px;
+  font-weight: ${props => props.bold ? 700 : 300};
+  color: ${props => props.green ? colors.primary : colors.white};
+`;
+
 export const Subtitle = styled.Text<TypographyProps>`
   font-size: 18px;
   margin-top: ${props => props.marginTop || 0}px;

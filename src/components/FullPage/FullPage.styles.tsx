@@ -20,7 +20,7 @@ export const Body = styled.View`
 export const ScrollViewPage = styled.ScrollView``;
 
 export const Header = styled.View`
-  padding: ${metrics.basePadding}px;
+  padding: 10px ${metrics.basePadding}px;
 `;
 
 export const GoBackButton = styled.TouchableOpacity`

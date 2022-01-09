@@ -2,13 +2,13 @@ import React from "react";
 import { Path, Svg } from "react-native-svg";
 
 export function SearchIcon(props: React.SVGProps<Svg>): JSX.Element {
-  const { width = 18, height = 18, fill = "none" } = props;
+  const { width = 25, height = 25, fill = "none" } = props;
 
   return (
     <Svg 
       width={width}
       height={height}
-      viewBox="0 0 18 18"
+      viewBox="0 0 20 20"
       fill={fill}
     >
       <Path 
@@ -20,6 +20,7 @@ export function SearchIcon(props: React.SVGProps<Svg>): JSX.Element {
       <Path
         d="M11.1749 11.4687L16.6483 17.3032"
         stroke="white"
+        strokeMiterlimit="10"
         strokeWidth="1.5"/>
     </Svg>
   );

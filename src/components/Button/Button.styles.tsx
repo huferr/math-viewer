@@ -1,7 +1,7 @@
 
 import styled from "styled-components/native";
 import colors from "../../styles/colors";
-import { ButtonProps } from "./Button.types";
+import { ButtonProps } from "./Button.component";
 
 
 export const backgroundColors: Record<ButtonProps["type"], string> = {

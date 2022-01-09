@@ -1,6 +1,11 @@
 import React from "react";
+import { TouchableOpacityProps } from "react-native";
 import { ButtonContainer, Label } from "./Button.styles";
-import { ButtonProps } from "./Button.types";
+export interface ButtonProps extends TouchableOpacityProps { 
+  type: "primary" | "secondary" | "half";
+  title?: string;
+  onPress?: () => void;
+}
 
 export const Button: React.FC<ButtonProps> = (props) => {
   const { type = "primary", title, onPress } = props;

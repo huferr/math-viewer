@@ -4,6 +4,7 @@ import colors from "./colors";
 interface TypographyProps {
   bold?: boolean;
   green?: boolean;
+  italic?: boolean;
   marginTop?: number;
   marginBottom?: number;
 }
@@ -17,6 +18,7 @@ export const Heading = styled.Text<TypographyProps>`
 export const HeadingSmall = styled.Text<TypographyProps>`
   font-size: 24px;
   font-weight: ${props => props.bold ? 700 : 300};
+  font-style: ${props => props.italic ? "italic" : "normal"};
   color: ${props => props.green ? colors.primary : colors.white};
 `;
 

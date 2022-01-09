@@ -1,7 +1,13 @@
 import React from "react";
+import { StyleProp, ViewStyle } from "react-native";
 import colors from "../../styles/colors";
 import { Container, ErrorContainer, ErrorText, InputContainer, InputField } from "./input.styles";
-import { InputProps } from "./Input.types";
+
+export interface InputProps {
+  style?: StyleProp<ViewStyle>,
+  placeholder?: string,
+  errorText?: string,
+}
 
 export const Input: React.FC<InputProps> = (props) => {
   const { style, placeholder, errorText } = props;
@@ -16,7 +22,7 @@ export const Input: React.FC<InputProps> = (props) => {
         />
       </InputContainer>
       <ErrorContainer>
-        {errorText && <ErrorText>{errorText}</ErrorText>}
+        {errorText ? <ErrorText>{errorText}</ErrorText> : null}
       </ErrorContainer>
     </Container>  
   );

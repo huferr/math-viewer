@@ -1,0 +1,1 @@
+export { BigCard } from "./BigCard.component";

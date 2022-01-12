@@ -9,11 +9,3 @@ export const TopIcon = styled.Text<{green?: boolean}>`
   color: ${(props) => props.green ? colors.primary : colors.white};
   text-align: center;
 `;
-
-export const Subtitle = styled.Text`
-  margin: 30px 0px;
-  color: ${colors.white};
-  font-size: 18px;
-  font-weight: 300;
-  text-align: center;
-`;

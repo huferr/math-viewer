@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { TopIcon, Subtitle } from "./VerifyEmail.styles";
+import { TopIcon } from "./VerifyEmail.styles";
 import { useNavigation } from "@react-navigation/core";
 import { FullPage, InputPinCode } from "../../components";
 import { NavigateTo } from "../../helpers";
 import { useRoute } from "@react-navigation/native";
+import { Subtitle } from "../../styles";
 
 export const VerifyEmail: React.FC = () => {
   const route = useRoute();
@@ -44,7 +45,7 @@ export const VerifyEmail: React.FC = () => {
     >
       {console.log(route.params)}
       <TopIcon green>∆</TopIcon>
-      <Subtitle>Enter the verification code we sent you in your email</Subtitle>
+      <Subtitle marginTop={30} marginBottom={30}>Enter the verification code we sent you in your email</Subtitle>
       <InputPinCode
         secure
         size={5} 

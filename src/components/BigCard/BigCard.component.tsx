@@ -1,6 +1,5 @@
 import React from "react";
-import { GraphIcon } from "../../assets/icons";
-import { HeadingSmall, Paragraph, Subtitle } from "../../styles";
+import { HeadingSmall, Subtitle } from "../../styles";
 import { Container, Content, IconWrapper, SubtitleWrapper } from "./BigCard.styles";
 
 export interface BigCardProps {

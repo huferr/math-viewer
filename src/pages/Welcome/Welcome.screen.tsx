@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/core";
 import { Linking, TouchableOpacity } from "react-native";
-import { GraphIcon } from "../../assets/icons/graph";
+import { GraphIcon } from "../../assets/icons";
 import { FullPage } from "../../components";
 import { NavigateTo } from "../../helpers/navigateTo";
 import {

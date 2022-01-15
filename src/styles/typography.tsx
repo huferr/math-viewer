@@ -32,4 +32,9 @@ export const Subtitle = styled.Text<TypographyProps>`
   text-align: ${props => props.textAlign || "center"};
 `;
 
-export const Paragraph = styled.Text``;
+export const Paragraph = styled.Text<TypographyProps>`
+  font-size: 14px;
+  font-weight: ${props => props.bold ? 700 : 300};
+  font-style: ${props => props.italic ? "italic" : "normal"};
+  color: ${props => props.green ? colors.primary : colors.white};
+`;

@@ -1,10 +1,15 @@
+import { useNavigation } from "@react-navigation/core";
 import React from "react";
 import { GraphIcon, ProfileIcon, SearchIcon } from "../../assets/icons";
 import { BigCard, FullPage } from "../../components";
+import { NavigateTo } from "../../services";
 import { HeadingSmall } from "../../styles";
 import { Button, Card, CardWrapper, Header } from "./Dashboard.styles";
 
 export const Dashboard: React.FC = () => {
+
+  const navigation = useNavigation();
+  const goToProfile = () => NavigateTo("profile", navigation, {});
 
   const HelloUser = (
     <HeadingSmall bold>
@@ -22,7 +27,7 @@ export const Dashboard: React.FC = () => {
           <SearchIcon />
         </Button>
         {HelloUser}
-        <Button>
+        <Button onPress={goToProfile}>
           <ProfileIcon />
         </Button>
       </Header>

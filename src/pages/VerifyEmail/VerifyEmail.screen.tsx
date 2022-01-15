@@ -41,7 +41,6 @@ export const VerifyEmail: React.FC = () => {
       onPressSecondary={() => {}}
       verticalBounce={false}
     >
-      {console.log(route.params)}
       <TopIcon green>∆</TopIcon>
       <Subtitle marginTop={30} marginBottom={30}>Enter the verification code we sent you in your email</Subtitle>
       <InputPinCode

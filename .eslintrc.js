@@ -38,6 +38,7 @@ module.exports = {
       "always"
     ],
     "no-unused-vars": "off",
+    "no-console": ["error", { allow: ["warn", "error"] }],
     "@typescript-eslint/no-unused-vars": ["off"],
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-explicit-any": "off",

@@ -2,7 +2,7 @@ import React from "react";
 import { Path, Svg } from "react-native-svg";
 
 export function EditIcon(props: React.SVGProps<Svg>): JSX.Element {
-  const { width = 14, height = 14, fill = "none" } = props;
+  const { width = 17, height = 17, fill = "none" } = props;
 
   return (
     <Svg width={width} height={height} viewBox="0 0 14 14" fill={fill}>

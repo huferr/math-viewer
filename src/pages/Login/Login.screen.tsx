@@ -2,7 +2,7 @@ import React from "react";
 import { FullPage, Input } from "../../components";
 import { AuthorText, FooterMessage, PhraseText, Pi } from "./Login.styles";
 import { useNavigation } from "@react-navigation/core";
-import { NavigateTo } from "../../helpers";
+import { NavigateTo } from "../../services";
 
 export const Login: React.FC = () => {
 

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { TopIcon } from "./VerifyEmail.styles";
 import { useNavigation } from "@react-navigation/core";
 import { FullPage, InputPinCode } from "../../components";
-import { NavigateTo } from "../../helpers";
+import { NavigateTo } from "../../services";
 import { useRoute } from "@react-navigation/native";
 import { Subtitle } from "../../styles";
 

@@ -2,7 +2,7 @@ import React from "react";
 import { FullPage, Input } from "../../components";
 import { TopIcon } from "./Register.styles";
 import { useNavigation } from "@react-navigation/core";
-import { NavigateTo } from "../../helpers/navigateTo";
+import { NavigateTo } from "../../services/navigateTo";
 
 export const Register: React.FC = () => {
 

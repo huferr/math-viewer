@@ -14,7 +14,7 @@ import {
 } from "./InputPinCode.styles";
 
 import colors from "../../styles/colors";
-import { isIos } from "../../helpers";
+import { isIos } from "../../services";
 
 export interface InputPinCodeProps {
   autofocus?: boolean;

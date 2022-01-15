@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useNavigation } from "@react-navigation/core";
-import { NavigateTo } from "../../../helpers";
+import { NavigateTo } from "../../../services";
 import { Content, Title } from "./RecoveryPassword.styles";
 
 export const SuccessRecovery: React.FC = () => {

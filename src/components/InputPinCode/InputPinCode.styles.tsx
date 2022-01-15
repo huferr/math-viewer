@@ -1,6 +1,6 @@
 import styled from "styled-components/native";
 import { ActivityIndicator } from "react-native";
-import colors from "../../styles/colors";
+import { colors } from "../../styles";
 import { InputPinCodeProps } from "./InputPinCode.component";
 
 export const Container = styled.View`

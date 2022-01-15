@@ -13,7 +13,7 @@ export const RecoveryPassword: React.FC = () => {
       greenTitleFirst 
       whiteTitle="Recovery" 
       greenTitle="Password" 
-      onPressGoBack={() => NavigateTo("welcome", navigation, {})}
+      onPressGoBack={() => NavigateTo("login", navigation, {})}
       buttons
       buttonPrimary
       onlyOneButton

@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleProp, ViewStyle } from "react-native";
-import colors from "../../styles/colors";
+import { colors } from "../../styles";
 import { Container, ErrorContainer, ErrorText, InputContainer, InputField } from "./input.styles";
 
 export interface InputProps {

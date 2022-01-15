@@ -1,2 +1,2 @@
-export { NavigateTo } from "./navigateTo";
+export { NavigateTo } from "./navigation.service";
 export * from "./device.service";

@@ -1,0 +1,1 @@
+export { Mathscore } from "./Mathscore.screen";

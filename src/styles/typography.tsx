@@ -33,7 +33,9 @@ export const Subtitle = styled.Text<TypographyProps>`
 `;
 
 export const Paragraph = styled.Text<TypographyProps>`
-  font-size: 14px;
+  font-size: 16px;
+  margin-top: ${props => props.marginTop || 0}px;
+  margin-bottom: ${props => props.marginBottom || 0}px;
   font-weight: ${props => props.bold ? 700 : 300};
   font-style: ${props => props.italic ? "italic" : "normal"};
   color: ${props => props.green ? colors.primary : colors.white};

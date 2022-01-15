@@ -3,3 +3,4 @@ export { FullPage } from "./FullPage";
 export { Input } from "./Input";
 export { InputPinCode } from "./InputPinCode";
 export { BigCard } from "./BigCard";
+export { Option } from "./Option";

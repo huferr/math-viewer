@@ -20,11 +20,8 @@ export const Login: React.FC = () => {
       whiteTitle="Login to" 
       greenTitle="Math" 
       onPressGoBack={() => NavigateTo("welcome", navigation, {})}
-      buttons
-      buttonPrimary
       buttonPrimaryTitle="Continue"
       onPressPrimary={() => NavigateTo("verifyEmail", navigation, {isToDashboard: true as boolean})}
-      buttonSecondary
       buttonSecondaryTitle="Forgot my password"
       onPressSecondary={() => NavigateTo("recoveryPassword", navigation, {})}
       footerMessage={handleFooterMessage()}

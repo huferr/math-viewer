@@ -27,11 +27,8 @@ export const Welcome: React.FC = () => {
 
   return (
     <FullPage
-      buttons
-      buttonPrimary
       buttonPrimaryTitle="Login"
       onPressPrimary={() => NavigateTo("login", navigation, {})}
-      buttonSecondary
       buttonSecondaryTitle="Sign Up"
       onPressSecondary={() => NavigateTo("signup", navigation, {})}
       footerMessage={handleFooterMessage}

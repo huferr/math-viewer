@@ -14,8 +14,6 @@ export const RecoveryPassword: React.FC = () => {
       whiteTitle="Recovery" 
       greenTitle="Password" 
       onPressGoBack={() => NavigateTo("login", navigation, {})}
-      buttons
-      buttonPrimary
       onlyOneButton
       buttonPrimaryTitle="Continue"
       onPressPrimary={() => NavigateTo("verifyEmail", navigation, {isToNewPassword: true as boolean})}

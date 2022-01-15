@@ -36,9 +36,7 @@ export const VerifyEmail: React.FC = () => {
       whiteTitle="Verify your" 
       greenTitle="Email"
       onPressGoBack={() => goBack()}
-      buttons
       onlyOneButton
-      buttonSecondary
       buttonSecondaryTitle="Resend code"
       onPressSecondary={() => {}}
       verticalBounce={false}

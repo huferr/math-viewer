@@ -20,19 +20,18 @@ export interface FullPageProps {
   whiteTitle?: string,
   greenTitle?: string,
   greenTitleFirst?: boolean,
-  onPressGoBack?: () => void,
   children: Element,
   footerMessage?: Element,
-  buttons?: boolean,
-  onlyOneButton?: boolean,
-  buttonPrimary?: boolean,
-  buttonSecondary?: boolean,
-  onPressPrimary?: () => void,
-  onPressSecondary?: () => void,
-  buttonSecondaryTitle?: string,
-  buttonPrimaryTitle?: string,
   verticalBounce?: boolean,
   enableAvoidingView?: boolean,
+  onlyOneButton?: boolean,
+  buttonPrimaryTitle?: string,
+  buttonSecondaryTitle?: string,
+  buttonDangerTitle?: string,
+  onPressPrimary?: () => void,
+  onPressSecondary?: () => void,
+  onPressDanger?: () => void,
+  onPressGoBack?: () => void,
   }
 
 export const FullPage: React.FC<FullPageProps> = (props) => {
@@ -40,20 +39,21 @@ export const FullPage: React.FC<FullPageProps> = (props) => {
     whiteTitle,
     greenTitle,
     greenTitleFirst,
-    onPressGoBack,
     children,
     footerMessage,
-    buttons,
     onlyOneButton,
-    buttonPrimary,
-    buttonSecondary,
-    onPressPrimary,
-    onPressSecondary,
-    buttonSecondaryTitle,
-    buttonPrimaryTitle,
     verticalBounce,
     enableAvoidingView,
+    buttonPrimaryTitle,
+    buttonSecondaryTitle,
+    buttonDangerTitle,
+    onPressPrimary,
+    onPressSecondary,
+    onPressDanger,
+    onPressGoBack,
   } = props;
+
+  const showButtons = Boolean(onPressPrimary || onPressSecondary || onPressDanger);
 
   return (
     <Container>
@@ -101,10 +101,11 @@ export const FullPage: React.FC<FullPageProps> = (props) => {
           </Body>
         </ScrollViewPage>
        
-        {buttons && (
+        {showButtons && (
           <ButtonContainer onlyOneButton={onlyOneButton}>
-            {buttonSecondary && <Button onPress={onPressSecondary} type="secondary" title={buttonSecondaryTitle}/>}
-            {buttonPrimary && <Button onPress={onPressPrimary} type="primary" title={buttonPrimaryTitle}/>}
+            {onPressSecondary && <Button onPress={onPressSecondary} type="secondary" title={buttonSecondaryTitle}/>}
+            {onPressPrimary && <Button onPress={onPressPrimary} type="primary" title={buttonPrimaryTitle}/>}
+            {onPressDanger && <Button onPress={onPressDanger} type="danger" title={buttonDangerTitle}/>}
           </ButtonContainer>
         )}
         {footerMessage && (

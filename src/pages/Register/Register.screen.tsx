@@ -15,9 +15,7 @@ export const Register: React.FC = () => {
       greenTitle="Math" 
       onPressGoBack={() => goBack()}
       onPressPrimary={() => NavigateTo("verifyEmail", navigation, {isToOnboarding: true as boolean})}
-      buttons
       onlyOneButton
-      buttonPrimary
       buttonPrimaryTitle="Continue"
       verticalBounce={false}
       enableAvoidingView={true}

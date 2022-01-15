@@ -1,8 +1,9 @@
 import React from "react";
 import { TouchableOpacityProps } from "react-native";
 import { ButtonContainer, Label } from "./Button.styles";
+
 export interface ButtonProps extends TouchableOpacityProps { 
-  type: "primary" | "secondary" | "half";
+  type: "primary" | "secondary" | "half" | "danger";
   title?: string;
   onPress?: () => void;
 }

@@ -1,5 +1,5 @@
 # math_viewer
-The best math app!
+The best math app ever!
 
 Created with:
 
@@ -8,3 +8,5 @@ Created with:
 - Stlyed-components;
 - NodeJS;
 - GraphQL.
+
+

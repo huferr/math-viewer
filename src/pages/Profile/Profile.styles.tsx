@@ -7,3 +7,5 @@ export const ProfilePicContainer = styled.View`
   justify-content: center;
   align-items: center;
 `;
+
+export const Button = styled.TouchableOpacity.attrs({ activeOpacity: 0.7 })``;

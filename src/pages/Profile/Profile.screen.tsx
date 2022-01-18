@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigation } from "@react-navigation/core";
 import { BigCircle } from "../../assets/icons";
 import { FullPage, Option } from "../../components";
-import { ProfilePicContainer } from "./Profile.styles";
+import { Button, ProfilePicContainer } from "./Profile.styles";
 
 export const Profile: React.FC = () => {
   const navigation = useNavigation();
@@ -10,12 +10,17 @@ export const Profile: React.FC = () => {
   return (
     <FullPage
       onPressGoBack={goBack}
+      onlyOneButton
+      onPressDanger={() => {}}
+      buttonDangerTitle="Exit"
     >
       <ProfilePicContainer>
-        <BigCircle />
+        <Button>
+          <BigCircle />
+        </Button>
       </ProfilePicContainer>
-      <Option />
-      <Option />
+      <Option title="Nickname" content="Hugo" onPress={() => {}}/>
+      <Option title="Email" content="hugo@gmail.com" onPress={() => {}}/>
     </FullPage>
   );
 };

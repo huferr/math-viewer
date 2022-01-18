@@ -1,7 +1,8 @@
 import { useNavigation } from "@react-navigation/core";
 import React from "react";
-import { GraphIcon, ProfileIcon, SearchIcon } from "../../assets/icons";
+import { ProfileIcon, SearchIcon } from "../../assets/icons";
 import { BigCard, FullPage } from "../../components";
+import { menuOptions } from "../../data";
 import { NavigateTo } from "../../services";
 import { HeadingSmall } from "../../styles";
 import { Button, Card, CardWrapper, Header } from "./Dashboard.styles";
@@ -43,20 +44,17 @@ export const Dashboard: React.FC = () => {
         </Card>
       </CardWrapper>
 
-      <BigCard 
-        title="Viewer"
-        subtitle="Explore functions and numbers to see what they show visually!"
-        icon={<GraphIcon width={130} height={100} />}
-        onPress={() => {}}
-        marginBottom={20}  
-      />
-
-      <BigCard 
-        title="Homeworks"
-        subtitle="Explore functions and numbers to see what they show visually!"
-        icon={<GraphIcon width={130} height={100} />}
-        onPress={() => {}}  
-      />
+      {menuOptions.map((item) => (
+        <>
+          <BigCard 
+            title={item.title}
+            subtitle={item.subtitle}
+            icon={item.icon}
+            onPress={() => {}}
+            marginBottom={20}  
+          />
+        </>
+      ))}
     </FullPage>
   );
 };

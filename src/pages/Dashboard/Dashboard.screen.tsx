@@ -12,6 +12,11 @@ export const Dashboard: React.FC = () => {
   const navigation = useNavigation();
   const goToProfile = () => NavigateTo("profile", navigation, {});
 
+  const chooseMenu = (id: string) => {
+    // if (id === "viewer") console.log("viewer");
+    // if (id === "homeworks") console.log("homeworks");
+  };
+
   const HelloUser = (
     <HeadingSmall bold>
       Hello,
@@ -45,15 +50,14 @@ export const Dashboard: React.FC = () => {
       </CardWrapper>
 
       {menuOptions.map((item) => (
-        <>
-          <BigCard 
-            title={item.title}
-            subtitle={item.subtitle}
-            icon={item.icon}
-            onPress={() => {}}
-            marginBottom={20}  
-          />
-        </>
+        <BigCard
+          key={item.id} 
+          title={item.title}
+          subtitle={item.subtitle}
+          icon={item.icon}
+          onPress={() => chooseMenu(item.id)}
+          marginBottom={20}  
+        />
       ))}
     </FullPage>
   );

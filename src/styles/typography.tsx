@@ -25,6 +25,7 @@ export const HeadingSmall = styled.Text<TypographyProps>`
 
 export const Subtitle = styled.Text<TypographyProps>`
   font-size: 18px;
+  font-style: ${props => props.italic ? "italic" : "normal"};
   margin-top: ${props => props.marginTop || 0}px;
   margin-bottom: ${props => props.marginBottom || 0}px;
   color: ${props => props.green ? colors.primary : colors.white};

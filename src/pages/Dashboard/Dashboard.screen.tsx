@@ -1,5 +1,5 @@
-import { useNavigation } from "@react-navigation/core";
 import React from "react";
+import { useNavigation } from "@react-navigation/core";
 import { ProfileIcon, SearchIcon } from "../../assets/icons";
 import { BigCard, FullPage } from "../../components";
 import { menuOptions } from "../../data";

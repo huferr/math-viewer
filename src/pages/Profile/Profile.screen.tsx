@@ -3,6 +3,7 @@ import { useNavigation } from "@react-navigation/core";
 import { BigCircle } from "../../assets/icons";
 import { FullPage, Option } from "../../components";
 import { Button, ProfilePicContainer } from "./Profile.styles";
+import { NavigateTo } from "../../services";
 
 export const Profile: React.FC = () => {
   const navigation = useNavigation();
@@ -19,7 +20,7 @@ export const Profile: React.FC = () => {
           <BigCircle />
         </Button>
       </ProfilePicContainer>
-      <Option title="Nickname" content="Hugo" onPress={() => {}}/>
+      <Option title="Nickname" content="Hugo" onPress={() => NavigateTo("change_nickname", navigation, {})}/>
       <Option title="Email" content="hugo@gmail.com" onPress={() => {}}/>
     </FullPage>
   );

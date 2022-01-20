@@ -8,6 +8,10 @@ import { NavigateTo } from "../../services";
 export const Profile: React.FC = () => {
   const navigation = useNavigation();
   const goBack = () => navigation.goBack();
+  
+  const goToChangeNickname = () => NavigateTo("change_nickname", navigation, {});
+  const goToChangeEmail = () => NavigateTo("change_email", navigation, {});
+
   return (
     <FullPage
       onPressGoBack={goBack}
@@ -20,8 +24,8 @@ export const Profile: React.FC = () => {
           <BigCircle />
         </Button>
       </ProfilePicContainer>
-      <Option title="Nickname" content="Hugo" onPress={() => NavigateTo("change_nickname", navigation, {})}/>
-      <Option title="Email" content="hugo@gmail.com" onPress={() => {}}/>
+      <Option title="Nickname" content="Hugo" onPress={goToChangeNickname}/>
+      <Option title="Email" content="hugo@gmail.com" onPress={goToChangeEmail}/>
     </FullPage>
   );
 };

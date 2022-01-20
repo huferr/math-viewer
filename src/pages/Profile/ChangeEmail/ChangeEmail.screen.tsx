@@ -20,7 +20,7 @@ export const ChangeEmail: React.FC = () => {
       onPressPrimary={goToVerifyEmail}
       verticalBounce={false}
     >
-      <Subtitle italic marginTop={50} marginBottom={50}>
+      <Subtitle italic marginTop={50} marginBottom={50} textAlign="center">
         Enter your
         {" "}
         <Subtitle green italic>new Email</Subtitle>

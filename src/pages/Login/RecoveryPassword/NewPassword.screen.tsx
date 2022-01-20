@@ -7,23 +7,25 @@ import { Subtitle, TopIcon } from "./RecoveryPassword.styles";
 export const NewPassword: React.FC = () => {
 
   const navigation = useNavigation();
+  const goBack = () => NavigateTo("recoveryPassword", navigation, {});
+  const goToSuccessRecovery = () => NavigateTo("successRecovery", navigation, {});
 
   return (
     <FullPage
       greenTitleFirst 
       whiteTitle="Recovery" 
       greenTitle="Password" 
-      onPressGoBack={() => NavigateTo("recoveryPassword", navigation, {})}
+      onPressGoBack={goBack}
       onlyOneButton
       buttonPrimaryTitle="Continue"
-      onPressPrimary={() => NavigateTo("successRecovery", navigation, {})}
+      onPressPrimary={goToSuccessRecovery}
       verticalBounce={false}
       enableAvoidingView={false}
     >
       <TopIcon green>β</TopIcon>
       <Subtitle>Set and confirm your new password</Subtitle>
-      <Input style={{marginTop: 20}} placeholder="New password" errorText="Senha do caralho"/>
-      <Input style={{marginTop: 20}} placeholder="Confirm Password" errorText="Senha do caralho"/>
+      <Input type="primary" style={{marginTop: 20}} placeholder="New password" errorText="Senha do caralho"/>
+      <Input type="primary" style={{marginTop: 20}} placeholder="Confirm Password" errorText="Senha do caralho"/>
     </FullPage>
   );
 };

@@ -8,21 +8,24 @@ export const RecoveryPassword: React.FC = () => {
 
   const navigation = useNavigation();
 
+  const goBack = () => NavigateTo("login", navigation, {});
+  const goToVerifyEmail = () => NavigateTo("verifyEmail", navigation, { isToNewPassword: true });
+
   return (
     <FullPage
       greenTitleFirst 
       whiteTitle="Recovery" 
       greenTitle="Password" 
-      onPressGoBack={() => NavigateTo("login", navigation, {})}
+      onPressGoBack={goBack}
       onlyOneButton
       buttonPrimaryTitle="Continue"
-      onPressPrimary={() => NavigateTo("verifyEmail", navigation, {isToNewPassword: true as boolean})}
+      onPressPrimary={goToVerifyEmail}
       verticalBounce={false}
       enableAvoidingView={false}
     >
       <TopIcon green>β</TopIcon>
       <Subtitle>Please, enter your email below, we will send you a verification code</Subtitle>
-      <Input style={{marginTop: 20}} placeholder="Email" errorText="Email do caralho"/>
+      <Input type="primary" style={{marginTop: 20}} placeholder="Email" errorText="Email do caralho"/>
     </FullPage>
   );
 };

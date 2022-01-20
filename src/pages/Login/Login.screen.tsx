@@ -8,7 +8,11 @@ export const Login: React.FC = () => {
 
   const navigation = useNavigation();
 
-  const handleFooterMessage = () => (
+  const goBack = () => NavigateTo("welcome", navigation, {});
+  const goToVerifyEmail = () => NavigateTo("verifyEmail", navigation, { isToDashboard: true });
+  const goToRecoveryPassword = () => NavigateTo("recoveryPassword", navigation, {});
+
+  const handleFooterMessage = (
     <FooterMessage>
       <PhraseText>&quot;The book of the world is written in mathematical language.&quot;</PhraseText>
       <AuthorText>- Galileu Galilei</AuthorText>
@@ -19,18 +23,18 @@ export const Login: React.FC = () => {
     <FullPage 
       whiteTitle="Login to" 
       greenTitle="Math" 
-      onPressGoBack={() => NavigateTo("welcome", navigation, {})}
+      onPressGoBack={goBack}
       buttonPrimaryTitle="Continue"
-      onPressPrimary={() => NavigateTo("verifyEmail", navigation, {isToDashboard: true as boolean})}
+      onPressPrimary={goToVerifyEmail}
       buttonSecondaryTitle="Forgot my password"
-      onPressSecondary={() => NavigateTo("recoveryPassword", navigation, {})}
-      footerMessage={handleFooterMessage()}
+      onPressSecondary={goToRecoveryPassword}
+      footerMessage={handleFooterMessage}
       verticalBounce={false}
       enableAvoidingView={false}
     >
       <Pi>π</Pi>
-      <Input style={{marginTop: 70}} placeholder="Email" errorText="Email do caralho"/>
-      <Input style={{marginTop: 10}} placeholder="Password" errorText="Senha do caralho"/>
+      <Input type="primary" style={{marginTop: 70}} placeholder="Email" errorText="Email do caralho"/>
+      <Input type="primary" style={{marginTop: 10}} placeholder="Password" errorText="Senha do caralho"/>
     </FullPage>
   );
 };

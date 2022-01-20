@@ -6,17 +6,21 @@ import { NavigateTo } from "../../services";
 import { useRoute } from "@react-navigation/native";
 import { Subtitle } from "../../styles";
 
+interface params {
+  isToOnboarding: boolean,
+  isToDashboard: boolean,
+  isToNewPassword: boolean,
+  isToSuccessChangeEmail: boolean,
+}
+
 export const VerifyEmail: React.FC = () => {
   const route = useRoute();
   const {
     isToOnboarding,
     isToDashboard,
-    isToNewPassword
-  } = route.params as {
-      isToOnboarding: boolean,
-      isToDashboard: boolean,
-      isToNewPassword: boolean
-    };
+    isToNewPassword,
+    isToSuccessChangeEmail
+  } = route.params as params;
   const navigation = useNavigation();
   const goBack = () => navigation.goBack();
 
@@ -24,11 +28,13 @@ export const VerifyEmail: React.FC = () => {
 
   const goToNextPage = (value: string) => {
     // validade and go to onboarding screen
-    if(value === "12345" && isToOnboarding) NavigateTo("onboarding", navigation, {});
+    if(value === "11111" && isToOnboarding) NavigateTo("onboarding", navigation, {});
     // validade and go to dashboard screen
     if(value === "11111" && isToDashboard) NavigateTo("welcome", navigation, {});
     // validate and go to newPassword screen
-    if(value === "22222" && isToNewPassword) NavigateTo("newPassword", navigation, {});
+    if(value === "11111" && isToNewPassword) NavigateTo("newPassword", navigation, {});
+    // validate and go to success_change_email screen
+    if(value === "11111" && isToSuccessChangeEmail) NavigateTo("success_change_email", navigation, {});
   };
  
   return (

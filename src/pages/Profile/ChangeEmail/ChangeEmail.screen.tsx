@@ -8,11 +8,11 @@ export const ChangeEmail: React.FC = () => {
   const navigation = useNavigation();
 
   const goBack = () => navigation.goBack();
-  const goToVerifyEmail = () => NavigateTo("verifyEmail", navigation, {});
+  const goToVerifyEmail = () => NavigateTo("verifyEmail", navigation, { isToSuccessChangeEmail: true });
 
   return (
     <FullPage
-      onPressGoBack={goBack}
+      onPressGoBack={goBack} 
       whiteTitle="Change"
       greenTitle="Email"
       onlyOneButton

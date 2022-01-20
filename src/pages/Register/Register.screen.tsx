@@ -7,14 +7,16 @@ import { NavigateTo } from "../../services/navigation.service";
 export const Register: React.FC = () => {
 
   const navigation = useNavigation();
+
   const goBack = () => navigation.goBack();
+  const goToVerifyEmail = () => NavigateTo("verifyEmail", navigation, { isToOnboarding: true });
 
   return (
     <FullPage 
       whiteTitle="Register to" 
       greenTitle="Math" 
-      onPressGoBack={() => goBack()}
-      onPressPrimary={() => NavigateTo("verifyEmail", navigation, {isToOnboarding: true as boolean})}
+      onPressGoBack={goBack}
+      onPressPrimary={goToVerifyEmail}
       onlyOneButton
       buttonPrimaryTitle="Continue"
       verticalBounce={false}

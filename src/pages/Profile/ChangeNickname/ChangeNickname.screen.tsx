@@ -17,10 +17,10 @@ export const ChangeNickname: React.FC = () => {
       onPressPrimary={() => {}}
       verticalBounce={false}
     >
-      <Subtitle bold italic marginTop={50} marginBottom={50}>
+      <Subtitle italic marginTop={50} marginBottom={50}>
         Enter your
         {" "}
-        <Subtitle bold green italic>new Nickname</Subtitle>
+        <Subtitle green italic>new Nickname</Subtitle>
         {" "}
         below.
       </Subtitle>

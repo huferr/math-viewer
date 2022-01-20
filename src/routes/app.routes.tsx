@@ -12,6 +12,7 @@ import {
   ChangeEmail,
   VerifyEmail,
   SuccessChangeEmail,
+  SuccessChangeNickname,
 } from "../pages";
 
 const Stack = createNativeStackNavigator();
@@ -30,6 +31,7 @@ export const AppRoutes: React.FC = () => (
 
     {/* ChangeNickname Domain */}
     <Stack.Screen name="change_nickname" component={ChangeNickname} />
+    <Stack.Screen name="success_change_nickname" component={SuccessChangeNickname} />
 
     {/* ChangeEmail Domain */}
     <Stack.Screen name="change_email" component={ChangeEmail} />

@@ -12,6 +12,7 @@ interface TypographyProps {
 
 export const Heading = styled.Text<TypographyProps>`
   font-size: 36px;
+  text-align: ${props => props.textAlign || "left"};
   font-weight: ${props => props.bold ? 700 : 300};
   color: ${props => props.green ? colors.primary : colors.white};
 `;
@@ -20,6 +21,7 @@ export const HeadingSmall = styled.Text<TypographyProps>`
   font-size: 24px;
   font-weight: ${props => props.bold ? 700 : 300};
   font-style: ${props => props.italic ? "italic" : "normal"};
+  text-align: ${props => props.textAlign || "left"};
   color: ${props => props.green ? colors.primary : colors.white};
 `;
 
@@ -30,7 +32,7 @@ export const Subtitle = styled.Text<TypographyProps>`
   margin-bottom: ${props => props.marginBottom || 0}px;
   color: ${props => props.green ? colors.primary : colors.white};
   font-weight: ${props => props.bold ? 700 : 300};
-  text-align: ${props => props.textAlign || "center"};
+  text-align: ${props => props.textAlign || "left"};
 `;
 
 export const Paragraph = styled.Text<TypographyProps>`
@@ -40,4 +42,5 @@ export const Paragraph = styled.Text<TypographyProps>`
   font-weight: ${props => props.bold ? 700 : 300};
   font-style: ${props => props.italic ? "italic" : "normal"};
   color: ${props => props.green ? colors.primary : colors.white};
+  text-align: ${props => props.textAlign || "left"};
 `;

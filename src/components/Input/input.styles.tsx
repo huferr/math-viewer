@@ -8,7 +8,7 @@ const backgroundColors: Record<InputProps["type"], string> = {
 };
 
 const mininalInput = css`
-  border-bottom-style: solid;
+  border-style: solid;
   border-bottom-color: ${colors.gray};
   border-bottom-width: 2px;
 `;
@@ -42,5 +42,4 @@ export const ErrorText = styled.Text`
   font-size: 14px;
   font-style: italic;
   color: ${colors.danger};
-  
 `;

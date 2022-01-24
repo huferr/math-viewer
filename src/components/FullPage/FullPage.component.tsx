@@ -28,6 +28,7 @@ export interface FullPageProps {
   buttonPrimaryTitle?: string,
   buttonSecondaryTitle?: string,
   buttonDangerTitle?: string,
+  titleFontSize?: number,
   onPressPrimary?: () => void,
   onPressSecondary?: () => void,
   onPressDanger?: () => void,
@@ -47,6 +48,7 @@ export const FullPage: React.FC<FullPageProps> = (props) => {
     buttonPrimaryTitle,
     buttonSecondaryTitle,
     buttonDangerTitle,
+    titleFontSize,
     onPressPrimary,
     onPressSecondary,
     onPressDanger,
@@ -60,28 +62,29 @@ export const FullPage: React.FC<FullPageProps> = (props) => {
      
       <Header>
         {onPressGoBack && 
-            <>
-              <GoBackButton activeOpacity={0.8} onPress={onPressGoBack}>
-                <GoBackIcon />
-              </GoBackButton>
-            </>
+          <GoBackButton activeOpacity={0.8} onPress={onPressGoBack}>
+            <GoBackIcon />
+          </GoBackButton>
         }
         {whiteTitle ? 
-          <>
-            <TitleContainer>
-              {greenTitleFirst ? 
-                (
-                  <TextWrapper>
-                    <Heading green>{greenTitle}</Heading>{whiteTitle ? "  " : null}<Heading bold>{whiteTitle}</Heading>
-                  </TextWrapper>
-                )
-                : (
-                  <TextWrapper>
-                    <Heading bold>{whiteTitle}</Heading>{greenTitle ? "  " : null}<Heading green>{greenTitle}</Heading>
-                  </TextWrapper>
-                )}
-            </TitleContainer>
-          </> : null}
+          <TitleContainer>
+            {greenTitleFirst ? 
+              (
+                <TextWrapper>
+                  <Heading fontSize={titleFontSize} green>{greenTitle}</Heading>
+                  {whiteTitle ? "  " : null}
+                  <Heading fontSize={titleFontSize} bold>{whiteTitle}</Heading>
+                </TextWrapper>
+              )
+              : (
+                <TextWrapper>
+                  <Heading fontSize={titleFontSize} bold>{whiteTitle}</Heading>
+                  {greenTitle ? "  " : null}
+                  <Heading fontSize={titleFontSize} green>{greenTitle}</Heading>
+                </TextWrapper>
+              )}
+          </TitleContainer>
+          : null}
       </Header>
       <KeyboardAvoidingViewContainer
         behavior={Platform.select({ ios: "padding" })}

@@ -7,11 +7,12 @@ interface TypographyProps {
   italic?: boolean;
   marginTop?: number;
   marginBottom?: number;
+  fontSize?: number;
   textAlign?: "left" | "center" | "right";
 }
 
 export const Heading = styled.Text<TypographyProps>`
-  font-size: 36px;
+  font-size: ${props => props.fontSize || 36}px;
   text-align: ${props => props.textAlign || "left"};
   font-weight: ${props => props.bold ? 700 : 300};
   color: ${props => props.green ? colors.primary : colors.white};

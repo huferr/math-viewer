@@ -11,6 +11,7 @@ export const Dashboard: React.FC = () => {
 
   const navigation = useNavigation();
   const goToProfile = () => NavigateTo("profile", navigation, {});
+  const goToSearch = () => NavigateTo("search", navigation, {});
 
   const chooseMenu = (id: string) => {
     // if (id === "viewer") console.log("viewer");
@@ -29,7 +30,7 @@ export const Dashboard: React.FC = () => {
     <FullPage>
 
       <Header>
-        <Button>
+        <Button onPress={goToSearch}>
           <SearchIcon />
         </Button>
         {HelloUser}

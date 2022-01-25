@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigation } from "@react-navigation/core";
-import { NavigateTo } from "../../../services";
-import { Heading } from "../../../styles";
+import { NavigateTo } from "../../../../services";
+import { Heading } from "../../../../styles";
 import { Content, TitleWrapper } from "./ChangeEmail.styles";
 
 export const SuccessChangeEmail: React.FC = () => {

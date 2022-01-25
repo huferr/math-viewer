@@ -1,9 +1,9 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/core";
-import { BigCircle } from "../../assets/icons";
-import { FullPage, Option } from "../../components";
+import { BigCircle } from "../../../assets/icons";
+import { FullPage, Option } from "../../../components";
 import { Button, ProfilePicContainer } from "./Profile.styles";
-import { NavigateTo } from "../../services";
+import { NavigateTo } from "../../../services";
 
 export const Profile: React.FC = () => {
   const navigation = useNavigation();

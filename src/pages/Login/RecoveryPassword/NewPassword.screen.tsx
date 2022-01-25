@@ -7,7 +7,7 @@ import { Subtitle, TopIcon } from "./RecoveryPassword.styles";
 export const NewPassword: React.FC = () => {
 
   const navigation = useNavigation();
-  const goBack = () => NavigateTo("recoveryPassword", navigation, {});
+  const goBack = () => NavigateTo("enter_recovery_email", navigation, {});
   const goToSuccessRecovery = () => NavigateTo("successRecovery", navigation, {});
 
   return (

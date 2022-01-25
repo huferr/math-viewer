@@ -8,7 +8,7 @@ import {
   Register,
   VerifyEmail,
   Onboarding,
-  RecoveryPassword,
+  EnterRecoveryEmail,
   SuccessRecovery,
   NewPassword
 } from "../pages";
@@ -24,7 +24,7 @@ export const AuthRoutes: React.FC = () => {
       <Auth.Screen name="signup" component={Register} />
       <Auth.Screen name="verifyEmail" component={VerifyEmail} />
       <Auth.Screen name="onboarding" component={Onboarding} />
-      <Auth.Screen name="recoveryPassword" component={RecoveryPassword} />
+      <Auth.Screen name="enter_recovery_email" component={EnterRecoveryEmail} />
       <Auth.Screen name="newPassword" component={NewPassword} />
       <Auth.Screen name="successRecovery" component={SuccessRecovery} />
     </Auth.Navigator>

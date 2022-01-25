@@ -4,7 +4,7 @@ import { useNavigation } from "@react-navigation/core";
 import { NavigateTo } from "../../../services";
 import { Subtitle, TopIcon } from "./RecoveryPassword.styles";
 
-export const RecoveryPassword: React.FC = () => {
+export const EnterRecoveryEmail: React.FC = () => {
 
   const navigation = useNavigation();
 

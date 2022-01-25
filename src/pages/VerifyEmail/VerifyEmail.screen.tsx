@@ -32,7 +32,7 @@ export const VerifyEmail: React.FC = () => {
     // validade and go to dashboard screen
     if(value === "11111" && isToDashboard) NavigateTo("welcome", navigation, {});
     // validate and go to newPassword screen
-    if(value === "11111" && isToNewPassword) NavigateTo("newPassword", navigation, {});
+    if(value === "11111" && isToNewPassword) NavigateTo("new_password", navigation, {});
     // validate and go to success_change_email screen
     if(value === "11111" && isToSuccessChangeEmail) NavigateTo("success_change_email", navigation, {});
   };

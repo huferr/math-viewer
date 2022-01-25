@@ -14,6 +14,7 @@ export const Search: React.FC = () => {
       greenTitle="looking for?"
       whiteTitle="What are you"
       titleFontSize={24}
+      verticalBounce={false}
     >
       <Input style={{ marginTop: 20 }} type="primary" placeholder="Search" />
     </FullPage>

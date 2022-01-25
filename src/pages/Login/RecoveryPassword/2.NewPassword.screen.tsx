@@ -8,7 +8,7 @@ export const NewPassword: React.FC = () => {
 
   const navigation = useNavigation();
   const goBack = () => NavigateTo("enter_recovery_email", navigation, {});
-  const goToSuccessRecovery = () => NavigateTo("successRecovery", navigation, {});
+  const goToSuccessRecovery = () => NavigateTo("success_recovery", navigation, {});
 
   return (
     <FullPage

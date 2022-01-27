@@ -5,6 +5,13 @@ import { InputProps } from "./Input.component";
 const backgroundColors: Record<InputProps["type"], string> = {
   primary: colors.gray,
   minimal: colors.transparent,
+  search: colors.gray,
+};
+
+const paddingLeft: Record<InputProps["type"], number> = {
+  primary: 15,
+  minimal: 5,
+  search: 0,
 };
 
 const mininalInput = css`
@@ -17,19 +24,33 @@ export const Container = styled.View`
   width: 100%;
 `;
 
+export const IconContainer = styled.View`
+  width: 50px;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const InputContainer = styled.View<InputProps>`
   width: 100%;
-  background-color: ${(props) => backgroundColors[props.type]};
-  border-radius: ${(props) => props.type === "minimal" ? 0 : 12}px;
+  flex-direction: row;
+  background-color: ${(p) => backgroundColors[p.type]};
+  border-radius: ${(p) => p.type === "minimal" ? 0 : 12}px;
 `;
 
 export const InputField = styled.TextInput<InputProps>`
-  width: 100%;
-  height: ${(props) => props.type === "minimal" ? 35 : 50}px;
-  padding-left: ${(props) => props.type === "minimal" ? 5 : 15}px;
+  width: ${p => p.type === "search" ? 75 : 100}%;
+  height: ${(p) => p.type === "minimal" ? 35 : 50}px;
+  padding-left: ${(p) => paddingLeft[p.type]}px;
+  padding-right: ${(p) => paddingLeft[p.type]}px;
   font-size: 16px;
   color: ${colors.white};
-  ${(props) => props.type === "minimal" && mininalInput};
+  ${(p) => p.type === "minimal" && mininalInput};
+`;
+
+export const CloseButton = styled.TouchableOpacity`
+  width: 30px;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const ErrorContainer = styled.View`

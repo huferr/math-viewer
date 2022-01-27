@@ -1,27 +1,47 @@
 import React from "react";
-import { StyleProp, ViewStyle } from "react-native";
+import { TextInputProps } from "react-native";
+import { CloseIcon, SearchIcon } from "../../assets/icons";
 import { colors } from "../../styles";
-import { Container, ErrorContainer, ErrorText, InputContainer, InputField } from "./input.styles";
+import { 
+  CloseButton,
+  Container,
+  ErrorContainer,
+  ErrorText,
+  IconContainer,
+  InputContainer,
+  InputField
+} from "./input.styles";
 
-export interface InputProps {
-  type: "primary" | "minimal",
-  style?: StyleProp<ViewStyle>,
+export interface InputProps extends TextInputProps {
+  type: "primary" | "minimal" | "search",
   placeholder?: string,
   errorText?: string,
 }
 
 export const Input: React.FC<InputProps> = (props) => {
-  const { style, placeholder, errorText, type } = props;
+  const { style, placeholder, errorText, type, value, onChangeText } = props;
 
   return (
     <Container style={style}>
       <InputContainer type={type}>
-        <InputField 
+        {type === "search" &&
+        <IconContainer>
+          <SearchIcon stroke={colors.lightGray}/>
+        </IconContainer>
+        }
+        <InputField
+          value={value}
+          onChangeText={onChangeText} 
           type={type}
           placeholder={placeholder} 
           placeholderTextColor={colors.lightGray} 
           selectionColor={colors.primary}
         />
+        {type === "search" &&       
+          <CloseButton onPress={() => onChangeText && onChangeText("")}>
+            <CloseIcon />
+          </CloseButton>
+        }
       </InputContainer>
       <ErrorContainer>
         {errorText ? <ErrorText>{errorText}</ErrorText> : null}

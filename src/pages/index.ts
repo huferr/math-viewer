@@ -7,4 +7,4 @@ export { Mathscore } from "./Mathscore";
 export { Login, EnterRecoveryEmail, NewPassword, SuccessRecovery } from "./Login";
 export { Register, Onboarding } from "./Register";
 export { VerifyEmail } from "./VerifyEmail";
-export { Search } from "./Search";
+export { Search } from "./Dashboard/Search";

@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/core";
-import { FullPage, Input } from "../../components";
+import { FullPage, Input } from "../../../components";
 
 
 export const Search: React.FC = () => {

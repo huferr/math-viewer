@@ -7,13 +7,14 @@ import {
   Body,
   ButtonContainer,
   Container,
-  GoBackButton,
   Header,
   MessageContainer,
   KeyboardAvoidingViewContainer,
   ScrollViewPage,
   TextWrapper,
   TitleContainer,
+  TopButtonsWrapper,
+  TopButton,
 } from "./FullPage.styles";
 
 export interface FullPageProps {
@@ -29,11 +30,13 @@ export interface FullPageProps {
   buttonSecondaryTitle?: string,
   buttonDangerTitle?: string,
   titleFontSize?: number,
+  rightButtonIcon?: JSX.Element,
+  onPressRight?: () => void,
   onPressPrimary?: () => void,
   onPressSecondary?: () => void,
   onPressDanger?: () => void,
   onPressGoBack?: () => void,
-  }
+}
 
 export const FullPage: React.FC<FullPageProps> = (props) => {
   const {
@@ -49,6 +52,8 @@ export const FullPage: React.FC<FullPageProps> = (props) => {
     buttonSecondaryTitle,
     buttonDangerTitle,
     titleFontSize,
+    rightButtonIcon,
+    onPressRight,
     onPressPrimary,
     onPressSecondary,
     onPressDanger,
@@ -61,11 +66,19 @@ export const FullPage: React.FC<FullPageProps> = (props) => {
     <Container>
      
       <Header>
-        {onPressGoBack && 
-          <GoBackButton activeOpacity={0.8} onPress={onPressGoBack}>
+        <TopButtonsWrapper>
+          {onPressGoBack && 
+          <TopButton activeOpacity={0.8} onPress={onPressGoBack}>
             <GoBackIcon />
-          </GoBackButton>
-        }
+          </TopButton>
+          }
+          {onPressRight && 
+          <TopButton activeOpacity={0.8} onPress={onPressRight}>
+            {rightButtonIcon}
+          </TopButton>
+          }
+        </TopButtonsWrapper>
+        
         {whiteTitle ? 
           <TitleContainer>
             {greenTitleFirst ? 

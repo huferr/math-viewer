@@ -23,7 +23,12 @@ export const Header = styled.View`
   padding: 10px ${metrics.basePadding}px;
 `;
 
-export const GoBackButton = styled.TouchableOpacity`
+export const TopButtonsWrapper = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const TopButton = styled.TouchableOpacity`
   width: 30px;
   height: 30px;
 `;

@@ -6,6 +6,7 @@ import {
   Dashboard,
   Profile,
   Homeworks,
+  OnboardingHomeworks,
   Mathscore,
   Viewer,
   ChangeNickname,
@@ -24,8 +25,8 @@ export const AppRoutes: React.FC = () => (
     <Stack.Screen name="dashboard" component={Dashboard} />
     <Stack.Screen name="profile" component={Profile} />
     <Stack.Screen name="search" component={Search} />
-    {/* <Stack.Screen name="homeworks" component={Homeworks} />
-    <Stack.Screen name="mathscore" component={Mathscore} />
+    <Stack.Screen name="homeworks" component={Homeworks} />
+    {/* <Stack.Screen name="mathscore" component={Mathscore} />
     <Stack.Screen name="viewer" component={Viewer} /> */}
 
     {/* Shared Domains */}
@@ -38,5 +39,8 @@ export const AppRoutes: React.FC = () => (
     {/* ChangeEmail Domain */}
     <Stack.Screen name="change_email" component={ChangeEmail} />
     <Stack.Screen name="success_change_email" component={SuccessChangeEmail} />
+
+    {/* Homeworks Domain */}
+    <Stack.Screen name="onboarding_homeworks" component={OnboardingHomeworks} />
   </Stack.Navigator>
 );

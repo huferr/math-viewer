@@ -15,7 +15,7 @@ export const Dashboard: React.FC = () => {
 
   const chooseMenu = (id: string) => {
     // if (id === "viewer") console.log("viewer");
-    // if (id === "homeworks") console.log("homeworks");
+    if (id === "homeworks") NavigateTo("onboarding_homeworks", navigation, {});
   };
 
   const HelloUser = (

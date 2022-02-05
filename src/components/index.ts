@@ -5,3 +5,4 @@ export { InputPinCode } from "./InputPinCode";
 export { BigCard } from "./BigCard";
 export { Option } from "./Option";
 export { SmallCard } from "./SmallCard";
+export { Modal } from "./Modal";

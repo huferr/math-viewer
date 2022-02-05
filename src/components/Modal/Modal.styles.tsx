@@ -1,13 +1,16 @@
 
-import Modal from "react-native-modalbox";
+import Modal, { ModalProps } from "react-native-modalbox";
 import styled from "styled-components/native";
 import { colors } from "../../styles";
 import metrics from "../../styles/metrics";
 
-export const Container = styled(Modal)`
+export const Container = styled(Modal)<ModalProps>`
   height: auto;
+  width: ${p => p.position === "center" ? 90 : 100}%;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
   padding: ${metrics.basePadding}px;
   padding-top: ${metrics.basePadding + 10}px;
   background-color: ${colors.mediumGray};

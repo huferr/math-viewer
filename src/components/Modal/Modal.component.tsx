@@ -8,7 +8,7 @@ interface ModalProps extends OriginalModalProps {
 }
 
 export const Modal: React.FC<ModalProps> = (props) => {
-  const { children, onClose, position = "bottom" } = props;
+  const { children, onClose, position = "center" } = props;
   return (
     <Container
       backdropPressToClose
@@ -18,7 +18,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
       {...props}
       coverScreen
     >
-      <SwipeCloseArea />
+      {position !== "center" && <SwipeCloseArea />}
       <Close onPress={onClose}>
         <CloseIcon />
       </Close>

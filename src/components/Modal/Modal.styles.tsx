@@ -31,8 +31,8 @@ export const Close = styled.TouchableOpacity`
   align-items: center;
   position: absolute;
   background: ${colors.gray};
-  height: 29px;
-  width: 29px;
+  height: 27px;
+  width: 27px;
   right: 15px;
   top: 15px;
   border-radius: 100px;

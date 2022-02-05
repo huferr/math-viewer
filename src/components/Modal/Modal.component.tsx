@@ -17,6 +17,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
       swipeArea={40}
       {...props}
       coverScreen
+      backdropOpacity={0.8}
     >
       {position !== "center" && <SwipeCloseArea />}
       <Close onPress={onClose}>

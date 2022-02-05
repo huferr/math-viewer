@@ -2,7 +2,7 @@ import * as React from "react";
 import { Path, Svg } from "react-native-svg";
 import { colors } from "../../styles";
 
-export function CloseIcon(props: React.SVGProps<Svg>) {
+export function TinyCloseIcon(props: React.SVGProps<Svg>) {
   const { fill, height, width } = props;
 
   return (

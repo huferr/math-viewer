@@ -39,6 +39,7 @@ export const Homeworks: React.FC = () => {
       <MenuWrapper>
         {homeworksMenu.map((m) => (
           <SmallCard
+            disabled
             marginBottom={20}
             key={m.id} 
             title={m.title}

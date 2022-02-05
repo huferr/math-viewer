@@ -5,4 +5,4 @@ export { GraphIcon } from "./graph";
 export { ProfileIcon } from "./profile";
 export { SearchIcon } from "./search";
 export { TinyCloseIcon } from "./tiny-close";
-export { Close } from "./close";
+export { CloseIcon } from "./close";

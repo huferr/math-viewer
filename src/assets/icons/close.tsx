@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Path, Svg } from "react-native-svg";
 
-export function Close(props: React.SVGProps<Svg>) {
+export function CloseIcon (props: React.SVGProps<Svg>) {
   const { fill, width, height } = props;
   return (
     <Svg

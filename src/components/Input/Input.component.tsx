@@ -1,6 +1,6 @@
 import React from "react";
 import { TextInputProps } from "react-native";
-import { CloseIcon, SearchIcon } from "../../assets/icons";
+import { TinyCloseIcon, SearchIcon } from "../../assets/icons";
 import { colors } from "../../styles";
 import { 
   CloseButton,
@@ -39,7 +39,7 @@ export const Input: React.FC<InputProps> = (props) => {
         />
         {type === "search" &&       
           <CloseButton onPress={() => onChangeText && onChangeText("")}>
-            <CloseIcon />
+            <TinyCloseIcon />
           </CloseButton>
         }
       </InputContainer>

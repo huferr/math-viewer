@@ -1,1 +1,1 @@
-export { Homeworks } from "./2.Homeworks.screen";
+export { Homeworks } from "./Homeworks.screen";

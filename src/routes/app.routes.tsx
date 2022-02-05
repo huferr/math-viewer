@@ -25,8 +25,8 @@ export const AppRoutes: React.FC = () => (
     <Stack.Screen name="profile" component={Profile} />
     <Stack.Screen name="search" component={Search} />
     <Stack.Screen name="homeworks" component={Homeworks} />
-    {/* <Stack.Screen name="mathscore" component={Mathscore} />
-    <Stack.Screen name="viewer" component={Viewer} /> */}
+    <Stack.Screen name="mathscore" component={Mathscore} />
+    <Stack.Screen name="viewer" component={Viewer} />
 
     {/* Shared Domains */}
     <Stack.Screen name="verifyEmail" component={VerifyEmail} />

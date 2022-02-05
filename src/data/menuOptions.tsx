@@ -20,5 +20,11 @@ export const menuOptions: MenuOptions[] = [
     title: "Homeworks",
     subtitle: "Explore functions, calculations and numbers to see what they show visually!",
     icon: <GraphIcon width={130} height={100} />
+  },
+  {
+    id: "mathscore",
+    title: "Mathscore",
+    subtitle: "Explore functions, calculations and numbers to see what they show visually!",
+    icon: <GraphIcon width={130} height={100} />
   }
 ];

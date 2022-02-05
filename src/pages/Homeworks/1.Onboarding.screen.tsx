@@ -10,7 +10,7 @@ export const OnboardingHomeworks: React.FC = () => {
   useEffect(() => {
     setTimeout(() => {
       NavigateTo("homeworks", navigation, {});
-    }, 3000);
+    }, 2500);
   }, []);
   
   return (

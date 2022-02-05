@@ -1,0 +1,1 @@
+export { SmallCard } from "./SmallCard.component";

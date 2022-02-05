@@ -6,7 +6,6 @@ import {
   Dashboard,
   Profile,
   Homeworks,
-  OnboardingHomeworks,
   Mathscore,
   Viewer,
   ChangeNickname,
@@ -39,8 +38,5 @@ export const AppRoutes: React.FC = () => (
     {/* ChangeEmail Domain */}
     <Stack.Screen name="change_email" component={ChangeEmail} />
     <Stack.Screen name="success_change_email" component={SuccessChangeEmail} />
-
-    {/* Homeworks Domain */}
-    <Stack.Screen name="onboarding_homeworks" component={OnboardingHomeworks} />
   </Stack.Navigator>
 );

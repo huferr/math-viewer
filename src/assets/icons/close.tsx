@@ -12,7 +12,7 @@ export function CloseIcon (props: React.SVGProps<Svg>) {
     >
       <Path
         d="M3.28223 3.33362L13.2822 13.3336M3.28223 13.3336L8.28223 8.33362L13.2822 3.33362"
-        stroke={fill || "#757893"}
+        stroke={fill || "#adadad"}
         strokeWidth="2"
         strokeMiterlimit="10"
         strokeLinecap="round"

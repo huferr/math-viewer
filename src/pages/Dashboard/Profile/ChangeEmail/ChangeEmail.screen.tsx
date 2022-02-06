@@ -4,10 +4,6 @@ import { FullPage, Input, Modal } from "../../../../components";
 import { Heading, Subtitle } from "../../../../styles";
 import { NavigateTo } from "../../../../services";
 
-interface Params {
-  successChange: boolean;
-}
-
 export const ChangeEmail: React.FC = () => {
   const navigation = useNavigation();
   const goBack = () => navigation.goBack();

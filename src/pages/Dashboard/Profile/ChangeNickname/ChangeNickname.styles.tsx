@@ -9,8 +9,3 @@ export const Content = styled.SafeAreaView`
   justify-content: center;
   align-items: center; 
 `;
-
-export const TitleWrapper = styled.Text`
-  flex-direction: row;
-  padding: 0 ${metrics.basePadding}px;
-`;

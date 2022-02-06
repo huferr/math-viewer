@@ -36,6 +36,9 @@ export interface FullPageProps {
   onPressSecondary?: () => void,
   onPressDanger?: () => void,
   onPressGoBack?: () => void,
+  loadingPrimaryBtn?: boolean,
+  loadingSecondaryBtn?: boolean,
+  loadingDangerBtn?: boolean,
 }
 
 export const FullPage: React.FC<FullPageProps> = (props) => {
@@ -58,6 +61,9 @@ export const FullPage: React.FC<FullPageProps> = (props) => {
     onPressSecondary,
     onPressDanger,
     onPressGoBack,
+    loadingPrimaryBtn,
+    loadingSecondaryBtn,
+    loadingDangerBtn,
   } = props;
 
   const showButtons = Boolean(onPressPrimary || onPressSecondary || onPressDanger);
@@ -119,9 +125,9 @@ export const FullPage: React.FC<FullPageProps> = (props) => {
        
         {showButtons && (
           <ButtonContainer onlyOneButton={onlyOneButton}>
-            {onPressSecondary && <Button onPress={onPressSecondary} type="secondary" title={buttonSecondaryTitle}/>}
-            {onPressPrimary && <Button onPress={onPressPrimary} type="primary" title={buttonPrimaryTitle}/>}
-            {onPressDanger && <Button onPress={onPressDanger} type="danger" title={buttonDangerTitle}/>}
+            {onPressSecondary && <Button loading={loadingSecondaryBtn} onPress={onPressSecondary} type="secondary" title={buttonSecondaryTitle}/>}
+            {onPressPrimary && <Button loading={loadingPrimaryBtn} onPress={onPressPrimary} type="primary" title={buttonPrimaryTitle}/>}
+            {onPressDanger && <Button loading={loadingDangerBtn} onPress={onPressDanger} type="danger" title={buttonDangerTitle}/>}
           </ButtonContainer>
         )}
         {footerMessage && (

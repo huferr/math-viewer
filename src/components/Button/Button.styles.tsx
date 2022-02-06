@@ -18,9 +18,17 @@ export const titleColors: Record<ButtonProps["type"], string> = {
   danger: colors.danger,
 };
 
+export const spinnerColors: Record<ButtonProps["type"], string> = {
+  primary: colors.white,
+  secondary: colors.primary,
+  half: colors.white,
+  danger: colors.danger,
+};
+
 export const ButtonContainer = styled.TouchableOpacity<ButtonProps>`
   background-color: ${(props) => props.type !== "danger" ? backgroundColors[props.type] : "transparent"};
   border: ${props => props.type === "danger" ? `2px ${colors.danger}` : null};
+  opacity: ${p => p.loading ? 0.5 : 1};
   height: 45px;
   border-radius: 12px;
   justify-content: center;

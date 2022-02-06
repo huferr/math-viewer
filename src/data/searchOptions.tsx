@@ -18,5 +18,13 @@ export const dashboardSearchOptions: DashboardSearchOptions[] = [
   {
     title: "Profile",
     navigateTo: "profile"
+  },
+  {
+    title: "Change Nickname",
+    navigateTo: "change_nickname"
+  },
+  {
+    title: "Change Email",
+    navigateTo: "change_email"
   }
 ];

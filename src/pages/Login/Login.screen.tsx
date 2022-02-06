@@ -12,13 +12,6 @@ export const Login: React.FC = () => {
   const goToVerifyEmail = () => NavigateTo("verify_email", navigation, { isToDashboard: true });
   const goToRecoveryPassword = () => NavigateTo("enter_recovery_email", navigation, {});
 
-  const handleFooterMessage = (
-    <FooterMessage>
-      <PhraseText>&quot;The book of the world is written in mathematical language.&quot;</PhraseText>
-      <AuthorText>- Galileu Galilei</AuthorText>
-    </FooterMessage>
-  ); 
-
   return (
     <FullPage 
       whiteTitle="Login to" 
@@ -28,7 +21,6 @@ export const Login: React.FC = () => {
       onPressPrimary={goToVerifyEmail}
       buttonSecondaryTitle="Forgot my password"
       onPressSecondary={goToRecoveryPassword}
-      footerMessage={handleFooterMessage}
       verticalBounce={false}
       enableAvoidingView={false}
     >

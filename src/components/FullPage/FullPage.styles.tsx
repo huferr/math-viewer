@@ -44,7 +44,7 @@ export const TextWrapper = styled.Text``;
 export const ButtonContainer = styled.View<FullPageProps>`
   width: 100%;
   padding: ${metrics.basePadding}px
-  height: ${(props) => props.onlyOneButton ? "auto" : "120px" };
+  height: ${(props) => props.onlyOneButton ? "auto" : "160px" };
   flex-direction: column;
   justify-content: ${(props) => props.onlyOneButton ? "flex-end" : "space-between" };
 `;
@@ -52,7 +52,6 @@ export const ButtonContainer = styled.View<FullPageProps>`
 export const MessageContainer = styled.View`
   width: 100%;
   height: 60px;
-  margin-top: 20px;
   justify-content: center;
   align-items: center;
 `;

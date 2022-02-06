@@ -43,7 +43,7 @@ export const TextWrapper = styled.Text``;
 
 export const ButtonContainer = styled.View<FullPageProps>`
   width: 100%;
-  padding: 0px ${metrics.basePadding}px
+  padding: ${metrics.basePadding}px
   height: ${(props) => props.onlyOneButton ? "auto" : "120px" };
   flex-direction: column;
   justify-content: ${(props) => props.onlyOneButton ? "flex-end" : "space-between" };

@@ -108,7 +108,6 @@ export const FullPage: React.FC<FullPageProps> = (props) => {
       <KeyboardAvoidingViewContainer
         behavior={Platform.select({ ios: "padding" })}
         enabled={enableAvoidingView}
-        keyboardVerticalOffset={Platform.select({ios: 20, android: 500})}
       >
         <ScrollViewPage
           showsVerticalScrollIndicator={false}

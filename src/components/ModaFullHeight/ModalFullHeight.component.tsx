@@ -10,6 +10,7 @@ export const ModalFullHeight: React.FC<ModalProps> = (props) => {
       animationType="slide"
       visible={visible}
       onRequestClose={onRequestClose}
+      presentationStyle="formSheet"
       {...props}
     >
       <Close onPress={onRequestClose}>

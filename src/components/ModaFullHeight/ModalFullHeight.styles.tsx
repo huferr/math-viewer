@@ -3,16 +3,7 @@ import styled from "styled-components/native";
 import { colors } from "../../styles";
 import metrics from "../../styles/metrics";
 
-export const Container = styled(Modal)<ModalProps>`
-  height: auto;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  padding: ${metrics.basePadding}px;
-  padding-top: ${metrics.basePadding + 10}px;
-  background-color: ${colors.mediumGray};
-`;
+export const Container = styled(Modal)<ModalProps>``;
 
 export const Close = styled.TouchableOpacity`
   justify-content: center;
@@ -27,4 +18,9 @@ export const Close = styled.TouchableOpacity`
   z-index: 1;
 `;
 
-export const Body = styled.View``;
+export const Body = styled.View`
+  height: 100%;
+  background-color: ${colors.darkerGray};
+  padding: ${metrics.basePadding}px;
+  padding-top: ${metrics.basePadding + 10}px;
+`;

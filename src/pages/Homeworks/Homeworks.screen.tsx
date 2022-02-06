@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/core";
-import { FullPage, Modal, SmallCard } from "../../components";
+import { FullPage, Input, Modal, ModalFullHeight, SmallCard } from "../../components";
 import { NavigateTo } from "../../services";
 import { SearchIcon } from "../../assets/icons";
 import { Heading, HeadingSmall, Paragraph } from "../../styles";
 import { MathscoreView, MenuWrapper } from "./Homeworks.styles";
 import { homeworksMenu } from "../../data";
-import { Text } from "react-native";
 
 
 export const Homeworks: React.FC = () => {
   const navigation = useNavigation();
   const goBack = () => NavigateTo("dashboard", navigation, {}); 
   const [openOnboardingModal, setOpenOnboardingModal] = useState(false);
+  const [openSearchModal, setOpenSearchModal] = useState(false);
 
   useEffect(() => {
     setTimeout(() => setOpenOnboardingModal(true), 500);
@@ -23,7 +23,7 @@ export const Homeworks: React.FC = () => {
       <FullPage
         onPressGoBack={goBack}
         rightButtonIcon={<SearchIcon />}
-        onPressRight={() => {}}
+        onPressRight={() => setOpenSearchModal(true)}
       >
         <HeadingSmall
           green
@@ -77,6 +77,22 @@ export const Homeworks: React.FC = () => {
             <Paragraph green>mathscore</Paragraph>!
           </Paragraph>
         </Modal>
+
+        <ModalFullHeight visible={openSearchModal} onRequestClose={() => setOpenSearchModal(false)}>
+          <HeadingSmall
+            textAlign="center"
+            marginTop={30}
+            marginBottom={30}
+            italic
+            green  
+          >What
+            {" "} 
+            <HeadingSmall italic>
+          are you looking for?
+            </HeadingSmall>
+          </HeadingSmall>
+          <Input type="search" placeholder="Searh for homeworks"/>
+        </ModalFullHeight>
       </FullPage>
     </>
   );

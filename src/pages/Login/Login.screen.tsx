@@ -9,7 +9,7 @@ export const Login: React.FC = () => {
   const navigation = useNavigation();
 
   const goBack = () => NavigateTo("welcome", navigation, {});
-  const goToVerifyEmail = () => NavigateTo("verifyEmail", navigation, { isToDashboard: true });
+  const goToVerifyEmail = () => NavigateTo("verify_email", navigation, { isToDashboard: true });
   const goToRecoveryPassword = () => NavigateTo("enter_recovery_email", navigation, {});
 
   const handleFooterMessage = (

@@ -13,12 +13,11 @@ import { AppPagesType } from "../../typings/pages";
 export const Dashboard: React.FC = () => {
 
   const navigation = useNavigation();
-  const goToProfile = () => NavigateTo("profile", navigation, {});
+  const goToPage = (id: AppPagesType) => NavigateTo(id, navigation, {});
   
   const [openSearchModal, setOpenSearchModal] = useState(false);
   const [searchValue, setSearchValue] = useState("");
   
-  const chooseMenu = (id: AppPagesType) => NavigateTo(id, navigation, {});
 
   const quickSearch = (array: DashboardSearchOptions[], search: string ) => 
     array.filter((item) => item.title.toLocaleLowerCase().includes(String(search.toLocaleLowerCase())));
@@ -29,7 +28,8 @@ export const Dashboard: React.FC = () => {
     setOpenSearchModal(false);
   };
 
-  const renderSearchItem = (item: DashboardSearchOptions) => <OptionList hasArrow content={item.title} onPress={() => onPressSearchItem(item.navigateTo)} />;
+  const renderSearchItem = (item: DashboardSearchOptions) => 
+    <OptionList hasArrow content={item.title} onPress={() => onPressSearchItem(item.navigateTo)} />;
 
   return (
     <FullPage>
@@ -43,17 +43,17 @@ export const Dashboard: React.FC = () => {
           {" "}
           <HeadingSmall green>Hugo</HeadingSmall>
         </HeadingSmall>
-        <Button onPress={goToProfile}>
+        <Button onPress={() => goToPage("profile")}>
           <ProfileIcon />
         </Button>
       </Header>
 
       <CardWrapper>
-        <Card onPress={() => chooseMenu("homeworks")}>
+        <Card onPress={() => goToPage("homeworks")}>
           <HeadingSmall green italic>Homeworks</HeadingSmall>
           <HeadingSmall italic>99/99</HeadingSmall>
         </Card>
-        <Card onPress={() => chooseMenu("mathscore")}>
+        <Card onPress={() => goToPage("mathscore")}>
           <HeadingSmall green italic>Mathscore</HeadingSmall>
           <HeadingSmall italic>9999</HeadingSmall>
         </Card>
@@ -65,7 +65,7 @@ export const Dashboard: React.FC = () => {
           title={item.title}
           subtitle={item.subtitle}
           icon={item.icon}
-          onPress={() => chooseMenu(item.id)}
+          onPress={() => goToPage(item.id)}
           marginBottom={20}  
         />
       ))}
@@ -77,7 +77,8 @@ export const Dashboard: React.FC = () => {
           marginBottom={30}
           italic
           green  
-        >What
+        >
+          What
           {" "} 
           <HeadingSmall italic>
           are you looking for?

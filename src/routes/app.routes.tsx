@@ -23,7 +23,7 @@ export const AppRoutes: React.FC = () => (
     <Stack.Screen name="homeworks" component={Homeworks} />
     <Stack.Screen name="mathscore" component={Mathscore} />
     <Stack.Screen name="viewer" component={Viewer} />
-    <Stack.Screen name="verifyEmail" component={VerifyEmail} />
+    <Stack.Screen name="verify_email" component={VerifyEmail} />
     <Stack.Screen name="change_nickname" component={ChangeNickname} />
     <Stack.Screen name="change_email" component={ChangeEmail} />
   </Stack.Navigator>

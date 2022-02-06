@@ -9,7 +9,7 @@ export const ChangeEmail: React.FC = () => {
   const goBack = () => navigation.goBack();
   const [openSuccessModal, setOpenSuccessModal] = useState(false);
   
-  const goToVerifyEmail = () => NavigateTo("verifyEmail", navigation, { isToSuccessChangeEmail: true });
+  const goToVerifyEmail = () => NavigateTo("verify_email", navigation, { isToSuccessChangeEmail: true });
 
   return (
     <FullPage

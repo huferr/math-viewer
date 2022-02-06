@@ -21,7 +21,7 @@ export const AuthRoutes: React.FC = () => {
     <Auth.Navigator initialRouteName="welcome" screenOptions={{ headerShown: false }}>
       <Auth.Screen name="welcome" component={Welcome} />
       {/* Shared Domains */}
-      <Auth.Screen name="verifyEmail" component={VerifyEmail} />
+      <Auth.Screen name="verify_email" component={VerifyEmail} />
 
       {/* Login Domain */}
       <Auth.Screen name="login" component={Login} />

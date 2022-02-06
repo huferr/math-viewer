@@ -2,14 +2,14 @@ import React from "react";
 import { FullPage, Input } from "../../components";
 import { TopIcon } from "./Register.styles";
 import { useNavigation } from "@react-navigation/core";
-import { NavigateTo } from "../../services/navigation.service";
+import { NavigateTo } from "../../services/navigation.services";
 
 export const Register: React.FC = () => {
 
   const navigation = useNavigation();
 
   const goBack = () => navigation.goBack();
-  const goToVerifyEmail = () => NavigateTo("verifyEmail", navigation, { isToOnboarding: true });
+  const goToVerifyEmail = () => NavigateTo("verify_email", navigation, { isToOnboarding: true });
 
   return (
     <FullPage 

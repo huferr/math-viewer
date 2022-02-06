@@ -9,7 +9,7 @@ export const EnterRecoveryEmail: React.FC = () => {
   const navigation = useNavigation();
 
   const goBack = () => NavigateTo("login", navigation, {});
-  const goToVerifyEmail = () => NavigateTo("verifyEmail", navigation, { isToNewPassword: true });
+  const goToVerifyEmail = () => NavigateTo("verify_email", navigation, { isToNewPassword: true });
 
   return (
     <FullPage

@@ -6,7 +6,6 @@ import { FullPageProps } from "./FullPage.component";
 export const Container = styled.SafeAreaView`
   flex: 1;
   background-color: ${colors.darkerGray};
-  padding: ${metrics.basePadding}px;
 `;
 
 export const KeyboardAvoidingViewContainer = styled.KeyboardAvoidingView`

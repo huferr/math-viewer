@@ -6,3 +6,4 @@ export { BigCard } from "./BigCard";
 export { Option } from "./Option";
 export { SmallCard } from "./SmallCard";
 export { Modal } from "./Modal";
+export { ModalFullHeight } from "./ModaFullHeight";

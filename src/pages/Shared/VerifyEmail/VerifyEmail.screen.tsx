@@ -34,7 +34,7 @@ export const VerifyEmail: React.FC = () => {
     // validate and go to newPassword screen
     if(value === "11111" && isToNewPassword) NavigateTo("new_password", navigation, {});
     // validate and go to success_change_email screen
-    if(value === "11111" && isToSuccessChangeEmail) NavigateTo("success_change_email", navigation, {});
+    if(value === "11111" && isToSuccessChangeEmail) NavigateTo("change_email", navigation, {});
   };
  
   return (

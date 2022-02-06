@@ -39,7 +39,7 @@ export const InputContainer = styled.View<InputProps>`
 
 export const InputField = styled.TextInput<InputProps>`
   width: ${p => p.type === "search" ? 75 : 100}%;
-  height: ${(p) => p.type === "minimal" ? 35 : 50}px;
+  height: 50px;
   padding-left: ${(p) => paddingLeft[p.type]}px;
   padding-right: ${(p) => paddingLeft[p.type]}px;
   font-size: 16px;

@@ -19,7 +19,7 @@ export interface InputProps extends TextInputProps {
 }
 
 export const Input: React.FC<InputProps> = (props) => {
-  const { style, placeholder, errorText, type, value, onChangeText } = props;
+  const { style, placeholder, errorText, type, value, onChangeText, autoFocus } = props;
 
   return (
     <Container style={style}>
@@ -30,6 +30,7 @@ export const Input: React.FC<InputProps> = (props) => {
         </IconContainer>
         }
         <InputField
+          autoFocus={autoFocus}
           value={value}
           onChangeText={onChangeText} 
           type={type}

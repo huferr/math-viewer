@@ -16,7 +16,7 @@ export const Content = styled.TouchableOpacity.attrs({
   height: 150px;
   background-color: ${colors.mediumGray};
   border-radius: ${metrics.baseRadius}px;
-  padding: ${metrics.basePadding}px;
+  padding: 20px;
   position: relative;
 `;
 

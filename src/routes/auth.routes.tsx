@@ -18,7 +18,7 @@ const Auth = createNativeStackNavigator();
 
 export const AuthRoutes: React.FC = () => {
   return (
-    <Auth.Navigator initialRouteName="Welcome" screenOptions={{ headerShown: false }}>
+    <Auth.Navigator initialRouteName="welcome" screenOptions={{ headerShown: false }}>
       <Auth.Screen name="welcome" component={Welcome} />
       {/* Shared Domains */}
       <Auth.Screen name="verifyEmail" component={VerifyEmail} />

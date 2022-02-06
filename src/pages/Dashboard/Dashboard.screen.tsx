@@ -8,6 +8,7 @@ import { HeadingSmall } from "../../styles";
 import { Button, Card, CardWrapper, Header } from "./Dashboard.styles";
 import { FlatList } from "react-native";
 import { DashboardSearchOptions, dashboardSearchOptions } from "../../data/searchOptions";
+import { AppPagesType } from "../../typings/pages";
 
 export const Dashboard: React.FC = () => {
 
@@ -17,10 +18,7 @@ export const Dashboard: React.FC = () => {
   const [openSearchModal, setOpenSearchModal] = useState(false);
   const [searchValue, setSearchValue] = useState("");
   
-  const chooseMenu = (id: string) => {
-    // if (id === "viewer") console.log("viewer");
-    if (id === "homeworks") NavigateTo("homeworks", navigation, {});
-  };
+  const chooseMenu = (id: AppPagesType) => NavigateTo(id, navigation, {});
 
   const quickSearch = (array: DashboardSearchOptions[], search: string ) => 
     array.filter((item) => item.title.toLocaleLowerCase().includes(String(search.toLocaleLowerCase())));
@@ -33,14 +31,6 @@ export const Dashboard: React.FC = () => {
 
   const renderSearchItem = (item: DashboardSearchOptions) => <OptionList hasArrow content={item.title} onPress={() => onPressSearchItem(item.navigateTo)} />;
 
-  const HelloUser = (
-    <HeadingSmall bold>
-      Hello,
-      {" "}
-      <HeadingSmall green>Hugo</HeadingSmall>
-    </HeadingSmall>
-  );
-
   return (
     <FullPage>
 
@@ -48,18 +38,22 @@ export const Dashboard: React.FC = () => {
         <Button onPress={() => setOpenSearchModal(true)}>
           <SearchIcon />
         </Button>
-        {HelloUser}
+        <HeadingSmall bold>
+          Hello,
+          {" "}
+          <HeadingSmall green>Hugo</HeadingSmall>
+        </HeadingSmall>
         <Button onPress={goToProfile}>
           <ProfileIcon />
         </Button>
       </Header>
 
       <CardWrapper>
-        <Card>
+        <Card onPress={() => chooseMenu("homeworks")}>
           <HeadingSmall green italic>Homeworks</HeadingSmall>
           <HeadingSmall italic>99/99</HeadingSmall>
         </Card>
-        <Card>
+        <Card onPress={() => chooseMenu("mathscore")}>
           <HeadingSmall green italic>Mathscore</HeadingSmall>
           <HeadingSmall italic>9999</HeadingSmall>
         </Card>

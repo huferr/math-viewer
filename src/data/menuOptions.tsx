@@ -1,8 +1,9 @@
 import React from "react";
 import { GraphIcon } from "../assets/icons";
+import { AppPagesType } from "../typings/pages";
 
 interface MenuOptions {
-  id: string,
+  id: AppPagesType,
   title: string,
   subtitle: string,
   icon?: JSX.Element,

@@ -1,0 +1,8 @@
+export type AppPagesType = "dashboard" 
+| "profile"
+| "homeworks"
+| "mathscore"
+| "viewer"
+| "verify_email"
+| "change_nickname"
+| "change_email"

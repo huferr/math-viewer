@@ -13,7 +13,6 @@ import {
   VerifyEmail,
   SuccessChangeEmail,
   SuccessChangeNickname,
-  Search,
 } from "../pages";
 
 const Stack = createNativeStackNavigator();
@@ -23,7 +22,6 @@ export const AppRoutes: React.FC = () => (
     {/*Top Domains*/}
     <Stack.Screen name="dashboard" component={Dashboard} />
     <Stack.Screen name="profile" component={Profile} />
-    <Stack.Screen name="search" component={Search} />
     <Stack.Screen name="homeworks" component={Homeworks} />
     <Stack.Screen name="mathscore" component={Mathscore} />
     <Stack.Screen name="viewer" component={Viewer} />

@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/core";
 import { ProfileIcon, SearchIcon } from "../../assets/icons";
-import { BigCard, FullPage } from "../../components";
+import { BigCard, FullPage, Input, ModalFullHeight } from "../../components";
 import { menuOptions } from "../../data";
 import { NavigateTo } from "../../services";
 import { HeadingSmall } from "../../styles";
@@ -11,8 +11,9 @@ export const Dashboard: React.FC = () => {
 
   const navigation = useNavigation();
   const goToProfile = () => NavigateTo("profile", navigation, {});
-  const goToSearch = () => NavigateTo("search", navigation, {});
-
+  
+  const [openSearchModal, setOpenSearchModal] = useState(false);
+  
   const chooseMenu = (id: string) => {
     // if (id === "viewer") console.log("viewer");
     if (id === "homeworks") NavigateTo("homeworks", navigation, {});
@@ -30,7 +31,7 @@ export const Dashboard: React.FC = () => {
     <FullPage>
 
       <Header>
-        <Button onPress={goToSearch}>
+        <Button onPress={() => setOpenSearchModal(true)}>
           <SearchIcon />
         </Button>
         {HelloUser}
@@ -60,6 +61,22 @@ export const Dashboard: React.FC = () => {
           marginBottom={20}  
         />
       ))}
+
+      <ModalFullHeight visible={openSearchModal} onRequestClose={() => setOpenSearchModal(false)}>
+        <HeadingSmall
+          textAlign="center"
+          marginTop={30}
+          marginBottom={30}
+          italic
+          green  
+        >What
+          {" "} 
+          <HeadingSmall italic>
+          are you looking for?
+          </HeadingSmall>
+        </HeadingSmall>
+        <Input type="search" placeholder="Search"/>
+      </ModalFullHeight>
     </FullPage>
   );
 };

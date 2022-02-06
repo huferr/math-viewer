@@ -91,7 +91,7 @@ export const Homeworks: React.FC = () => {
           are you looking for?
             </HeadingSmall>
           </HeadingSmall>
-          <Input type="search" placeholder="Searh for homeworks"/>
+          <Input type="search" placeholder="Search for homeworks"/>
         </ModalFullHeight>
       </FullPage>
     </>

@@ -1,6 +1,6 @@
 export { Welcome } from "./Welcome";
 export { Dashboard } from "./Dashboard";
-export { Profile, ChangeNickname, SuccessChangeNickname, ChangeEmail } from "./Dashboard/Profile";
+export { Profile, ChangeNickname, ChangeEmail } from "./Dashboard/Profile";
 export { Homeworks } from "./Homeworks";
 export { Viewer } from "./Viewer";
 export { Mathscore } from "./Mathscore";

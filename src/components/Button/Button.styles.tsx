@@ -32,3 +32,5 @@ export const Label = styled.Text<ButtonProps>`
   font-size: 16px;
   font-weight: 700;
 `;
+
+export const Spinner = styled.ActivityIndicator``;

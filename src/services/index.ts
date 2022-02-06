@@ -1,2 +1,2 @@
-export * from "./navigation.service";
-export * from "./device.service";
+export * from "./navigation.services";
+export * from "./device.services";

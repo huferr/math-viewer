@@ -12,12 +12,12 @@ import {
   ChangeEmail,
   VerifyEmail,
 } from "../pages";
+import { isIos } from "../services";
 
 const Stack = createNativeStackNavigator();
 
 export const AppRoutes: React.FC = () => (
-  <Stack.Navigator initialRouteName="dashboard" screenOptions={{ headerShown: false }}>
-
+  <Stack.Navigator initialRouteName="dashboard" screenOptions={{ headerShown: false, presentation: isIos() ? "card" : "transparentModal"}}>
     <Stack.Screen name="dashboard" component={Dashboard} />
     <Stack.Screen name="profile" component={Profile} />
     <Stack.Screen name="homeworks" component={Homeworks} />

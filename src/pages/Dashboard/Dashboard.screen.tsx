@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/core";
 import { ProfileIcon, SearchIcon } from "../../assets/icons";
-import { BigCard, FullPage, Input, ModalFullHeight } from "../../components";
+import { BigCard, FullPage, Input, ModalFullHeight, OptionList } from "../../components";
 import { menuOptions } from "../../data";
 import { NavigateTo } from "../../services";
 import { HeadingSmall } from "../../styles";
 import { Button, Card, CardWrapper, Header } from "./Dashboard.styles";
+import { FlatList } from "react-native";
+import { DashboardSearchOptions, dashboardSearchOptions } from "../../data/searchOptions";
 
 export const Dashboard: React.FC = () => {
 
@@ -13,11 +15,23 @@ export const Dashboard: React.FC = () => {
   const goToProfile = () => NavigateTo("profile", navigation, {});
   
   const [openSearchModal, setOpenSearchModal] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
   
   const chooseMenu = (id: string) => {
     // if (id === "viewer") console.log("viewer");
     if (id === "homeworks") NavigateTo("homeworks", navigation, {});
   };
+
+  const quickSearch = (array: DashboardSearchOptions[], search: string ) => 
+    array.filter((item) => item.title.toLocaleLowerCase().includes(String(search.toLocaleLowerCase())));
+
+
+  const onPressSearchItem = (navigateTo: string) => {
+    NavigateTo(navigateTo, navigation, {});
+    setOpenSearchModal(false);
+  };
+
+  const renderSearchItem = (item: DashboardSearchOptions) => <OptionList hasArrow content={item.title} onPress={() => onPressSearchItem(item.navigateTo)} />;
 
   const HelloUser = (
     <HeadingSmall bold>
@@ -75,7 +89,12 @@ export const Dashboard: React.FC = () => {
           are you looking for?
           </HeadingSmall>
         </HeadingSmall>
-        <Input type="search" placeholder="Search"/>
+        <Input type="search" placeholder="Search" value={searchValue} onChangeText={setSearchValue} />
+        <FlatList 
+          data={quickSearch(dashboardSearchOptions, searchValue)}
+          renderItem={(t) => renderSearchItem(t.item)}
+          keyExtractor={(item) => item.title}
+        />
       </ModalFullHeight>
     </FullPage>
   );

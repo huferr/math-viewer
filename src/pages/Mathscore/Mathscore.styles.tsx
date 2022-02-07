@@ -32,3 +32,20 @@ export const InfoWrapper = styled.View`
   flex-direction: row;
   width: 100%;
 `;
+
+export const UsersRankingInfo = styled.View`
+  flex-direction: row;
+  margin-bottom: 10px;
+`;
+
+export const UsersRank = styled.View`
+  width: 45px;
+`;
+
+export const UserName = styled.View`
+  width: 65%;
+`;
+
+export const UserMathscore = styled.View`
+  width: 30%;
+`;

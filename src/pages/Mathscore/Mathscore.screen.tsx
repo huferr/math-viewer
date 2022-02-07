@@ -3,7 +3,7 @@ import { useNavigation } from "@react-navigation/core";
 import { FullPage, Input, Modal, OptionList } from "../../components";
 import { NavigateTo } from "../../services";
 import { Heading, HeadingSmall, Paragraph, Subtitle } from "../../styles";
-import { InfoWrapper, MathscoreView } from "./Mathscore.styles";
+import { InfoWrapper, MathscoreView, UserMathscore, UserName, UsersRank, UsersRankingInfo } from "./Mathscore.styles";
 import { userRanking, UserRankingTypes } from "../../data/userRanking";
 
 export const Mathscore: React.FC = () => {
@@ -58,7 +58,17 @@ export const Mathscore: React.FC = () => {
 
         <HeadingSmall green marginTop={30} marginBottom={30}>Global Ranking</HeadingSmall>
         <Input placeholder="Search for users" type="search" value={searchValue} onChangeText={setSearchValue} />
-
+        <UsersRankingInfo>
+          <UsersRank>
+            <Paragraph>Pos.</Paragraph>  
+          </UsersRank>
+          <UserName>
+            <Paragraph>Nickname</Paragraph>  
+          </UserName>
+          <UserMathscore>
+            <Paragraph>Mathscore</Paragraph>  
+          </UserMathscore>
+        </UsersRankingInfo>
         {handleUsers}
         
         <Modal isOpen={openOnboardingModal} onClose={() => setOpenOnboardingModal(false)}>

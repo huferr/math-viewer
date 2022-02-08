@@ -1,6 +1,6 @@
 <h1 align="center">Math Viewer</h1>
 
-<h4 align="center">Math Viewer is a React Native App where you can interact with some math concepts. Check its major features bellow!<h4>
+<h4 align="center">Math Viewer is a React Native App where you can interact with some math concepts. Check its major features below:<h4>
 <br>
 
 ## &#128223; Viewer

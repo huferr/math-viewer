@@ -1,12 +1,12 @@
-# Math Viewer
+<h1 align="center">Math Viewer</h1>
 
-Math Viewer is a **React Native App** where you can interact with some math concepts.
-
-The app has three major features:
+<h4 align="center">Math Viewer is a React Native App where you can interact with some math concepts. Check its major features bellow!<h4>
+<br>
 
 ## &#128223; Viewer
 
 With **Viewer**, you can choose a math formula, fill it and see "visually" what this formula represents or returns.
+
 ## &#128218; Homeworks
 
 Here, you can practice your math skills by doing some excercices. For each completed excercise you will earn a couple of ***Mathscore*** points.

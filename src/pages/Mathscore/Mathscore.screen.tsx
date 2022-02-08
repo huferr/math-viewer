@@ -69,6 +69,7 @@ export const Mathscore: React.FC = () => {
             <Paragraph>Mathscore</Paragraph>  
           </UserMathscore>
         </UsersRankingInfo>
+        
         {handleUsers}
         
         <Modal isOpen={openOnboardingModal} onClose={() => setOpenOnboardingModal(false)}>

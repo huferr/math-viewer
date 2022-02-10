@@ -1,6 +1,7 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { NavigationContainer, useNavigationContainerRef } from "@react-navigation/native";
 import { Routes } from "./routes";
+import SplashScreen from "react-native-splash-screen";
 
 export const App: React.FC = () => {
 
@@ -16,6 +17,12 @@ export const App: React.FC = () => {
 
     routeNameRef.current = currentRouteName;
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      SplashScreen.hide();
+    }, 1000);
+  });
 
   return (
     <NavigationContainer

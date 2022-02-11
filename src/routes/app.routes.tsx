@@ -11,6 +11,7 @@ import {
   ChangeNickname,
   ChangeEmail,
   VerifyEmail,
+  Content,
 } from "../pages";
 import { isIos } from "../services";
 
@@ -23,6 +24,7 @@ export const AppRoutes: React.FC = () => (
     <Stack.Screen name="homeworks" component={Homeworks} />
     <Stack.Screen name="mathscore" component={Mathscore} />
     <Stack.Screen name="viewer" component={Viewer} />
+    <Stack.Screen name="content" component={Content} />
     <Stack.Screen name="verify_email" component={VerifyEmail} />
     <Stack.Screen name="change_nickname" component={ChangeNickname} />
     <Stack.Screen name="change_email" component={ChangeEmail} />

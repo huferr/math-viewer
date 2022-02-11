@@ -6,3 +6,6 @@ export type AppPagesType = "dashboard"
 | "verify_email"
 | "change_nickname"
 | "change_email"
+
+export type ViewerPagesTypes = "circle_area_formula" 
+| "triangle_area_formula"

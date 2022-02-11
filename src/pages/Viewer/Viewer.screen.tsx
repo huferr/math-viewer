@@ -3,7 +3,8 @@ import { useNavigation } from "@react-navigation/core";
 import { FullPage, Input, Modal, OptionList } from "../../components";
 import { NavigateTo } from "../../services";
 import { Heading, HeadingSmall, Paragraph, Subtitle } from "../../styles";
-import { userRanking, UserRankingTypes } from "../../data/userRanking";
+import { viewerFormulas } from "../../data";
+import { ViewerFormulaTypes } from "../../data/viewerFormulas";
 
 export const Viewer: React.FC = () => {
   const navigation = useNavigation();
@@ -11,11 +12,12 @@ export const Viewer: React.FC = () => {
   const [openOnboardingModal, setOpenOnboardingModal] = useState(false);
   const [searchValue, setSearchValue] = useState("");
 
-  const quickSearch = (array: UserRankingTypes[], search: string ) => 
-    array.filter((item) => item.user.toLocaleLowerCase().includes(String(search.toLocaleLowerCase())));
+  const quickSearch = (array: ViewerFormulaTypes[], search: string ) => 
+    array.filter((item) => item.title.toLocaleLowerCase().includes(String(search.toLocaleLowerCase())));
 
-  const handleUsers = (
-    quickSearch(userRanking, searchValue).map((item: UserRankingTypes) => <OptionList hasArrow key={item.user} content={item.user} />)
+  const handleFormulas = (
+    quickSearch(viewerFormulas, searchValue).map((item: ViewerFormulaTypes) => 
+      <OptionList hasArrow key={item.id} content={item.title} onPress={() => NavigateTo("content", navigation, {page: item.id})}/>)
   );
 
   useEffect(() => {
@@ -23,41 +25,39 @@ export const Viewer: React.FC = () => {
   },[]);
   
   return (
-    <>
-      <FullPage onPressGoBack={goBack}>
-        <HeadingSmall
-          green
-          italic
-          textAlign="center"
-          marginTop={30}
-        >
+    <FullPage onPressGoBack={goBack}>
+      <HeadingSmall
+        green
+        italic
+        textAlign="center"
+        marginTop={30}
+      >
         Viewer
-        </HeadingSmall>
+      </HeadingSmall>
 
-        <Subtitle textAlign="center" marginTop={40} marginBottom={40}>Choose any formula to see what it represents.</Subtitle>
-        <Input placeholder="Search for formulas" type="search" value={searchValue} onChangeText={setSearchValue} />
+      <Subtitle textAlign="center" marginTop={40} marginBottom={40}>Choose any formula to see what it represents.</Subtitle>
+      <Input placeholder="Search for formulas" type="search" value={searchValue} onChangeText={setSearchValue} />
         
-        {handleUsers}
+      {handleFormulas}
         
-        <Modal isOpen={openOnboardingModal} onClose={() => setOpenOnboardingModal(false)}>
-          <Heading bold textAlign="center">Welcome to</Heading>
-          <Heading green textAlign="center">Viewer</Heading>
-          <Paragraph marginTop={20}>
+      <Modal isOpen={openOnboardingModal} onClose={() => setOpenOnboardingModal(false)}>
+        <Heading bold textAlign="center">Welcome to</Heading>
+        <Heading green textAlign="center">Viewer</Heading>
+        <Paragraph marginTop={20}>
             With
-            {" "}
-            <Paragraph green>Viewer</Paragraph>
-            {" "}
+          {" "}
+          <Paragraph green>Viewer</Paragraph>
+          {" "}
             you will see what the numbers and functions can
-            {" "}
-            <Paragraph green>show</Paragraph>
-            {" "}
+          {" "}
+          <Paragraph green>show</Paragraph>
+          {" "}
             us
-            {" "}
-            <Paragraph green>visually</Paragraph>
+          {" "}
+          <Paragraph green>visually</Paragraph>
             . It is <Paragraph green>awesome</Paragraph>!
-          </Paragraph>
-        </Modal>
-      </FullPage>
-    </>
+        </Paragraph>
+      </Modal>
+    </FullPage>
   );
 };

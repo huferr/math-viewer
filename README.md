@@ -17,19 +17,19 @@
 
 <br>
 <br>
-<h2>Building Process</h2>
+<h2>Building Tools</h2>
 
 > You can see all the documentation, decision making and whys about the tools used to build this app by [clicking here]()
   
 Math Viewer was build with:
-  
-## Front-end:
+<br>  
+## Front-end
   
 ### ⚛️ React Native
 ### &#128216; Typescript
 ### &#128133; Styled-components
   
-## Back-end:
+## Back-end
 
 ### NodeJS
 ### &#128216; GraphQL

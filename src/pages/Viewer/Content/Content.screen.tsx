@@ -5,6 +5,7 @@ import { NavigateTo } from "../../../services";
 
 import { Text } from "react-native";
 import { ViewerPagesTypes } from "../../../typings/pages";
+import { CircleAreaFormula } from "./Geometry";
 
 export const Content: React.FC = () => {
   const navigation = useNavigation();
@@ -13,7 +14,7 @@ export const Content: React.FC = () => {
   const goBack = () => NavigateTo("viewer", navigation, {});
   
   const renderPages: Record<ViewerPagesTypes, JSX.Element> = {
-    circle_area_formula: <Text>circulo</Text>,
+    circle_area_formula: <CircleAreaFormula />,
     triangle_area_formula: <Text>triangulo</Text>
   };
 

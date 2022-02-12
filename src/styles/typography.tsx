@@ -8,6 +8,7 @@ interface TypographyProps {
   marginTop?: number;
   marginBottom?: number;
   fontSize?: number;
+  width?: string;
   textAlign?: "left" | "center" | "right";
 }
 
@@ -22,6 +23,7 @@ export const Heading = styled.Text<TypographyProps>`
 
 export const HeadingSmall = styled.Text<TypographyProps>`
   font-size: 24px;
+  width: ${props => props.width || "auto"};
   font-weight: ${props => props.bold ? 700 : 300};
   font-style: ${props => props.italic ? "italic" : "normal"};
   text-align: ${props => props.textAlign || "left"};

@@ -1,3 +1,8 @@
 import styled from "styled-components/native";
-import { colors } from "../../styles";
-import metrics from "../../styles/metrics";
+
+export const InputWrapper = styled.View`
+  flex-direction: row;
+  align-items: center;
+  align-self: center;
+  margin-bottom: 20px;
+`;

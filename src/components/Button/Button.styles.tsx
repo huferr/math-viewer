@@ -33,6 +33,8 @@ export const ButtonContainer = styled.TouchableOpacity<ButtonProps>`
   border-radius: 12px;
   justify-content: center;
   align-items: center;
+  align-self: ${props => props.type === "half" ? "center" : "flex-start"};
+  width: ${props => props.type === "half" ? 50 : 100}%;
 `;
 
 export const Label = styled.Text<ButtonProps>`

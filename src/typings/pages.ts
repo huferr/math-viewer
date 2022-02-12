@@ -9,3 +9,4 @@ export type AppPagesType = "dashboard"
 
 export type ViewerPagesTypes = "circle_area_formula" 
 | "triangle_area_formula"
+| "trapezoid_area_formula"

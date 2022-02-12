@@ -2,7 +2,7 @@ import styled from "styled-components/native";
 import { colors } from "../../styles";
 
 export const InputField = styled.TextInput`
-  width: 70px;
+  width: 65px;
   height: 30px;
   font-size: 16px;
   background-color: ${colors.gray};

@@ -1,0 +1,1 @@
+export { circleAreaFormula } from "./Geometry/CircleAreaFormula/circleAreaFormula";

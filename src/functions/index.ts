@@ -1,1 +1,1 @@
-export { circleAreaFormula } from "./Geometry/CircleAreaFormula/circleAreaFormula";
+export { circleAreaFormula, triangleAreaFormula } from "./Geometry/geometry";

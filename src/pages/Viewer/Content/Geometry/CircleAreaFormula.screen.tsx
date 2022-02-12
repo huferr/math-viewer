@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { Button, InputFormula } from "../../../../components";
+import { Animation } from "../../../../components/Animation/Animation.component";
 import { circleAreaFormula } from "../../../../functions";
 import { HeadingSmall, Paragraph, Subtitle } from "../../../../styles";
-import { InputWrapper, ViewerContent } from "../../Viewer.styles";
+import { AnimViewer, InputWrapper, ViewerContent, ViewerInfo } from "../../Viewer.styles";
+
+import CircleAnim from "../../../../assets/animations/circle.json";
 
 export const CircleAreaFormula: React.FC = () => {
   const [value, setValue] = useState("");
@@ -44,9 +47,14 @@ export const CircleAreaFormula: React.FC = () => {
       </InputWrapper>
       <Button type="half" title="Run" onPress={onRun}/>
       <ViewerContent>
-        {typeof result === "number" ? <Subtitle><Subtitle green>A </Subtitle>= {result} cm²</Subtitle> 
-          : <Subtitle>{result}</Subtitle>  
-        }
+        <ViewerInfo>
+          {typeof result === "number" ? <Subtitle><Subtitle green>A </Subtitle>= {result} cm²</Subtitle> 
+            : <Subtitle>{result}</Subtitle>  
+          }
+        </ViewerInfo>
+        <AnimViewer>
+          <Animation source={CircleAnim} autoPlay={true}/>
+        </AnimViewer>
       </ViewerContent>
     </>
   );

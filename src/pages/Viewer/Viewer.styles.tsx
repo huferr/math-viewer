@@ -11,8 +11,21 @@ export const InputWrapper = styled.View`
 export const ViewerContent = styled.View`
   margin-top: 20px;
   padding: 20px;
-  width: 100%
-  height: 300px;
+  height: 350px;
   border-radius: 15px;
   background-color: ${colors.mediumGray};
+  position: relative;
+`;
+
+export const ViewerInfo = styled.View`
+  position: absolute;
+  padding: 20px;
+  z-index: 99;
+`;
+
+export const AnimViewer = styled.View`
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
 `;

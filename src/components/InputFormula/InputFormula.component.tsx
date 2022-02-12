@@ -15,6 +15,7 @@ export const InputFormula: React.FC<TextInputProps> = ({
       placeholderTextColor={colors.lightGray} 
       selectionColor={colors.primary}
       keyboardType="numeric"
+      returnKeyType="done"
     />
   );
 };

@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { Button, InputFormula } from "../../../../components";
 import { circleAreaFormula } from "../../../../functions";
 import { HeadingSmall, Paragraph, Subtitle } from "../../../../styles";
-import { InputWrapper } from "../../Viewer.styles";
+import { InputWrapper, ViewerContent } from "../../Viewer.styles";
 
 export const CircleAreaFormula: React.FC = () => {
   const [value, setValue] = useState("");
   const [result, setResult] = useState<string | number>();
-  const onRun = () => setResult(`${circleAreaFormula(Number(value))} cm²`);
+  const onRun = () => setResult(circleAreaFormula(Number(value)));
 
   return (
     <>
@@ -45,7 +45,9 @@ export const CircleAreaFormula: React.FC = () => {
         <HeadingSmall bold> ²</HeadingSmall> 
       </InputWrapper>
       <Button type="half" title="Run" onPress={onRun}/>
-      <HeadingSmall textAlign="center" marginTop={20}>{result}</HeadingSmall>
+      <ViewerContent>
+        <Subtitle><Subtitle green>A </Subtitle>= {result} cm²</Subtitle>
+      </ViewerContent>
     </>
   );
 };

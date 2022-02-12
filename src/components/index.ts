@@ -8,3 +8,4 @@ export { SmallCard } from "./SmallCard";
 export { Modal } from "./Modal";
 export { ModalFullHeight } from "./ModaFullHeight";
 export { OptionList } from "./OptionList";
+export { InputFormula } from "./InputFormula";

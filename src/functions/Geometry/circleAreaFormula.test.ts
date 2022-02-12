@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-nocheck
-import { circleAreaFormula } from "./circleAreaFormula";
+import { circleAreaFormula } from "./geometry";
 
 describe("Geometry / Circle Area Formula", () => {
   it("should return 314.159 when x is 10", () => {

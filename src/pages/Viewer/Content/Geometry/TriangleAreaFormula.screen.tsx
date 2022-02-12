@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { Button, InputFormula } from "../../../../components";
-import { circleAreaFormula } from "../../../../functions";
+import { triangleAreaFormula } from "../../../../functions";
 import { HeadingSmall, Paragraph, Subtitle } from "../../../../styles";
 import { InputWrapper, ViewerContent } from "../../Viewer.styles";
 
-export const CircleAreaFormula: React.FC = () => {
-  const [value, setValue] = useState("");
+export const TriangleAreaFormula: React.FC = () => {
+  const [value, setValue] = useState({ height: "", base: ""});
   const [result, setResult] = useState<string | number>();
-  const formatedValue = Number(value.replace(",", "."));
-  const onRun = () => setResult(circleAreaFormula(formatedValue));
+  const height = Number(value.height.replace(",", "."));
+  const base = Number(value.base.replace(",", "."));
+  const onRun = () => setResult(triangleAreaFormula(height, base));
 
   return (
     <>
@@ -18,29 +19,28 @@ export const CircleAreaFormula: React.FC = () => {
         textAlign="center"
         marginTop={20}  
       >
-      Circle Area Formula
+      Triangle Area Formula
       </HeadingSmall>
       <HeadingSmall bold marginTop={20}>
         <HeadingSmall green bold textAlign="center">A </HeadingSmall>
-        = π * r ²
+        = ( h * b ) / 2
       </HeadingSmall>
       <Paragraph textAlign="center" marginTop={20} italic>
-        π = 3.14159
+        h = height
       </Paragraph>
       <Paragraph textAlign="center" marginTop={10} italic>
-        r = radius
+        b = base
       </Paragraph>
       <Subtitle  marginTop={20} marginBottom={20}>
         <Subtitle textAlign="center" green>Obs.: </Subtitle>let’s use<Subtitle green> centimeters</Subtitle> as the unit of measurement.
       </Subtitle>
       <InputWrapper>
-        <HeadingSmall bold>
-          <HeadingSmall green bold textAlign="center">A </HeadingSmall>
-        = π *
-          {"  "}
-        </HeadingSmall>
-        <InputFormula value={value} onChangeText={setValue}/>
-        <HeadingSmall bold> ²</HeadingSmall> 
+        <HeadingSmall green bold textAlign="center">A </HeadingSmall>
+        <HeadingSmall bold> = ( </HeadingSmall>
+        <InputFormula value={value.height} onChangeText={(t) => setValue({...value, height: t})}/>
+        <HeadingSmall bold> * </HeadingSmall>
+        <InputFormula value={value.base} onChangeText={(t) => setValue({...value, base: t})}/>
+        <HeadingSmall bold> ) / 2</HeadingSmall>
       </InputWrapper>
       <Button type="half" title="Run" onPress={onRun}/>
       <ViewerContent>

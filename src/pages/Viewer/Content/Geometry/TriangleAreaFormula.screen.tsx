@@ -44,7 +44,9 @@ export const TriangleAreaFormula: React.FC = () => {
       </InputWrapper>
       <Button type="half" title="Run" onPress={onRun}/>
       <ViewerContent>
-        <Subtitle><Subtitle green>A </Subtitle>= {result} cm²</Subtitle>
+        {typeof result === "number" ? <Subtitle><Subtitle green>A </Subtitle>= {result} cm²</Subtitle> 
+          : <Subtitle>{result}</Subtitle>  
+        }
       </ViewerContent>
     </>
   );

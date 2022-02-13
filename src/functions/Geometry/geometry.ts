@@ -2,8 +2,8 @@
 export const circleAreaFormula = (x: number) => {
   const validadeX = (typeof x !== "number" || x <= 0 || Number.isNaN(x));
   if (validadeX) return "Please, enter a valid number!";
-
-  const res = String(3.14159 * x ** 2);
+  
+  const res = String(Math.PI * x ** 2);
   const resDecimalPlaces = Number(res) < 0.10 ? 50 : 2;
   const formatedRes = Number(parseFloat(res).toFixed(resDecimalPlaces));
   return formatedRes;

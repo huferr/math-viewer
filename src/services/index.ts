@@ -1,2 +1,3 @@
-export * from "./navigation.services";
-export * from "./device.services";
+export * from "./general/navigation";
+export * from "./general/device";
+export * from "./animations/getAnimationSize";

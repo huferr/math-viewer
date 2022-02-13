@@ -1,14 +1,26 @@
 import React, { useState } from "react";
 import { Button, InputFormula } from "../../../../components";
+import { Animation } from "../../../../components/Animation/Animation.component";
 import { circleAreaFormula } from "../../../../functions";
-import { HeadingSmall, Paragraph, Subtitle } from "../../../../styles";
-import { InputWrapper, ViewerContent } from "../../Viewer.styles";
+import { colors, HeadingSmall, Paragraph, Subtitle } from "../../../../styles";
+import { AnimViewer, InputWrapper, Spinner, ViewerContent, ViewerInfo } from "../../Viewer.styles";
+
+import CircleAnim from "../../../../assets/animations/circle.json";
 
 export const CircleAreaFormula: React.FC = () => {
   const [value, setValue] = useState("");
+  const [radius, setRadius] = useState("");
   const [result, setResult] = useState<string | number>();
+  const [showAnim, setShowAnim] = useState(false);
+
   const formatedValue = Number(value.replace(",", "."));
-  const onRun = () => setResult(circleAreaFormula(formatedValue));
+  
+  const onRun = () => {
+    setRadius(value);
+    setShowAnim(false);
+    setTimeout(() => setShowAnim(true), 600);
+    setResult(circleAreaFormula(formatedValue));
+  };
 
   return (
     <>
@@ -44,9 +56,20 @@ export const CircleAreaFormula: React.FC = () => {
       </InputWrapper>
       <Button type="half" title="Run" onPress={onRun}/>
       <ViewerContent>
-        {typeof result === "number" ? <Subtitle><Subtitle green>A </Subtitle>= {result} cm²</Subtitle> 
-          : <Subtitle>{result}</Subtitle>  
-        }
+        <ViewerInfo>
+          {typeof result === "number" ? (
+            <>
+              <Subtitle><Subtitle green>A </Subtitle>= {result} cm²</Subtitle>
+              <Subtitle>R = {radius}{radius ? " cm" : ""}</Subtitle>
+            </>
+          )
+            : <Subtitle>{result}</Subtitle>  
+          }
+        </ViewerInfo>
+        <AnimViewer>
+          {showAnim && typeof result !== "string" && <Animation width={300} height={300} source={CircleAnim} autoPlay loop={false} />} 
+          {!showAnim && typeof result !== "string" && result && <Spinner color={colors.primary}/>}
+        </AnimViewer>
       </ViewerContent>
     </>
   );

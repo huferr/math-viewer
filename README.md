@@ -6,11 +6,12 @@
   
 ## &#128223; Viewer
 
-> With **Viewer**, you can choose a math formula, fill it and see "visually" what this formula represents or returns.
+> With **Viewer**, you can choose a math formula, fill it and see "visually" what this formula represents or returns. For each formula you do, you
+  will earn a amount of Mathscore!
 
 ## &#127941; Mathscore
 
-> Mathscore is the app score system. It allows you to know how are you doing with your exercises and compare with other users by our ranking system.
+> Mathscore is the app score system. It allows you to know how are you doing with your formulas tests with **Viewer**. You can compare with other users by our ranking system.
 
 <br>
 <br>

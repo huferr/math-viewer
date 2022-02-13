@@ -1,6 +1,6 @@
 import React from "react";
 import { HeadingSmall, Subtitle } from "../../styles";
-import { Container, Content, IconWrapper, SubtitleWrapper } from "./BigCard.styles";
+import { Container, Content } from "./BigCard.styles";
 
 export interface BigCardProps {
   title: string;
@@ -17,12 +17,8 @@ export const BigCard: React.FC<BigCardProps> = (props) => {
     <Container marginBottom={marginBottom}>
       <HeadingSmall green>{title}</HeadingSmall>
       <Content onPress={onPress}>
-        <SubtitleWrapper>
-          <Subtitle textAlign="left">{subtitle}</Subtitle>
-        </SubtitleWrapper>
-        <IconWrapper>
-          {icon}
-        </IconWrapper>
+        {icon}
+        <Subtitle textAlign="center">{subtitle}</Subtitle>
       </Content>
     </Container>
   );

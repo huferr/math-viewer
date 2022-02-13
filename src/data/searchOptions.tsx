@@ -5,10 +5,6 @@ export interface DashboardSearchOptions {
 
 export const dashboardSearchOptions: DashboardSearchOptions[] = [
   {
-    title: "Homeworks",
-    navigateTo: "homeworks"
-  },
-  {
     title: "Mathscore",
     navigateTo: "mathscore"
   }, {

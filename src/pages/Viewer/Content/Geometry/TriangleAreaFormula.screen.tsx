@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, InputFormula } from "../../../../components";
-import { triangleAreaFormula } from "../../../../functions";
+import { triangleAreaFormula } from "../../../../services";
 import { HeadingSmall, Paragraph, Subtitle } from "../../../../styles";
 import { InputWrapper, ViewerContent } from "../../Viewer.styles";
 

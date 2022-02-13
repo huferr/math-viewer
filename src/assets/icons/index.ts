@@ -7,3 +7,4 @@ export { SearchIcon } from "./search";
 export { TinyCloseIcon } from "./tiny-close";
 export { CloseIcon } from "./close";
 export { ArrowRightIcon } from "./arrow-right";
+export { EyeIcon } from "./eye";

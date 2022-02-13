@@ -1,5 +1,6 @@
 import React from "react";
-import { GraphIcon } from "../assets/icons";
+import { EyeIcon, GraphIcon } from "../assets/icons";
+import { MedalIcon } from "../assets/icons/medal";
 import { AppPagesType } from "../typings/pages";
 
 interface MenuOptions {
@@ -14,12 +15,12 @@ export const menuOptions: MenuOptions[] = [
     id: "viewer",
     title: "Viewer",
     subtitle: "Explore functions, calculations and numbers to see what they show visually!",
-    icon: <GraphIcon width={130} height={100} />,
+    icon: <EyeIcon />,
   },
   {
     id: "mathscore",
     title: "Mathscore",
     subtitle: "Explore functions, calculations and numbers to see what they show visually!",
-    icon: <GraphIcon width={130} height={100} />
+    icon: <MedalIcon />
   }
 ];

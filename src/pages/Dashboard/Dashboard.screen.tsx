@@ -50,7 +50,7 @@ export const Dashboard: React.FC = () => {
 
       <CardWrapper>
         <Card onPress={() => goToPage("mathscore")}>
-          <HeadingSmall green italic>Mathscore</HeadingSmall>
+          <HeadingSmall green>Mathscore</HeadingSmall>
           <HeadingSmall italic>9999</HeadingSmall>
         </Card>
       </CardWrapper>

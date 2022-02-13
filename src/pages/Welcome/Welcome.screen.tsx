@@ -3,7 +3,7 @@ import { useNavigation } from "@react-navigation/core";
 import { Linking, TouchableOpacity } from "react-native";
 import { GraphIcon } from "../../assets/icons";
 import { FullPage } from "../../components";
-import { NavigateTo } from "../../services/navigation.services";
+
 import {
   IconWrapper,
   Lambda,
@@ -13,6 +13,7 @@ import {
   ByText,
   NameText
 } from "./Welcome.styles";
+import { NavigateTo } from "../../services";
 
 export const Welcome: React.FC = () => {
 

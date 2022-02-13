@@ -4,18 +4,20 @@ import { Animation } from "../../../../components/Animation/Animation.component"
 import { circleAreaFormula } from "../../../../functions";
 import { colors, HeadingSmall, Paragraph, Subtitle } from "../../../../styles";
 import { AnimViewer, InputWrapper, Spinner, ViewerContent, ViewerInfo } from "../../Viewer.styles";
-
 import CircleAnim from "../../../../assets/animations/circle.json";
+import { getAnimationSize } from "../../../../services";
 
 export const CircleAreaFormula: React.FC = () => {
   const [value, setValue] = useState("");
   const [radius, setRadius] = useState("");
   const [result, setResult] = useState<string | number>();
   const [showAnim, setShowAnim] = useState(false);
+  const [AnimSize, setAnimSize] = useState(0);
 
   const formatedValue = Number(value.replace(",", "."));
   
   const onRun = () => {
+    setAnimSize(getAnimationSize(formatedValue));
     setRadius(value);
     setShowAnim(false);
     setTimeout(() => setShowAnim(true), 600);
@@ -37,7 +39,7 @@ export const CircleAreaFormula: React.FC = () => {
         = π * r ²
       </HeadingSmall>
       <Paragraph textAlign="center" marginTop={20} italic>
-        π = 3.14159
+        π ≈ 3.14159
       </Paragraph>
       <Paragraph textAlign="center" marginTop={10} italic>
         r = radius
@@ -59,7 +61,7 @@ export const CircleAreaFormula: React.FC = () => {
         <ViewerInfo>
           {typeof result === "number" ? (
             <>
-              <Subtitle><Subtitle green>A </Subtitle>= {result} cm²</Subtitle>
+              <Subtitle><Subtitle green>A </Subtitle>≈ {result} cm²</Subtitle>
               <Subtitle>R = {radius}{radius ? " cm" : ""}</Subtitle>
             </>
           )
@@ -67,7 +69,7 @@ export const CircleAreaFormula: React.FC = () => {
           }
         </ViewerInfo>
         <AnimViewer>
-          {showAnim && typeof result !== "string" && <Animation width={300} height={300} source={CircleAnim} autoPlay loop={false} />} 
+          {showAnim && typeof result !== "string" && <Animation width={AnimSize} height={AnimSize} source={CircleAnim} autoPlay loop={false} />} 
           {!showAnim && typeof result !== "string" && result && <Spinner color={colors.primary}/>}
         </AnimViewer>
       </ViewerContent>

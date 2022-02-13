@@ -9,10 +9,10 @@ describe("Geometry / Circle Area Formula", () => {
     const res = 314.16;
     expect(output).toBe(res);
   });
-  it("should return 33040255.97 when x is 3243", () => {
+  it("should return 33040283.88 when x is 3243", () => {
     const x = 3243;
     const output = circleAreaFormula(x);
-    const res = 33040255.97;
+    const res = 33040283.88;
     expect(output).toBe(res);
   });
   it("should return 'Please, enter a valid number' when x is a string", () => {

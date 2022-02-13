@@ -29,3 +29,5 @@ export const AnimViewer = styled.View`
   align-items: center;
   justify-content: center;
 `;
+
+export const Spinner = styled.ActivityIndicator``;

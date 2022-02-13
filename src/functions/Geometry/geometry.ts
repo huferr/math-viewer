@@ -4,8 +4,8 @@ export const circleAreaFormula = (x: number) => {
   if (validadeX) return "Please, enter a valid number!";
 
   const res = String(3.14159 * x ** 2);
-  const formatedRes = Number(parseFloat(res).toFixed(2));
-  
+  const resDecimalPlaces = Number(res) < 0.10 ? 50 : 2;
+  const formatedRes = Number(parseFloat(res).toFixed(resDecimalPlaces));
   return formatedRes;
 };
 

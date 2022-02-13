@@ -14,16 +14,22 @@ interface AnimationObject {
     layers: any[];
 }
 
-interface AnimationProps {
-    autoPlay: boolean;
+export interface AnimationProps {
+    autoPlay?: boolean;
+    loop?: boolean;
     source: string | AnimationObject | { uri: string };
+    width?: number;
+    height?: number;
 }
 
-export const Animation: React.FC<AnimationProps> = ({ autoPlay, source }) => {
+export const Animation: React.FC<AnimationProps> = ({ autoPlay, source, loop, width, height }) => {
   return (
     <Lottie
       source={source} 
       autoPlay={autoPlay}
+      loop={loop}
+      width={width}
+      height={height}
     />
   );
 };

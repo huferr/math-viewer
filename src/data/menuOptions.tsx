@@ -1,5 +1,5 @@
 import React from "react";
-import { EyeIcon, MedalIcon } from "../assets/icons";
+import { EyeIcon, MedalIcon } from "../assets";
 import { AppPagesType } from "../typings/pages";
 
 interface MenuOptions {

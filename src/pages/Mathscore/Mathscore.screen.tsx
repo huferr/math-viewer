@@ -4,7 +4,7 @@ import { FullPage, Input, Modal, OptionList } from "../../components";
 import { NavigateTo } from "../../services";
 import { Heading, HeadingSmall, Paragraph, Subtitle } from "../../styles";
 import { InfoWrapper, MathscoreView, UserMathscore, UserName, UsersRank, UsersRankingInfo } from "./Mathscore.styles";
-import { userRanking, UserRankingTypes } from "../../data/userRanking";
+import { userRanking, UserRankingTypes } from "../../data";
 
 export const Mathscore: React.FC = () => {
   const navigation = useNavigation();

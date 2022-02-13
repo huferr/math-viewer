@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { Button, InputFormula } from "../../../../components";
 import { Animation } from "../../../../components/Animation/Animation.component";
-import { circleAreaFormula } from "../../../../services";
+import { circleAreaFormula, getAnimationSize } from "../../../../services";
 import { colors, HeadingSmall, Paragraph, Subtitle } from "../../../../styles";
 import { AnimViewer, InputWrapper, Spinner, ViewerContent, ViewerInfo } from "../../Viewer.styles";
 import CircleAnim from "../../../../assets/animations/circle.json";
-import { getAnimationSize } from "../../../../services";
 
 export const CircleAreaFormula: React.FC = () => {
   const [value, setValue] = useState("");

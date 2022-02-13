@@ -48,7 +48,13 @@ export const VerifyEmail: React.FC = () => {
       verticalBounce={false}
     >
       <TopIcon green>∆</TopIcon>
-      <Subtitle marginTop={30} marginBottom={30} textAlign="center">Enter the verification code we sent you in your email</Subtitle>
+      <Subtitle
+        marginTop={30}
+        marginBottom={30}
+        textAlign="center"
+      >
+        Enter the verification code we sent you in your email
+      </Subtitle>
       <InputPinCode
         secure
         size={5} 

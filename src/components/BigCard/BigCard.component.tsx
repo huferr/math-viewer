@@ -18,7 +18,7 @@ export const BigCard: React.FC<BigCardProps> = (props) => {
       <HeadingSmall green>{title}</HeadingSmall>
       <Content onPress={onPress}>
         {icon}
-        <Subtitle textAlign="center">{subtitle}</Subtitle>
+        <Subtitle textAlign="center" width="90%">{subtitle}</Subtitle>
       </Content>
     </Container>
   );

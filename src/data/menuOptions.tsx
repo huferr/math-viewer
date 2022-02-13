@@ -13,13 +13,13 @@ export const menuOptions: MenuOptions[] = [
   {
     id: "viewer",
     title: "Viewer",
-    subtitle: "Explore functions, calculations and numbers to see what they show visually!",
+    subtitle: "Explore functions, calculations and numbers to see what they show visually",
     icon: <EyeIcon />,
   },
   {
     id: "mathscore",
     title: "Mathscore",
-    subtitle: "Explore functions, calculations and numbers to see what they show visually!",
+    subtitle: "Check your Mathscore points and your position in the app's global ranking",
     icon: <MedalIcon />
   }
 ];

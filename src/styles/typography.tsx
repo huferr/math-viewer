@@ -40,6 +40,7 @@ export const Subtitle = styled.Text<TypographyProps>`
   text-align: ${props => props.textAlign || "left"};
   margin-top: ${props => props.marginTop || 0}px;
   margin-bottom: ${props => props.marginBottom || 0}px;
+  width: ${props => props.width || "auto"};
 `;
 
 export const Paragraph = styled.Text<TypographyProps>`

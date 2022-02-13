@@ -1,27 +1,44 @@
 import React, { useState } from "react";
-import { useNavigation } from "@react-navigation/core";
-import { ProfileIcon, SearchIcon } from "../../assets/icons";
-import { BigCard, FullPage, Input, ModalFullHeight, OptionList } from "../../components";
-import { menuOptions } from "../../data";
-import { NavigateTo } from "../../services";
-import { HeadingSmall } from "../../styles";
-import { Button, Card, CardWrapper, Header } from "./Dashboard.styles";
 import { FlatList } from "react-native";
-import { DashboardSearchOptions, dashboardSearchOptions } from "../../data/searchOptions";
-import { AppPagesType } from "../../typings/pages";
+import { useNavigation } from "@react-navigation/core";
+
+// components
+import { 
+  BigCard,
+  FullPage,
+  Input,
+  ModalFullHeight,
+  OptionList
+} from "../../components";
+
+// mocked data
+import {
+  DashboardSearchOptions,
+  dashboardSearchOptions,
+  menuOptions
+} from "../../data";
+
+// services
+import { NavigateTo } from "../../services";
+
+// styles
+import { HeadingSmall } from "../../styles";
+import { ProfileIcon, SearchIcon } from "../../assets/icons";
+import { Button, Card, CardWrapper, Header } from "./Dashboard.styles";
+
+// types
+import { AppPagesType } from "../../typings";
 
 export const Dashboard: React.FC = () => {
 
+  const [openSearchModal, setOpenSearchModal] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
   const navigation = useNavigation();
   const goToPage = (id: AppPagesType) => NavigateTo(id, navigation, {});
   
-  const [openSearchModal, setOpenSearchModal] = useState(false);
-  const [searchValue, setSearchValue] = useState("");
-  
-
   const quickSearch = (array: DashboardSearchOptions[], search: string ) => 
-    array.filter((item) => item.title.toLocaleLowerCase().includes(String(search.toLocaleLowerCase())));
-
+    array.filter((item) => item.title.toLocaleLowerCase()
+      .includes(String(search.toLocaleLowerCase())));
 
   const onPressSearchItem = (navigateTo: string) => {
     NavigateTo(navigateTo, navigation, {});

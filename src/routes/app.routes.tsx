@@ -5,7 +5,6 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {
   Dashboard,
   Profile,
-  Homeworks,
   Mathscore,
   Viewer,
   ChangeNickname,
@@ -21,7 +20,6 @@ export const AppRoutes: React.FC = () => (
   <Stack.Navigator initialRouteName="dashboard" screenOptions={{ headerShown: false, presentation: isIos() ? "card" : "transparentModal"}}>
     <Stack.Screen name="dashboard" component={Dashboard} />
     <Stack.Screen name="profile" component={Profile} />
-    <Stack.Screen name="homeworks" component={Homeworks} />
     <Stack.Screen name="mathscore" component={Mathscore} />
     <Stack.Screen name="viewer" component={Viewer} />
     <Stack.Screen name="content" component={Content} />

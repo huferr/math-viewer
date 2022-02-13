@@ -49,10 +49,6 @@ export const Dashboard: React.FC = () => {
       </Header>
 
       <CardWrapper>
-        <Card onPress={() => goToPage("homeworks")}>
-          <HeadingSmall green italic>Homeworks</HeadingSmall>
-          <HeadingSmall italic>99/99</HeadingSmall>
-        </Card>
         <Card onPress={() => goToPage("mathscore")}>
           <HeadingSmall green italic>Mathscore</HeadingSmall>
           <HeadingSmall italic>9999</HeadingSmall>

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+import { TextInputProps } from "react-native";
 import { Button, InputFormula } from "~/components";
 import { triangleAreaFormula } from "~/services";
 import { HeadingSmall, Paragraph, Subtitle } from "~/styles";
@@ -7,9 +8,13 @@ import { InputWrapper, ViewerContent } from "../../Viewer.styles";
 export const TriangleAreaFormula: React.FC = () => {
   const [value, setValue] = useState({ height: "", base: ""});
   const [result, setResult] = useState<string | number>();
+  
+  const nextInputRef = useRef<any>(null);
+  
   const height = Number(value.height.replace(",", "."));
   const base = Number(value.base.replace(",", "."));
   const onRun = () => setResult(triangleAreaFormula(height, base));
+
 
   return (
     <>
@@ -37,9 +42,17 @@ export const TriangleAreaFormula: React.FC = () => {
       <InputWrapper>
         <HeadingSmall green bold textAlign="center">A </HeadingSmall>
         <HeadingSmall bold> = ( </HeadingSmall>
-        <InputFormula value={value.height} onChangeText={(t) => setValue({...value, height: t})}/>
+        <InputFormula
+          value={value.height}
+          onChangeText={(t) => setValue({...value, height: t})}
+          onSubmitEditing={() => nextInputRef?.current?.focus()}
+        />
         <HeadingSmall bold> * </HeadingSmall>
-        <InputFormula value={value.base} onChangeText={(t) => setValue({...value, base: t})}/>
+        <InputFormula
+          inputRef={nextInputRef}
+          value={value.base}
+          onChangeText={(t) => setValue({...value, base: t})}
+        />
         <HeadingSmall bold> ) / 2</HeadingSmall>
       </InputWrapper>
       <Button type="half" title="Run" onPress={onRun}/>

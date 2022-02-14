@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Button, InputFormula } from "~/components";
 import { trapezoidAreaFormula } from "~/services";
 import { HeadingSmall, Paragraph, Subtitle } from "~/styles";
@@ -7,7 +7,10 @@ import { InputWrapper, ViewerContent } from "../../Viewer.styles";
 export const TrapezoidAreaFormula: React.FC = () => {
   const [value, setValue] = useState({ height: "", base1: "", base2: ""});
   const [result, setResult] = useState<string | number>();
-
+  
+  const bInputRef = useRef<any>(null);
+  const hInputRef = useRef<any>(null);
+  
   const base1 = Number(value.base1.replace(",", "."));
   const base2 = Number(value.base2.replace(",", "."));
   const height = Number(value.height.replace(",", "."));
@@ -43,11 +46,24 @@ export const TrapezoidAreaFormula: React.FC = () => {
       <InputWrapper>
         <HeadingSmall green bold textAlign="center">A </HeadingSmall>
         <HeadingSmall bold> = ½ ( </HeadingSmall>
-        <InputFormula value={value.base1} onChangeText={(t) => setValue({...value, base1: t})}/>
+        <InputFormula
+          value={value.base1}
+          onChangeText={(t) => setValue({...value, base1: t})}
+          onSubmitEditing={() => bInputRef?.current?.focus()}
+        />
         <HeadingSmall bold> + </HeadingSmall>
-        <InputFormula value={value.base2} onChangeText={(t) => setValue({...value, base2: t})}/>
+        <InputFormula
+          inputRef={bInputRef}
+          value={value.base2}
+          onChangeText={(t) => setValue({...value, base2: t})}
+          onSubmitEditing={() => hInputRef?.current?.focus()}
+        />
         <HeadingSmall bold> ) * </HeadingSmall>
-        <InputFormula value={value.height} onChangeText={(t) => setValue({...value, height: t})}/>
+        <InputFormula
+          inputRef={hInputRef}
+          value={value.height}
+          onChangeText={(t) => setValue({...value, height: t})}
+        />
       </InputWrapper>
       <Button type="half" title="Run" onPress={onRun}/>
       <ViewerContent>

@@ -18,7 +18,7 @@ export const Content: React.FC = () => {
   };
 
   return (
-    <FullPage onPressGoBack={goBack}>
+    <FullPage onPressGoBack={goBack} enableAvoidingView={false}>
       {renderPages[page]}
     </FullPage>
   );

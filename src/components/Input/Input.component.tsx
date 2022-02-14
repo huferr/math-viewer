@@ -1,7 +1,7 @@
 import React from "react";
 import { TextInputProps } from "react-native";
-import { TinyCloseIcon, SearchIcon } from "../../assets/icons";
-import { colors } from "../../styles";
+import { TinyCloseIcon, SearchIcon } from "~/assets";
+import { colors } from "~/styles";
 import { 
   CloseButton,
   Container,

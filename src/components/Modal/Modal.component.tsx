@@ -1,5 +1,5 @@
 import React from "react";
-import { CloseIcon } from "../../assets/icons";
+import { CloseIcon } from "~/assets";
 import { Body, Close, Container, SwipeCloseArea } from "./Modal.styles";
 import { ModalProps as OriginalModalProps } from "react-native-modalbox";
 

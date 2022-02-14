@@ -1,6 +1,6 @@
 import React from "react";
-import { EditIcon } from "../../assets/icons";
-import { Paragraph } from "../../styles";
+import { EditIcon } from "~/assets/icons";
+import { Paragraph } from "~/styles";
 import { Container, ContentWrapper, IconWrapper } from "./Option.styles";
 
 interface OptionProps {

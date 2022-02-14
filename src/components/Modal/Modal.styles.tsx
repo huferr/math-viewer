@@ -1,8 +1,7 @@
 
 import Modal, { ModalProps } from "react-native-modalbox";
 import styled from "styled-components/native";
-import { colors } from "../../styles";
-import metrics from "../../styles/metrics";
+import { colors, metrics } from "~/styles";
 
 export const Container = styled(Modal)<ModalProps>`
   height: auto;

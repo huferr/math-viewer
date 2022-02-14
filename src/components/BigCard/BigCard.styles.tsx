@@ -1,6 +1,5 @@
 import styled from "styled-components/native";
-import { colors } from "../../styles";
-import metrics from "../../styles/metrics";
+import { colors, metrics } from "~/styles";
 import { BigCardProps } from "./BigCard.component";
 
 export const Container = styled.View<Pick<BigCardProps, "marginBottom">>`

@@ -1,6 +1,6 @@
 import React from "react";
-import { ArrowRightIcon } from "../../assets/icons";
-import { Paragraph } from "../../styles";
+import { ArrowRightIcon } from "~/assets";
+import { Paragraph } from "~/styles";
 import { Container, Content, ContentWrapper } from "./OptionList.styles";
 
 interface OptionListProps {

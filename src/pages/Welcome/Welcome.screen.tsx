@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/core";
 import { Linking, TouchableOpacity } from "react-native";
-import { GraphIcon } from "../../assets/icons";
-import { FullPage } from "../../components";
+import { GraphIcon } from "~/assets";
+import { FullPage } from "~/components";
 
 import {
   IconWrapper,

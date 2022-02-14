@@ -1,5 +1,5 @@
 import React from "react";
-import { HeadingSmall, Subtitle } from "../../styles";
+import { HeadingSmall, Subtitle } from "~/styles";
 import { Container, Content } from "./BigCard.styles";
 
 export interface BigCardProps {

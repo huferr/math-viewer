@@ -1,6 +1,6 @@
 import React from "react";
 import { ModalProps } from "react-native";
-import { CloseIcon } from "../../assets/icons";
+import { CloseIcon } from "~/assets";
 import { Body, Close, Container } from "./ModalFullHeight.styles";
 
 export const ModalFullHeight: React.FC<ModalProps> = (props) => {

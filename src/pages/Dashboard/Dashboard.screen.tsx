@@ -9,25 +9,25 @@ import {
   Input,
   ModalFullHeight,
   OptionList
-} from "../../components";
+} from "~/components";
 
 // mocked data
 import {
   DashboardSearchOptions,
   dashboardSearchOptions,
   menuOptions
-} from "../../data";
+} from "~/data";
 
 // services
-import { NavigateTo } from "../../services";
+import { NavigateTo } from "~/services";
 
 // styles
-import { HeadingSmall } from "../../styles";
-import { ProfileIcon, SearchIcon } from "../../assets/icons";
+import { HeadingSmall } from "~/styles";
+import { ProfileIcon, SearchIcon } from "~/assets/icons";
 import { Button, Card, CardWrapper, Header } from "./Dashboard.styles";
 
 // types
-import { AppPagesType } from "../../typings";
+import { AppPagesType } from "~/typings";
 
 export const Dashboard: React.FC = () => {
 

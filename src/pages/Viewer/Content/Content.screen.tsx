@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigation, useRoute } from "@react-navigation/core";
-import { FullPage } from "../../../components";
-import { NavigateTo } from "../../../services";
-import { ViewerPagesTypes } from "../../../typings";
+import { FullPage } from "~/components";
+import { NavigateTo } from "~/services";
+import { ViewerPagesTypes } from "~/typings";
 import { CircleAreaFormula, TrapezoidAreaFormula, TriangleAreaFormula } from "./Geometry";
 
 export const Content: React.FC = () => {

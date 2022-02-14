@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/core";
-import { FullPage, Input, Modal } from "../../../../components";
-import { Heading, Subtitle } from "../../../../styles";
+import { FullPage, Input, Modal } from "~/components";
+import { Heading, Subtitle } from "~/styles";
 
 export const ChangeNickname: React.FC = () => {
   const navigation = useNavigation();

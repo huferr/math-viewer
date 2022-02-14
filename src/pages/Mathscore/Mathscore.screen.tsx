@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/core";
-import { FullPage, Input, Modal, OptionList } from "../../components";
-import { NavigateTo } from "../../services";
-import { Heading, HeadingSmall, Paragraph, Subtitle } from "../../styles";
+import { FullPage, Input, Modal, OptionList } from "~/components";
+import { NavigateTo } from "~/services";
+import { Heading, HeadingSmall, Paragraph, Subtitle } from "~/styles";
 import { InfoWrapper, MathscoreView, UserMathscore, UserName, UsersRank, UsersRankingInfo } from "./Mathscore.styles";
-import { userRanking, UserRankingTypes } from "../../data";
+import { userRanking, UserRankingTypes } from "~/data";
 
 export const Mathscore: React.FC = () => {
   const navigation = useNavigation();

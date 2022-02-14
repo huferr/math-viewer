@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import { colors } from "../../styles";
+import { colors } from "~/styles";
 
 export const Container = styled.TouchableOpacity.attrs({ activeOpacity: 0.7 })`
   width: 100%;

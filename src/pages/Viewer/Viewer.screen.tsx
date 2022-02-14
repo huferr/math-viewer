@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/core";
-import { FullPage, Input, Modal, OptionList } from "../../components";
-import { NavigateTo } from "../../services";
-import { Heading, HeadingSmall, Paragraph, Subtitle } from "../../styles";
-import { viewerFormulas, ViewerFormulaTypes } from "../../data";
+import { FullPage, Input, Modal, OptionList } from "~/components";
+import { NavigateTo } from "~/services";
+import { Heading, HeadingSmall, Paragraph, Subtitle } from "~/styles";
+import { viewerFormulas, ViewerFormulaTypes } from "~/data";
 
 export const Viewer: React.FC = () => {
   const navigation = useNavigation();

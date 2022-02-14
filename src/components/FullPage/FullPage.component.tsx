@@ -1,8 +1,8 @@
 import React from "react";
 import { Platform } from "react-native";
 import { Button } from "..";
-import { GoBackIcon } from "../../assets/icons/go-back";
-import { Heading } from "../../styles";
+import { GoBackIcon } from "~/assets";
+import { Heading } from "~/styles";
 import { 
   Body,
   ButtonContainer,

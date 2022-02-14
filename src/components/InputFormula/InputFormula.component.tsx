@@ -1,6 +1,6 @@
 import React from "react";
 import { TextInputProps } from "react-native";
-import { colors } from "../../styles";
+import { colors } from "~/styles";
 import { InputField } from "./InputFormula.styles";
 
 export const InputFormula: React.FC<TextInputProps> = ({

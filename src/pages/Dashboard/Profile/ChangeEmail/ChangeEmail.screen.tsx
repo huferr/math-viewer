@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/core";
-import { FullPage, Input, Modal } from "../../../../components";
-import { Heading, Subtitle } from "../../../../styles";
-import { NavigateTo } from "../../../../services";
+import { FullPage, Input, Modal } from "~/components";
+import { Heading, Subtitle } from "~/styles";
+import { NavigateTo } from "~/services";
 
 export const ChangeEmail: React.FC = () => {
   const navigation = useNavigation();

@@ -11,8 +11,8 @@ import {
   ChangeEmail,
   VerifyEmail,
   Content,
-} from "../pages";
-import { isIos } from "../services";
+} from "~/pages";
+import { isIos } from "~/services";
 
 const Stack = createNativeStackNavigator();
 

@@ -13,8 +13,8 @@ import {
   ErrorText,
 } from "./InputPinCode.styles";
 
-import colors from "../../styles/colors";
-import { isIos } from "../../services";
+import { colors} from "~/styles";
+import { isIos } from "~/services";
 
 export interface InputPinCodeProps {
   autofocus?: boolean;

@@ -1,6 +1,5 @@
 import styled, { css } from "styled-components/native";
-import { colors, Paragraph, Subtitle } from "../../styles";
-import metrics from "../../styles/metrics";
+import { colors, Paragraph, Subtitle, metrics } from "~/styles";
 import { SmallCardProps } from "./SmallCard.component";
 
 export const Container = styled.View<Pick<SmallCardProps, "marginBottom">>`

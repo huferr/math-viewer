@@ -1,4 +1,4 @@
-import { ViewerPagesTypes } from "../typings/pages";
+import { ViewerPagesTypes } from "~/typings";
 
 export interface ViewerFormulaTypes {
     id: ViewerPagesTypes,

@@ -1,8 +1,8 @@
 import React from "react";
-import { FullPage, Input } from "../../components";
+import { FullPage, Input } from "~/components";
 import { Pi } from "./Login.styles";
 import { useNavigation } from "@react-navigation/core";
-import { NavigateTo } from "../../services";
+import { NavigateTo } from "~/services";
 
 export const Login: React.FC = () => {
 

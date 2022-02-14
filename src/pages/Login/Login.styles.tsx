@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import { colors } from "../../styles";
+import { colors } from "~/styles";
 
 export const Pi  = styled.Text`
   margin-top: 10px;

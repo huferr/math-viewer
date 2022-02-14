@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Button, InputFormula } from "../../../../components";
-import { triangleAreaFormula } from "../../../../services";
-import { HeadingSmall, Paragraph, Subtitle } from "../../../../styles";
+import { Button, InputFormula } from "~/components";
+import { triangleAreaFormula } from "~/services";
+import { HeadingSmall, Paragraph, Subtitle } from "~/styles";
 import { InputWrapper, ViewerContent } from "../../Viewer.styles";
 
 export const TriangleAreaFormula: React.FC = () => {

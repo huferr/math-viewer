@@ -11,7 +11,7 @@ import {
   EnterRecoveryEmail,
   SuccessRecovery,
   NewPassword
-} from "../pages";
+} from "~/pages";
 
 
 const Auth = createNativeStackNavigator();

@@ -1,16 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/core";
-import { BigCircle } from "~/assets";
+import ImagePicker from "react-native-image-crop-picker";
 import { FullPage, Option } from "~/components";
-import { Button, ProfilePicContainer } from "./Profile.styles";
+import { Button, ProfilePicContainer, UserImage } from "./Profile.styles";
 import { NavigateTo } from "~/services";
 
 export const Profile: React.FC = () => {
   const navigation = useNavigation();
   const goBack = () => navigation.goBack();
-  
+  const [ imageUri, setImageUri] = useState("");
   const goToChangeNickname = () => NavigateTo("change_nickname", navigation, {});
   const goToChangeEmail = () => NavigateTo("change_email", navigation, {});
+  
+  const pickImage = () => ImagePicker.openPicker({
+    width: 300,
+    height: 400,
+    mediaType: "photo",
+    cropping: true,
+    includeBase64: true,
+  }).then(image => setImageUri(`data:${image.mime};base64,${image.data}`));
+   
 
   return (
     <FullPage
@@ -20,8 +29,8 @@ export const Profile: React.FC = () => {
       buttonDangerTitle="Exit"
     >
       <ProfilePicContainer>
-        <Button>
-          <BigCircle />
+        <Button onPress={pickImage}>
+          <UserImage source={{ uri: imageUri}} />
         </Button>
       </ProfilePicContainer>
       <Option title="Nickname" content="Hugo" onPress={goToChangeNickname}/>

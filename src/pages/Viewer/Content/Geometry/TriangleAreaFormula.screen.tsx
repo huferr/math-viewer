@@ -1,5 +1,4 @@
 import React, { useRef, useState } from "react";
-import { TextInputProps } from "react-native";
 import { Button, InputFormula } from "~/components";
 import { triangleAreaFormula } from "~/services";
 import { HeadingSmall, Paragraph, Subtitle } from "~/styles";

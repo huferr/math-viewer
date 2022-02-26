@@ -5,11 +5,11 @@ import { NavigateTo } from "~/services";
 import { Heading, HeadingSmall, Paragraph, Subtitle } from "~/styles";
 import { viewerFormulas, ViewerFormulaTypes } from "~/data";
 import { useAppDispatch, useAppSelector } from "~app/hooks";
-import { closeViewerModal, selectViewerModalState } from "~app/slices/InfoModal.slice";
+import { viewerModal, selectModalState } from "~app/slices/InfoModal.slice";
 
 export const Viewer: React.FC = () => {
   // global state
-  const isOpenModal = useAppSelector(selectViewerModalState);
+  const isOpenModal = useAppSelector((state) => selectModalState(state).isViewerModalOpen);
   const dispatch = useAppDispatch();
   
   const navigation = useNavigation();
@@ -41,7 +41,7 @@ export const Viewer: React.FC = () => {
         
       {handleFormulas}
         
-      <Modal isOpen={isOpenModal} onClose={() => dispatch(closeViewerModal())}>
+      <Modal isOpen={isOpenModal} onClose={() => dispatch(viewerModal(false))}>
         <Heading bold textAlign="center">Welcome to</Heading>
         <Heading green textAlign="center">Viewer</Heading>
         <Paragraph marginTop={20}>

@@ -15,24 +15,17 @@ export const infoModalSlice = createSlice({
   name: "infoModal",
   initialState,
   reducers: {
-    openViewerModal: (state) => {
-      state.isViewerModalOpen = true;
+    viewerModal: (state, action) => {
+      state.isViewerModalOpen = action.payload;
     },
-    closeViewerModal: (state) => {
-      state.isViewerModalOpen = false;
+    mathscoreModal: (state, action) => {
+      state.isMathscoreModalOpen = action.payload;
     },
-    openMathscoreModal: (state) => {
-      state.isMathscoreModalOpen = true;
-    },
-    closeMathscoreModal: (state) => {
-      state.isMathscoreModalOpen = false;
-    }
   }
 });
 
-export const { openViewerModal, closeViewerModal, openMathscoreModal, closeMathscoreModal } = infoModalSlice.actions;
+export const { viewerModal, mathscoreModal } = infoModalSlice.actions;
 
-export const selectViewerModalState = (state: RootState) => state.infoModal.isViewerModalOpen;
-export const selectMathscoreModalState = (state: RootState) => state.infoModal.isMathscoreModalOpen;
+export const selectModalState = (state: RootState) => state.infoModal;
 
 export const viewerInfoModalReducer = infoModalSlice.reducer;

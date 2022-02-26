@@ -6,11 +6,11 @@ import { Heading, HeadingSmall, Paragraph, Subtitle } from "~/styles";
 import { InfoWrapper, MathscoreView, UserMathscore, UserName, UsersRank, UsersRankingInfo } from "./Mathscore.styles";
 import { userRanking, UserRankingTypes } from "~/data";
 import { useAppDispatch, useAppSelector } from "~app/hooks";
-import { closeMathscoreModal, selectMathscoreModalState } from "~app/slices/InfoModal.slice";
+import { mathscoreModal, selectModalState } from "~app/slices/InfoModal.slice";
 
 export const Mathscore: React.FC = () => {
-  // global state
-  const isOpenModal = useAppSelector(selectMathscoreModalState);
+
+  const isOpenModal = useAppSelector(state => selectModalState(state).isMathscoreModalOpen);
   const dispatch = useAppDispatch();
 
   const navigation = useNavigation();
@@ -75,7 +75,7 @@ export const Mathscore: React.FC = () => {
         
         {handleUsers}
         
-        <Modal isOpen={isOpenModal} onClose={() => dispatch(closeMathscoreModal())}>
+        <Modal isOpen={isOpenModal} onClose={() => dispatch(mathscoreModal(false))}>
           <Heading bold textAlign="center">Welcome to</Heading>
           <Heading green textAlign="center">Mathscore</Heading>
           <Paragraph marginTop={20}>

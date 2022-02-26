@@ -11,7 +11,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
   const { children, onClose, position = "center" } = props;
   return (
     <Container
-      backdropPressToClose
+      backdropPressToClose={false}
       backButtonClose
       position={position}
       swipeArea={40}

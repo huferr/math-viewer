@@ -2,6 +2,8 @@ import React, { useEffect, useRef } from "react";
 import { NavigationContainer, useNavigationContainerRef } from "@react-navigation/native";
 import { Routes } from "./routes";
 import SplashScreen from "react-native-splash-screen";
+import { store } from "~app/store";
+import { Provider } from "react-redux";
 
 export const App: React.FC = () => {
 
@@ -30,7 +32,9 @@ export const App: React.FC = () => {
       onReady={onReady}
       onStateChange={onStateChange}
     >
-      <Routes />
+      <Provider store={store}>
+        <Routes />
+      </Provider>
     </NavigationContainer>
   );
 };

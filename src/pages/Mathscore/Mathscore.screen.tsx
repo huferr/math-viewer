@@ -1,15 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/core";
 import { FullPage, Input, Modal, OptionList } from "~/components";
 import { NavigateTo } from "~/services";
 import { Heading, HeadingSmall, Paragraph, Subtitle } from "~/styles";
 import { InfoWrapper, MathscoreView, UserMathscore, UserName, UsersRank, UsersRankingInfo } from "./Mathscore.styles";
 import { userRanking, UserRankingTypes } from "~/data";
+import { useAppDispatch, useAppSelector } from "~app/hooks";
+import { closeMathscoreModal, selectMathscoreModalState } from "~app/slices/InfoModal.slice";
 
 export const Mathscore: React.FC = () => {
+  // global state
+  const isOpenModal = useAppSelector(selectMathscoreModalState);
+  const dispatch = useAppDispatch();
+
   const navigation = useNavigation();
   const goBack = () => NavigateTo("dashboard", navigation, {}); 
-  const [openOnboardingModal, setOpenOnboardingModal] = useState(false);
+
   const [searchValue, setSearchValue] = useState("");
 
   const quickSearch = (array: UserRankingTypes[], search: string ) => 
@@ -19,9 +25,6 @@ export const Mathscore: React.FC = () => {
     quickSearch(userRanking, searchValue).map((item: UserRankingTypes) => <OptionList mathscore={item.mathscore} rank={item.position} key={item.user} content={item.user} />)
   );
 
-  useEffect(() => {
-    setTimeout(() => setOpenOnboardingModal(true), 500);
-  },[]);
   
   return (
     <>
@@ -72,7 +75,7 @@ export const Mathscore: React.FC = () => {
         
         {handleUsers}
         
-        <Modal isOpen={openOnboardingModal} onClose={() => setOpenOnboardingModal(false)}>
+        <Modal isOpen={isOpenModal} onClose={() => dispatch(closeMathscoreModal())}>
           <Heading bold textAlign="center">Welcome to</Heading>
           <Heading green textAlign="center">Mathscore</Heading>
           <Paragraph marginTop={20}>

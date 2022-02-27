@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React from "react";
 import { TextInputProps } from "react-native";
 import { colors } from "~/styles";
 import { InputField } from "./InputFormula.styles";

@@ -2,7 +2,7 @@ import React from "react";
 import { Platform } from "react-native";
 import { Button } from "..";
 import { GoBackIcon } from "~/assets";
-import { Heading } from "~/styles";
+import * as Text from "~/styles/typography";
 import { 
   Body,
   ButtonContainer,
@@ -90,16 +90,16 @@ export const FullPage: React.FC<FullPageProps> = (props) => {
             {greenTitleFirst ? 
               (
                 <TextWrapper>
-                  <Heading fontSize={titleFontSize} green>{greenTitle}</Heading>
+                  <Text.Heading fontSize={titleFontSize} green>{greenTitle}</Text.Heading>
                   {whiteTitle ? "  " : null}
-                  <Heading fontSize={titleFontSize} bold>{whiteTitle}</Heading>
+                  <Text.Heading fontSize={titleFontSize} bold>{whiteTitle}</Text.Heading>
                 </TextWrapper>
               )
               : (
                 <TextWrapper>
-                  <Heading fontSize={titleFontSize} bold>{whiteTitle}</Heading>
+                  <Text.Heading fontSize={titleFontSize} bold>{whiteTitle}</Text.Heading>
                   {greenTitle ? "  " : null}
-                  <Heading fontSize={titleFontSize} green>{greenTitle}</Heading>
+                  <Text.Heading fontSize={titleFontSize} green>{greenTitle}</Text.Heading>
                 </TextWrapper>
               )}
           </TitleContainer>

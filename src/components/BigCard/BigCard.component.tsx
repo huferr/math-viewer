@@ -1,5 +1,5 @@
 import React from "react";
-import { HeadingSmall, Subtitle } from "~/styles";
+import * as Text from "~/styles/typography";
 import { Container, Content } from "./BigCard.styles";
 
 export interface BigCardProps {
@@ -15,10 +15,10 @@ export const BigCard: React.FC<BigCardProps> = (props) => {
 
   return (
     <Container marginBottom={marginBottom}>
-      <HeadingSmall green>{title}</HeadingSmall>
+      <Text.HeadingSmall green>{title}</Text.HeadingSmall>
       <Content onPress={onPress}>
         {icon}
-        <Subtitle textAlign="center" width="90%">{subtitle}</Subtitle>
+        <Text.Subtitle textAlign="center" width="90%">{subtitle}</Text.Subtitle>
       </Content>
     </Container>
   );

@@ -1,6 +1,6 @@
 import React from "react";
 import { ArrowRightIcon } from "~/assets";
-import { Paragraph } from "~/styles";
+import * as Text from "~/styles/typography";
 import { Container, Content, ContentWrapper } from "./OptionList.styles";
 
 interface OptionListProps {
@@ -16,11 +16,11 @@ export const OptionList: React.FC<OptionListProps> = (props) => {
   return (
     <Container onPress={onPress}>
       <ContentWrapper rank={Boolean(rank)}>
-        {rank ? <Paragraph green italic style={{marginRight: 20}}>#{rank}</Paragraph> : null}
-        <Paragraph>{content}</Paragraph>
+        {rank ? <Text.Paragraph green italic style={{marginRight: 20}}>#{rank}</Text.Paragraph> : null}
+        <Text.Paragraph>{content}</Text.Paragraph>
         {hasArrow && <ArrowRightIcon />}
         <Content>
-          {mathscore ? <Paragraph green italic style={{marginRight: 20}}>{mathscore}</Paragraph> : null}
+          {mathscore ? <Text.Paragraph green italic style={{marginRight: 20}}>{mathscore}</Text.Paragraph> : null}
         </Content> 
       </ContentWrapper>
     </Container>

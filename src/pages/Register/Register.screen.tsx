@@ -3,8 +3,7 @@ import { FullPage, Input } from "~/components";
 import { TopIcon } from "./Register.styles";
 import { useNavigation } from "@react-navigation/core";
 import { NavigateTo } from "~/services";
-import { useAppDispatch } from "~app/hooks";
-import { verifyEmailFor } from "~app/slices/verifyEmailFor.slice";
+import { useAppDispatch, verifyEmailFor } from "~app";
 
 export const Register: React.FC = () => {
   const dispatch = useAppDispatch();

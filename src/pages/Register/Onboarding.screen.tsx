@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Content, TitleWrapper } from "./Register.styles";
 import { useNavigation } from "@react-navigation/core";
 import { NavigateTo } from "~/services";
-import { Heading } from "~/styles";
+import * as Text from "~/styles/typography";
 
 export const Onboarding: React.FC = () => {
 
@@ -16,9 +16,9 @@ export const Onboarding: React.FC = () => {
 
   return (
     <Content>
-      <Heading bold>Welcome to</Heading>
+      <Text.Heading bold>Welcome to</Text.Heading>
       <TitleWrapper>
-        <Heading green>Math, </Heading><Heading>Hugo!</Heading>
+        <Text.Heading green>Math, </Text.Heading><Text.Heading>Hugo!</Text.Heading>
       </TitleWrapper>
     </Content>
   );

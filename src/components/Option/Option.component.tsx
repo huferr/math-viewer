@@ -1,6 +1,6 @@
 import React from "react";
 import { EditIcon } from "~/assets/icons";
-import { Paragraph } from "~/styles";
+import * as Text from "~/styles/typography";
 import { Container, ContentWrapper, IconWrapper } from "./Option.styles";
 
 interface OptionProps {
@@ -14,8 +14,8 @@ export const Option: React.FC<OptionProps> = (props) => {
   return (
     <Container onPress={onPress}>
       <ContentWrapper>
-        <Paragraph green marginTop={5} marginBottom={5}>{title}</Paragraph>
-        <Paragraph>{content}</Paragraph>
+        <Text.Paragraph green marginTop={5} marginBottom={5}>{title}</Text.Paragraph>
+        <Text.Paragraph>{content}</Text.Paragraph>
       </ContentWrapper>
       <IconWrapper>
         <EditIcon />

@@ -4,8 +4,7 @@ import { FullPage, Input, Modal, OptionList } from "~/components";
 import { NavigateTo } from "~/services";
 import { Heading, HeadingSmall, Paragraph, Subtitle } from "~/styles";
 import { viewerFormulas, ViewerFormulaTypes } from "~/data";
-import { useAppDispatch, useAppSelector } from "~app/hooks";
-import { viewerModal, selectModalState } from "~app/slices/InfoModal.slice";
+import { useAppDispatch, useAppSelector, viewerModal, selectModalState } from "~app";
 
 export const Viewer: React.FC = () => {
   // global state

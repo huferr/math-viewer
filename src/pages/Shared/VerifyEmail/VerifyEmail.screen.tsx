@@ -4,8 +4,7 @@ import { useNavigation } from "@react-navigation/core";
 import { FullPage, InputPinCode } from "~/components";
 import { NavigateTo } from "~/services";
 import { Subtitle } from "~/styles";
-import { useAppSelector } from "~app/hooks";
-import { selectVerifyEmailForState } from "~app/slices/verifyEmailFor.slice";
+import { useAppSelector, selectVerifyEmailForState } from "~app";
 
 export const VerifyEmail: React.FC = () => {
   const camefromPage = useAppSelector(selectVerifyEmailForState);

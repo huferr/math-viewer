@@ -2,7 +2,8 @@ import React from "react";
 import { FullPage, Input } from "~/components";
 import { useNavigation } from "@react-navigation/core";
 import { NavigateTo } from "~/services";
-import { Subtitle, TopIcon } from "./RecoveryPassword.styles";
+import { TopIcon } from "./RecoveryPassword.styles";
+import * as Text from "~/styles/typography";
 
 export const NewPassword: React.FC = () => {
 
@@ -23,7 +24,7 @@ export const NewPassword: React.FC = () => {
       enableAvoidingView={false}
     >
       <TopIcon green>β</TopIcon>
-      <Subtitle>Set and confirm your new password</Subtitle>
+      <Text.Subtitle marginTop={30} marginBottom={30} textAlign="center">Set and confirm your new password</Text.Subtitle>
       <Input type="primary" style={{marginTop: 20}} placeholder="New password" errorText="Senha do caralho"/>
       <Input type="primary" style={{marginTop: 20}} placeholder="Confirm Password" errorText="Senha do caralho"/>
     </FullPage>

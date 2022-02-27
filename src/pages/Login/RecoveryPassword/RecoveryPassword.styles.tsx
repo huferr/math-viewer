@@ -9,14 +9,6 @@ export const TopIcon = styled.Text<{green?: boolean}>`
   text-align: center;
 `;
 
-export const Subtitle = styled.Text`
-  margin: 30px 0px;
-  color: ${colors.white};
-  font-size: 18px;
-  font-weight: 300;
-  text-align: center;
-`;
-
 export const Content = styled.View`
   flex: 1;
   position: relative;

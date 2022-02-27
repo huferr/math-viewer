@@ -3,7 +3,7 @@ import { TopIcon } from "./VerifyEmail.styles";
 import { useNavigation } from "@react-navigation/core";
 import { FullPage, InputPinCode } from "~/components";
 import { NavigateTo } from "~/services";
-import { Subtitle } from "~/styles";
+import * as Text from "~/styles/typography";
 import { useAppSelector, selectVerifyEmailForState } from "~app";
 
 export const VerifyEmail: React.FC = () => {
@@ -35,13 +35,13 @@ export const VerifyEmail: React.FC = () => {
       verticalBounce={false}
     >
       <TopIcon green>∆</TopIcon>
-      <Subtitle
+      <Text.Subtitle
         marginTop={30}
         marginBottom={30}
         textAlign="center"
       >
         Enter the verification code we sent you in your email
-      </Subtitle>
+      </Text.Subtitle>
       <InputPinCode
         secure
         size={5} 

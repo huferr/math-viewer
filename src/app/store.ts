@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { viewerInfoModalReducer } from "./slices/InfoModal.slice";
+import { verifyEmailForReducer } from "./slices/verifyEmailFor.slice";
 
 export const store = configureStore({
   reducer: {
     infoModal: viewerInfoModalReducer,
+    verifyEmailFor: verifyEmailForReducer,
   }
 });
 

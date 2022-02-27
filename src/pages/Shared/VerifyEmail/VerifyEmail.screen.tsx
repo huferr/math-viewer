@@ -3,24 +3,12 @@ import { TopIcon } from "./VerifyEmail.styles";
 import { useNavigation } from "@react-navigation/core";
 import { FullPage, InputPinCode } from "~/components";
 import { NavigateTo } from "~/services";
-import { useRoute } from "@react-navigation/native";
 import { Subtitle } from "~/styles";
-
-interface params {
-  isToOnboarding: boolean,
-  isToDashboard: boolean,
-  isToNewPassword: boolean,
-  isToSuccessChangeEmail: boolean,
-}
+import { useAppSelector } from "~app/hooks";
+import { selectVerifyEmailForState } from "~app/slices/verifyEmailFor.slice";
 
 export const VerifyEmail: React.FC = () => {
-  const route = useRoute();
-  const {
-    isToOnboarding,
-    isToDashboard,
-    isToNewPassword,
-    isToSuccessChangeEmail
-  } = route.params as params;
+  const camefromPage = useAppSelector(selectVerifyEmailForState);
   const navigation = useNavigation();
   const goBack = () => navigation.goBack();
 
@@ -28,13 +16,13 @@ export const VerifyEmail: React.FC = () => {
 
   const goToNextPage = (value: string) => {
     // validade and go to onboarding screen
-    if(value === "11111" && isToOnboarding) NavigateTo("onboarding", navigation, {});
+    if(value === "11111" && camefromPage === "register") NavigateTo("onboarding", navigation, {});
     // validade and go to dashboard screen
-    if(value === "11111" && isToDashboard) NavigateTo("welcome", navigation, {});
+    if(value === "11111" && camefromPage === "login") NavigateTo("welcome", navigation, {});
     // validate and go to newPassword screen
-    if(value === "11111" && isToNewPassword) NavigateTo("new_password", navigation, {});
+    if(value === "11111" && camefromPage === "recovery_password") NavigateTo("new_password", navigation, {});
     // validate and go to success_change_email screen
-    if(value === "11111" && isToSuccessChangeEmail) NavigateTo("change_email", navigation, {});
+    if(value === "11111" && camefromPage === "change_email") NavigateTo("change_email", navigation, {});
   };
  
   return (

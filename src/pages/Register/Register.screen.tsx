@@ -3,13 +3,18 @@ import { FullPage, Input } from "~/components";
 import { TopIcon } from "./Register.styles";
 import { useNavigation } from "@react-navigation/core";
 import { NavigateTo } from "~/services";
+import { useAppDispatch } from "~app/hooks";
+import { verifyEmailFor } from "~app/slices/verifyEmailFor.slice";
 
 export const Register: React.FC = () => {
-
+  const dispatch = useAppDispatch();
   const navigation = useNavigation();
 
   const goBack = () => navigation.goBack();
-  const goToVerifyEmail = () => NavigateTo("verify_email", navigation, { isToOnboarding: true });
+  const goToVerifyEmail = () => {
+    NavigateTo("verify_email", navigation, { isToOnboarding: true });
+    dispatch(verifyEmailFor("register"));
+  };
 
   return (
     <FullPage 

@@ -3,13 +3,19 @@ import { useNavigation } from "@react-navigation/core";
 import { FullPage, Input, Modal } from "~/components";
 import { Heading, Subtitle } from "~/styles";
 import { NavigateTo } from "~/services";
+import { useAppDispatch } from "~app/hooks";
+import { verifyEmailFor } from "~app/slices/verifyEmailFor.slice";
 
 export const ChangeEmail: React.FC = () => {
+  const dispatch = useAppDispatch();
   const navigation = useNavigation();
   const goBack = () => navigation.goBack();
   const [openSuccessModal, setOpenSuccessModal] = useState(false);
   
-  const goToVerifyEmail = () => NavigateTo("verify_email", navigation, { isToSuccessChangeEmail: true });
+  const goToVerifyEmail = () => {
+    NavigateTo("verify_email", navigation);
+    dispatch(verifyEmailFor("change_email"));
+  };
 
   return (
     <FullPage

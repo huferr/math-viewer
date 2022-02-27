@@ -3,13 +3,18 @@ import { FullPage, Input } from "~/components";
 import { useNavigation } from "@react-navigation/core";
 import { NavigateTo } from "~/services";
 import { Subtitle, TopIcon } from "./RecoveryPassword.styles";
+import { useAppDispatch } from "~app/hooks";
+import { verifyEmailFor } from "~app/slices/verifyEmailFor.slice";
 
 export const EnterRecoveryEmail: React.FC = () => {
-
+  const dispatch = useAppDispatch();
   const navigation = useNavigation();
 
   const goBack = () => NavigateTo("login", navigation, {});
-  const goToVerifyEmail = () => NavigateTo("verify_email", navigation, { isToNewPassword: true });
+  const goToVerifyEmail = () => {
+    NavigateTo("verify_email", navigation, { isToNewPassword: true });
+    dispatch(verifyEmailFor("recovery_password"));
+  };
 
   return (
     <FullPage

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/core";
 import { FullPage, Input, Modal, OptionList } from "~/components";
 import { NavigateTo } from "~/services";
-import { Heading, HeadingSmall, Paragraph, Subtitle } from "~/styles";
+import * as Text from "~/styles/typography";
 import { InfoWrapper, MathscoreView, UserMathscore, UserName, UsersRank, UsersRankingInfo } from "./Mathscore.styles";
 import { userRanking, UserRankingTypes } from "~/data";
 import { useAppDispatch, useAppSelector } from "~app/hooks";
@@ -29,64 +29,64 @@ export const Mathscore: React.FC = () => {
   return (
     <>
       <FullPage onPressGoBack={goBack}>
-        <HeadingSmall
+        <Text.HeadingSmall
           green
           italic
           textAlign="center"
           marginTop={30}
         >
         Mathscore
-        </HeadingSmall>
+        </Text.HeadingSmall>
       
         <InfoWrapper>
           <MathscoreView>
-            <Subtitle green>
+            <Text.Subtitle green>
           Mathscore
-            </Subtitle>
-            <Subtitle>
+            </Text.Subtitle>
+            <Text.Subtitle>
             9999
-            </Subtitle>
+            </Text.Subtitle>
           
           </MathscoreView>
 
           <MathscoreView>
-            <Subtitle green>
+            <Text.Subtitle green>
           Your Position
-            </Subtitle>
-            <Subtitle>
+            </Text.Subtitle>
+            <Text.Subtitle>
             9999
-            </Subtitle>
+            </Text.Subtitle>
           </MathscoreView>
         </InfoWrapper>
 
-        <HeadingSmall green marginTop={30} marginBottom={30}>Global Ranking</HeadingSmall>
+        <Text.HeadingSmall green marginTop={30} marginBottom={30}>Global Ranking</Text.HeadingSmall>
         <Input placeholder="Search for users" type="search" value={searchValue} onChangeText={setSearchValue} />
         <UsersRankingInfo>
           <UsersRank>
-            <Paragraph>Pos.</Paragraph>  
+            <Text.Paragraph>Pos.</Text.Paragraph>  
           </UsersRank>
           <UserName>
-            <Paragraph>Nickname</Paragraph>  
+            <Text.Paragraph>Nickname</Text.Paragraph>  
           </UserName>
           <UserMathscore>
-            <Paragraph>Mathscore</Paragraph>  
+            <Text.Paragraph>Mathscore</Text.Paragraph>  
           </UserMathscore>
         </UsersRankingInfo>
         
         {handleUsers}
         
         <Modal isOpen={isOpenModal} onClose={() => dispatch(mathscoreModal(false))}>
-          <Heading bold textAlign="center">Welcome to</Heading>
-          <Heading green textAlign="center">Mathscore</Heading>
-          <Paragraph marginTop={20}>
-            <Paragraph green>Mathscore</Paragraph>
+          <Text.Heading bold textAlign="center">Welcome to</Text.Heading>
+          <Text.Heading green textAlign="center">Mathscore</Text.Heading>
+          <Text.Paragraph marginTop={20}>
+            <Text.Paragraph green>Mathscore</Text.Paragraph>
             {" "}
             are our points. Finish some
             {" "}
-            <Paragraph green>homeworks</Paragraph>
+            <Text.Paragraph green>homeworks</Text.Paragraph>
             {" "}
-            to receive lots of them. Stay on top of our <Paragraph green>global ranking</Paragraph>!
-          </Paragraph>
+            to receive lots of them. Stay on top of our <Text.Paragraph green>global ranking</Text.Paragraph>!
+          </Text.Paragraph>
         </Modal>
       </FullPage>
     </>

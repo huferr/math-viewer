@@ -22,7 +22,7 @@ import {
 import { NavigateTo } from "~/services";
 
 // styles
-import { HeadingSmall } from "~/styles";
+import * as Text from "~/styles/typography";
 import { ProfileIcon, SearchIcon } from "~/assets/icons";
 import { Button, Card, CardWrapper, Header } from "./Dashboard.styles";
 
@@ -55,11 +55,11 @@ export const Dashboard: React.FC = () => {
         <Button onPress={() => setOpenSearchModal(true)}>
           <SearchIcon />
         </Button>
-        <HeadingSmall bold>
+        <Text.HeadingSmall bold>
           Hello,
           {" "}
-          <HeadingSmall green>Hugo</HeadingSmall>
-        </HeadingSmall>
+          <Text.HeadingSmall green>Hugo</Text.HeadingSmall>
+        </Text.HeadingSmall>
         <Button onPress={() => goToPage("profile")}>
           <ProfileIcon />
         </Button>
@@ -67,8 +67,8 @@ export const Dashboard: React.FC = () => {
 
       <CardWrapper>
         <Card onPress={() => goToPage("mathscore")}>
-          <HeadingSmall green>Mathscore</HeadingSmall>
-          <HeadingSmall italic>9999</HeadingSmall>
+          <Text.HeadingSmall green>Mathscore</Text.HeadingSmall>
+          <Text.HeadingSmall italic>9999</Text.HeadingSmall>
         </Card>
       </CardWrapper>
 
@@ -84,7 +84,7 @@ export const Dashboard: React.FC = () => {
       ))}
 
       <ModalFullHeight visible={openSearchModal} onRequestClose={() => setOpenSearchModal(false)}>
-        <HeadingSmall
+        <Text.HeadingSmall
           textAlign="center"
           marginTop={30}
           marginBottom={30}
@@ -93,10 +93,10 @@ export const Dashboard: React.FC = () => {
         >
           What
           {" "} 
-          <HeadingSmall italic>
+          <Text.HeadingSmall italic>
           are you looking for?
-          </HeadingSmall>
-        </HeadingSmall>
+          </Text.HeadingSmall>
+        </Text.HeadingSmall>
         <Input type="search" placeholder="Search" value={searchValue} onChangeText={setSearchValue} />
         <FlatList 
           data={quickSearch(dashboardSearchOptions, searchValue)}

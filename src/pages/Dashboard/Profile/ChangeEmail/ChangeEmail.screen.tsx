@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+import * as Text from "~/styles/typography";
 import { useNavigation } from "@react-navigation/core";
 import { FullPage, Input, Modal } from "~/components";
-import { Heading, Subtitle } from "~/styles";
 import { NavigateTo } from "~/services";
 import { useAppDispatch, verifyEmailFor } from "~app";
 
@@ -25,18 +25,18 @@ export const ChangeEmail: React.FC = () => {
       buttonPrimaryTitle="Continue"
       onPressPrimary={goToVerifyEmail}
     >
-      <Subtitle italic marginTop={50} marginBottom={50} textAlign="center">
+      <Text.Subtitle italic marginTop={50} marginBottom={50} textAlign="center">
         Enter your
         {" "}
-        <Subtitle green italic>new Email</Subtitle>
+        <Text.Subtitle green italic>new Email</Text.Subtitle>
         {" "}
         below.
-      </Subtitle>
+      </Text.Subtitle>
       <Input type="minimal" placeholder="New email"/>
 
       <Modal isOpen={openSuccessModal} onClose={() => setOpenSuccessModal(false)}>
-        <Heading bold textAlign="center">Done.</Heading>
-        <Heading green textAlign="center">your email was changed!</Heading>
+        <Text.Heading bold textAlign="center">Done.</Text.Heading>
+        <Text.Heading green textAlign="center">your email was changed!</Text.Heading>
       </Modal>
     </FullPage>
   );

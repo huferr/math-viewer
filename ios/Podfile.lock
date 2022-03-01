@@ -345,6 +345,8 @@ PODS:
     - React-jsi (= 0.66.1)
     - React-logger (= 0.66.1)
     - React-perflogger (= 0.66.1)
+  - RNCAsyncStorage (1.16.1):
+    - React-Core
   - RNDeviceInfo (8.4.8):
     - React-Core
   - RNImageCropPicker (0.37.2):
@@ -422,6 +424,7 @@ DEPENDENCIES:
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - React-runtimeexecutor (from `../node_modules/react-native/ReactCommon/runtimeexecutor`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
   - RNDeviceInfo (from `../node_modules/react-native-device-info`)
   - RNImageCropPicker (from `../node_modules/react-native-image-crop-picker`)
   - RNScreens (from `../node_modules/react-native-screens`)
@@ -512,6 +515,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/runtimeexecutor"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RNCAsyncStorage:
+    :path: "../node_modules/@react-native-async-storage/async-storage"
   RNDeviceInfo:
     :path: "../node_modules/react-native-device-info"
   RNImageCropPicker:
@@ -570,6 +575,7 @@ SPEC CHECKSUMS:
   React-RCTVibration: 6600b5eed7c0fda4a433fa1198d1cb2690151791
   React-runtimeexecutor: 33a949a51bec5f8a3c9e8d8092deb259600d761e
   ReactCommon: 620442811dc6f707b4bf5e3b27d4f19c12d5a821
+  RNCAsyncStorage: b49b4e38a1548d03b74b30e558a1d18465b94be7
   RNDeviceInfo: 0400a6d0c94186d1120c3cbd97b23abc022187a9
   RNImageCropPicker: 448d3c6e923fde3466b49caf3c2457c2a0ba02dd
   RNScreens: 4d79118be80f79fa1f4aa131909a1d6e86280af3

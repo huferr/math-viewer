@@ -4,7 +4,7 @@ import { END_POINT } from "~config";
 
 export const useGetUsers = () => {
   
-  const path = gql`
+  const query = gql`
     query Users {
         users {
           id
@@ -13,7 +13,7 @@ export const useGetUsers = () => {
       }
     `;
   
-  const fetch = async () => await request(END_POINT, path);
+  const fetch = async () => await request(END_POINT, query);
   
   return useQuery("users", fetch);
 };

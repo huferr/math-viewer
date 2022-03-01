@@ -19,7 +19,7 @@ export interface InputProps extends TextInputProps {
 }
 
 export const Input: React.FC<InputProps> = (props) => {
-  const { style, placeholder, errorText, type, value, onChangeText, autoFocus } = props;
+  const { style, placeholder, errorText, type, value, onChangeText, autoFocus, secureTextEntry } = props;
 
   return (
     <Container style={style}>
@@ -37,6 +37,8 @@ export const Input: React.FC<InputProps> = (props) => {
           placeholder={placeholder} 
           placeholderTextColor={colors.lightGray} 
           selectionColor={colors.primary}
+          autoCapitalize="none"
+          secureTextEntry={secureTextEntry}
         />
         {type === "search" &&       
           <CloseButton onPress={() => onChangeText && onChangeText("")}>

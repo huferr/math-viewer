@@ -4,6 +4,8 @@ import { Routes } from "./routes";
 import SplashScreen from "react-native-splash-screen";
 import { store } from "~app";
 import { Provider } from "react-redux";
+import { QueryClientProvider } from "react-query";
+import { queryClient } from "./query";
 
 export const App: React.FC = () => {
 
@@ -32,9 +34,11 @@ export const App: React.FC = () => {
       onReady={onReady}
       onStateChange={onStateChange}
     >
-      <Provider store={store}>
-        <Routes />
-      </Provider>
+      <QueryClientProvider client={queryClient}>
+        <Provider store={store}>
+          <Routes />
+        </Provider>
+      </QueryClientProvider>
     </NavigationContainer>
   );
 };

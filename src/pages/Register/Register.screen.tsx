@@ -27,10 +27,34 @@ export const Register: React.FC = () => {
       enableAvoidingView={true}
     >
       <TopIcon>λ</TopIcon>
-      <Input type="primary" style={{marginTop: 10}} placeholder="Nickname" errorText="Nickname do caralho"/>
-      <Input type="primary" style={{marginTop: 10}} placeholder="Email" errorText="Email do caralho"/>
-      <Input type="primary" style={{marginTop: 10}} placeholder="Password" errorText="Password do caralho"/>
-      <Input type="primary" style={{marginTop: 10}} placeholder="Confirm password" errorText="Confirm password do caralho"/>
+      <Input 
+        type="primary"
+        label="Nickname" 
+        style={{marginTop: 10}}
+        placeholder="Nickname" 
+        errorText="Nickname do caralho"
+      />
+      <Input 
+        type="primary"
+        label="E-mail" 
+        style={{marginTop: 10}}
+        placeholder="Email" 
+        errorText="Email do caralho"
+      />
+      <Input 
+        type="primary"
+        label="Password" 
+        style={{marginTop: 10}}
+        placeholder="Password" 
+        errorText="Password do caralho"
+      />
+      <Input 
+        type="primary"
+        label="Confirm Password" 
+        style={{marginTop: 10}}
+        placeholder="Confirm password" 
+        errorText="Confirm password do caralho"
+      />
     </FullPage>
   );
 };

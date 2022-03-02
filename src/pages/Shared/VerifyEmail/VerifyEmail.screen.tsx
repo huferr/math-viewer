@@ -5,6 +5,8 @@ import { FullPage, InputPinCode } from "~/components";
 import { NavigateTo } from "~/services";
 import * as Text from "~/styles/typography";
 import { useAppSelector, selectVerifyEmailForState } from "~app";
+import { useUser } from "~graphql/queries/useUser";
+import { useGetUsers } from "~graphql/queries/useGetUsers";
 
 export const VerifyEmail: React.FC = () => {
   const camefromPage = useAppSelector(selectVerifyEmailForState);
@@ -17,7 +19,7 @@ export const VerifyEmail: React.FC = () => {
     // validade and go to onboarding screen
     if(value === "11111" && camefromPage === "register") NavigateTo("onboarding", navigation, {});
     // validade and go to dashboard screen
-    if(value === "11111" && camefromPage === "login") NavigateTo("welcome", navigation, {});
+    if(value === "11111" && camefromPage === "login") NavigateTo("onboarding", navigation, {});
     // validate and go to newPassword screen
     if(value === "11111" && camefromPage === "recovery_password") NavigateTo("new_password", navigation, {});
     // validate and go to success_change_email screen

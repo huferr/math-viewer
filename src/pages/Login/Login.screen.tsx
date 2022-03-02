@@ -63,17 +63,19 @@ export const Login: React.FC = () => {
     >
       <Pi>π</Pi>
       <Input 
-        type="primary" 
+        type="primary"
+        label="E-mail" 
         style={{marginTop: 70}} 
-        placeholder="Email" 
+        placeholder="Enter your e-mail" 
         errorText={loginData.emailError} 
         value={loginData.email}
         onChangeText={(e: string) => setLoginData({...loginData, email: e, emailError: ""})}
       />
       <Input 
-        type="primary" 
+        type="primary"
+        label="Password"  
         style={{marginTop: 10}} 
-        placeholder="Password" 
+        placeholder="Enter your password" 
         errorText={loginData.passwordError} 
         value={loginData.password}
         onChangeText={(p: string) => setLoginData({...loginData, password: p, passwordError: ""})}

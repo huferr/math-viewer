@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FullPage, Input } from "~/components";
 import { Pi } from "./Login.styles";
 import { useNavigation } from "@react-navigation/core";
@@ -7,6 +7,7 @@ import { useAppDispatch } from "~app/hooks";
 import { verifyEmailFor } from "~app/slices/verifyEmailFor.slice";
 import { useLogin } from "~graphql/mutations/useLogin";
 import { getData } from "~services/general/storage";
+import SplashScreen from "react-native-splash-screen";
 
 export const Login: React.FC = () => {
 
@@ -20,11 +21,11 @@ export const Login: React.FC = () => {
     passwordError: "",
   });
 
-  const { data, isLoading: isLoginLoading, mutateAsync: login } = useLogin();
+  const { isLoading: isLoginLoading, mutateAsync: login, isSuccess } = useLogin();
   
   const goBack = () => NavigateTo("welcome", navigation, {});
 
-  const goToVerifyEmail = async () => {
+  const handleLogin = async () => {
     try {
       await login({
         userLoginInput: {
@@ -32,9 +33,6 @@ export const Login: React.FC = () => {
           password: loginData.password,
         }
       });
-
-      NavigateTo("verify_email", navigation, { isToDashboard: true });
-      dispatch(verifyEmailFor("login"));
       setLoginData({
         email: "",
         password: "",
@@ -46,6 +44,7 @@ export const Login: React.FC = () => {
       if ((e.message).includes("WRONG_PASSWORD")) setLoginData({...loginData, passwordError: "Senha inválida"});
     }
   };
+
   const goToRecoveryPassword = () => NavigateTo("enter_recovery_email", navigation, {});
 
   return (
@@ -55,7 +54,7 @@ export const Login: React.FC = () => {
       onPressGoBack={goBack}
       buttonPrimaryTitle="Continue"
       loadingPrimaryBtn={isLoginLoading}
-      onPressPrimary={goToVerifyEmail}
+      onPressPrimary={handleLogin}
       buttonSecondaryTitle="Forgot my password"
       onPressSecondary={goToRecoveryPassword}
       verticalBounce={false}

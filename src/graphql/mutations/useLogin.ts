@@ -1,6 +1,7 @@
 import request, { gql } from "graphql-request";
 import { useMutation } from "react-query";
 import { END_POINT } from "~config";
+import { queryClient } from "~query";
 import { storeData } from "~services/general/storage";
 import { UseLoginTypes } from "~typings/mutations/useLogin";
 
@@ -22,5 +23,11 @@ export const useLogin = () => {
     return res.login.accessToken;
   };
   
-  return useMutation("Login", fetch);
+  return useMutation("Login", fetch, {
+    onSuccess: async (response) => {
+      if (response) {
+        await queryClient.refetchQueries("user");
+      }
+    },
+  });
 };

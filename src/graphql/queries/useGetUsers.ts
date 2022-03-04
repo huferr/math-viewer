@@ -1,6 +1,6 @@
 import request, { gql } from "graphql-request";
 import { useQuery } from "react-query";
-import { END_POINT } from "~config";
+import { END_POINT } from "~query";
 
 export const useGetUsers = () => {
   

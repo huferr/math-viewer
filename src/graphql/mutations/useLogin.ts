@@ -1,9 +1,8 @@
 import request, { gql } from "graphql-request";
 import { useMutation } from "react-query";
-import { END_POINT } from "~config";
-import { queryClient } from "~query";
+import { queryClient, END_POINT } from "~query";
 import { storeData } from "~services/general/storage";
-import { UseLoginTypes } from "~typings/mutations/useLogin";
+import { UseLoginTypes } from "~typings";
 
 export const useLogin = () => {
   

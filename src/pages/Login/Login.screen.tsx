@@ -16,7 +16,7 @@ export const Login: React.FC = () => {
     passwordError: "",
   });
 
-  const { isLoading: isLoginLoading, mutateAsync: login, isSuccess } = useLogin();
+  const { isLoading: isLoginLoading, mutateAsync: login } = useLogin();
   
   const updateData = (property: string, newData: string) => setLoginData({ ...loginData, [property]: newData });
   const goBack = () => NavigateTo("welcome", navigation, {});

@@ -7,7 +7,6 @@ import { useAppDispatch } from "~app";
 import { useRegister } from "~graphql/mutations/useRegister";
 
 export const Register: React.FC = () => {
-  const dispatch = useAppDispatch();
   const navigation = useNavigation();
   
   const [ registerData, setRegisterData ] = useState({
@@ -22,12 +21,19 @@ export const Register: React.FC = () => {
   });
 
   const goBack = () => navigation.goBack();
-  
+
   const { mutateAsync: register } = useRegister();
 
   const handleRegister = async () => {
     try {
+      if (registerData.nickname === "") setRegisterData({ ...registerData, nickNameError: "Nickname can't be empty" });
+      if (registerData.nickname.length < 4) setRegisterData({ ...registerData, nickNameError: "This nickname is too short. Minimum is 4 characters" });
+
+      if (registerData.password === "") setRegisterData({ ...registerData, passwordError: "Password can't be empty" });
       if (registerData.confirmPassword !== registerData.password) setRegisterData({ ...registerData, confirmPasswordError: "Passwords doesn't match" });
+      if (registerData.password.length < 6) setRegisterData({ ...registerData, passwordError: "This password is too shot. Minimun is 6 characters" });
+
+      if (registerData.email === "") setRegisterData({ ...registerData, emailError: "Email can't be empty" });
       else await register({
         userRegisterInput: {
           name: registerData.nickname,
@@ -36,14 +42,9 @@ export const Register: React.FC = () => {
         }
       });
     } catch (e: any) {
-      if(e.name.includes("NAME_CANNOT_BE_EMPTY")) setRegisterData({ ...registerData, nickNameError: "Nickname can't be empty" });
       if(e.message.includes("NAME_ALREADY_EXISTS")) setRegisterData({ ...registerData, nickNameError: "This nickname is already in use" });
-      if(e.message.includes("NAME_TOO_SHORT")) setRegisterData({ ...registerData, nickNameError: "This nickname is too short. Minimum is 4 characters" });
-      if(e.message.includes("EMAIL_CANNOT_BE_EMPTY")) setRegisterData({ ...registerData, emailError: "Email can't be empty" });
       if(e.message.includes("EMAIL_ALREADY_EXISTS")) setRegisterData({ ...registerData, emailError: "This email has already been registred" });
       if(e.message.includes("INVALID_EMAIL")) setRegisterData({ ...registerData, emailError: "This isn't a valid email" });
-      if(e.message.includes("PASSWORD_CANNOT_BE_EMPTY")) setRegisterData({ ...registerData, passwordError: "Password can't be empty" });
-      if(e.message.includes("PASSWORD_TOO_SHORT")) setRegisterData({ ...registerData, passwordError: "This password is too shot. Minimun is 6 characters" });
     }
   };
 

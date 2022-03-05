@@ -31,12 +31,6 @@ export const Login: React.FC = () => {
           password: loginData.password,
         }
       });
-      setLoginData({
-        email: "",
-        password: "",
-        emailError: "",
-        passwordError: "",
-      });
     } catch (e: any) {
       if ((e.message).includes("WRONG_EMAIL")) setLoginData({...loginData, emailError: "Email inválido"});
       if ((e.message).includes("WRONG_PASSWORD")) setLoginData({...loginData, passwordError: "Senha inválida"});

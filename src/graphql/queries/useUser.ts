@@ -7,6 +7,7 @@ interface UserResponseType {
   user: {
     name: string,
     email: string,
+    imageUri: string,
   }
 }
 
@@ -17,6 +18,7 @@ export const useUser = () => {
         user {
         name
         email
+        imageUri
         }
     }
     `;

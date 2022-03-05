@@ -1,17 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { FullPage, Input } from "~/components";
 import { Pi } from "./Login.styles";
 import { useNavigation } from "@react-navigation/core";
 import { NavigateTo } from "~/services";
-import { useAppDispatch } from "~app/hooks";
-import { verifyEmailFor } from "~app/slices/verifyEmailFor.slice";
 import { useLogin } from "~graphql/mutations/useLogin";
-import { getData } from "~services/general/storage";
-import SplashScreen from "react-native-splash-screen";
 
 export const Login: React.FC = () => {
 
-  const dispatch = useAppDispatch();
   const navigation = useNavigation();
 
   const [loginData, setLoginData] = useState({
@@ -23,11 +18,14 @@ export const Login: React.FC = () => {
 
   const { isLoading: isLoginLoading, mutateAsync: login, isSuccess } = useLogin();
   
+  const updateData = (property: string, newData: string) => setLoginData({ ...loginData, [property]: newData });
   const goBack = () => NavigateTo("welcome", navigation, {});
 
   const handleLogin = async () => {
     try {
-      await login({
+      if (loginData.email === "") updateData("emailError", "Email can't be empty");
+      else if (loginData.password === "") updateData("passwordError", "Password can't be empty");
+      else await login({
         userLoginInput: {
           email: loginData.email,
           password: loginData.password,

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useUser } from "~graphql/queries/useUser";
 import { getData, storeData } from "~services/general/storage";
 import { AppRoutes } from "./app.routes";

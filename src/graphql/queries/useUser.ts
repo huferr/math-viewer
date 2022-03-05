@@ -3,6 +3,13 @@ import { useQuery } from "react-query";
 import { END_POINT } from "~query";
 import { getData } from "~services/general/storage";
 
+interface UserResponseType {
+  user: {
+    name: string,
+    email: string,
+  }
+}
+
 export const useUser = () => {
   
   const query = gql`
@@ -17,9 +24,9 @@ export const useUser = () => {
   const fetch = async () => {
     const token = await getData("token");
     
-    const res = await request(END_POINT, query, {}, { Authorization: `bearer ${token}`});
+    const res = await request<UserResponseType>(END_POINT, query, {}, { Authorization: `bearer ${token}`});
 
-    return res;
+    return res.user;
 
 
   };

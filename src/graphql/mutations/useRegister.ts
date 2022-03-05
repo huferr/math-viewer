@@ -2,7 +2,23 @@ import request, { gql } from "graphql-request";
 import { useMutation } from "react-query";
 import { queryClient, END_POINT } from "~query";
 import { storeData } from "~services/general/storage";
-import { UseRegisterTypes } from "~typings";
+
+export declare namespace UseRegisterTypes {
+  interface Params {
+    userRegisterInput: {
+      name: string,
+      email: string,
+      password: string,
+    }
+  }
+  
+  interface Response {
+    register: {
+      accessToken: string,
+    }
+  }
+      
+}
 
 export const useRegister = () => {
   

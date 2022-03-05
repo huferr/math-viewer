@@ -5,11 +5,15 @@ import { FullPage, Option } from "~/components";
 import { Button, ProfilePicContainer, UserImage } from "./Profile.styles";
 import { NavigateTo } from "~/services";
 import DefaultImage from "~/assets/images/userImage.png";
+import { useUser } from "~graphql/queries/useUser";
+import { useUploadUserImage } from "~graphql/mutations/useUploadUserImage";
 
 export const Profile: React.FC = () => {
   const navigation = useNavigation();
+  const { data: user, refetch: userRefetch } = useUser();
+  const { mutateAsync: uploadImage } = useUploadUserImage();
   const goBack = () => navigation.goBack();
-  const [image, setImage] = useState(DefaultImage);
+  const [image, setImage] = useState(user?.imageUri);
   const [error, setError] = useState("");
   const goToChangeNickname = () => NavigateTo("change_nickname", navigation, {});
   const goToChangeEmail = () => NavigateTo("change_email", navigation, {});
@@ -24,13 +28,16 @@ export const Profile: React.FC = () => {
         cropperCircleOverlay: true,
         includeBase64: true,
       });
-      setImage({ uri: `data:${req.mime};base64,${req.data}`});
+
+      await uploadImage({
+        imageUri: `data:${req.mime};base64,${req.data}`
+      });
+      setImage(`data:${req.mime};base64,${req.data}`);
     } catch (error: any) {
       setError(error);
     }
     
   };
-   
 
   return (
     <FullPage
@@ -42,7 +49,7 @@ export const Profile: React.FC = () => {
       
       <ProfilePicContainer>
         <Button onPress={pickImage}>
-          <UserImage source={image} />
+          <UserImage source={user?.imageUri ? { uri: image} : DefaultImage} />
         </Button>
       </ProfilePicContainer>
 

@@ -1,10 +1,8 @@
 import React, { useState } from "react";
+import { useNavigation } from "@react-navigation/core";
+import { useRegister } from "~graphql/mutations/useRegister";
 import { FullPage, Input } from "~/components";
 import { TopIcon } from "./Register.styles";
-import { useNavigation } from "@react-navigation/core";
-import { NavigateTo } from "~/services";
-import { useAppDispatch } from "~app";
-import { useRegister } from "~graphql/mutations/useRegister";
 
 export const Register: React.FC = () => {
   const navigation = useNavigation();
@@ -20,20 +18,23 @@ export const Register: React.FC = () => {
     confirmPasswordError: ""
   });
 
+  const updateData = (property: string, newData: string) => setRegisterData({ ...registerData, [property]: newData });
+
   const goBack = () => navigation.goBack();
 
   const { mutateAsync: register } = useRegister();
 
   const handleRegister = async () => {
     try {
-      if (registerData.nickname === "") setRegisterData({ ...registerData, nickNameError: "Nickname can't be empty" });
-      if (registerData.nickname.length < 4) setRegisterData({ ...registerData, nickNameError: "This nickname is too short. Minimum is 4 characters" });
+      if (registerData.nickname === "") updateData("nickNameError", "Nickname can't be empty");
+      else if (registerData.nickname.length < 4) updateData("nickNameError", "This nickname is too short. Minimum is 4 characters");
+      
+      else if (registerData.email === "") updateData("emailError", "Email can't be empty");
+      else if (registerData.password === "") updateData("passwordError", "Password can't be empty");
+      else if (registerData.password.length < 6) updateData("passwordError", "This password is too shot. Minimun is 6 characters");
+      else if (registerData.confirmPassword !== registerData.password) updateData("confirmPasswordError", "Passwords doesn't match");
 
-      if (registerData.password === "") setRegisterData({ ...registerData, passwordError: "Password can't be empty" });
-      if (registerData.confirmPassword !== registerData.password) setRegisterData({ ...registerData, confirmPasswordError: "Passwords doesn't match" });
-      if (registerData.password.length < 6) setRegisterData({ ...registerData, passwordError: "This password is too shot. Minimun is 6 characters" });
 
-      if (registerData.email === "") setRegisterData({ ...registerData, emailError: "Email can't be empty" });
       else await register({
         userRegisterInput: {
           name: registerData.nickname,

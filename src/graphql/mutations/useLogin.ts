@@ -2,7 +2,22 @@ import request, { gql } from "graphql-request";
 import { useMutation } from "react-query";
 import { queryClient, END_POINT } from "~query";
 import { storeData } from "~services/general/storage";
-import { UseLoginTypes } from "~typings";
+
+export declare namespace UseLoginTypes {
+  interface Params {
+    userLoginInput: {
+      email: string,
+      password: string,
+    }
+  }
+
+  interface Response {
+    login: {
+      accessToken: string,
+    }
+  }
+    
+}
 
 export const useLogin = () => {
   

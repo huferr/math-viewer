@@ -24,13 +24,14 @@ export const useUser = () => {
     `;
   
   const fetch = async () => {
-    const token = await getData("token");
     
-    const res = await request<UserResponseType>(END_POINT, query, {}, { Authorization: `bearer ${token}`});
-
-    return res.user;
-
-
+    const token = await getData("token");
+    if(token) {
+      const res = await request<UserResponseType>(END_POINT, query, {}, { Authorization: `bearer ${token}`});
+      return res.user;
+    }
+    
+    return null;
   };
   
   return useQuery("user", fetch);

@@ -7,6 +7,7 @@ import { NavigateTo } from "~/services";
 import DefaultImage from "~/assets/images/userImage.png";
 import { useUser } from "~graphql/queries/useUser";
 import { useUploadUserImage } from "~graphql/mutations/useUploadUserImage";
+import { clearStorage } from "~services/general/storage";
 
 export const Profile: React.FC = () => {
   const navigation = useNavigation();
@@ -15,15 +16,13 @@ export const Profile: React.FC = () => {
   const goBack = () => navigation.goBack();
   const [image, setImage] = useState(user?.imageUri);
   const [error, setError] = useState("");
+  const [ logouLoading, setlogoutLoading ] = useState(false);
   const goToChangeNickname = () => NavigateTo("change_nickname", navigation, {});
   const goToChangeEmail = () => NavigateTo("change_email", navigation, {});
   
   const pickImage = async () => {
     try {
       const req = await ImagePicker.openPicker({
-        width: 400,
-        height: 400,
-        waitAnimationEnd: true,
         mediaType: "photo",
         cropperCircleOverlay: true,
         includeBase64: true,
@@ -39,11 +38,21 @@ export const Profile: React.FC = () => {
     
   };
 
+  const logout = () => {
+    setlogoutLoading(true);
+    setTimeout(async () => {
+      await clearStorage();
+      await userRefetch();
+    }, 2000);
+      
+  };
+
   return (
     <FullPage
       onPressGoBack={goBack}
       onlyOneButton
-      onPressDanger={() => {}}
+      onPressDanger={logout}
+      loadingDangerBtn={logouLoading}
       buttonDangerTitle="Exit"
     >
       

@@ -1,7 +1,7 @@
 import request, { gql } from "graphql-request";
 import { useQuery } from "react-query";
 import { END_POINT } from "~query";
-import { getData } from "~services/general/storage";
+import { clearStorage, getData } from "~services/general/storage";
 
 interface UserResponseType {
   user: {
@@ -34,5 +34,11 @@ export const useUser = () => {
     return null;
   };
   
-  return useQuery("user", fetch);
+  return useQuery("user", fetch, {
+    onError: async (response) => {
+      if(String(response).includes("not authenticated")) {
+        await clearStorage();
+      }
+    }
+  });
 };

@@ -38,13 +38,14 @@ export const Profile: React.FC = () => {
     
   };
 
-  const logout = () => {
+  const logout = async () => {
     setlogoutLoading(true);
     setTimeout(async () => {
       await clearStorage();
-      await userRefetch();
+      await userRefetch(); 
     }, 2000);
       
+   
   };
 
   return (

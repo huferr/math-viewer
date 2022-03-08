@@ -13,7 +13,6 @@ import {
   NewPassword
 } from "~/pages";
 
-
 const Auth = createNativeStackNavigator();
 
 export const AuthRoutes: React.FC = () => {

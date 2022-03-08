@@ -11,12 +11,15 @@ import { clearStorage } from "~services/general/storage";
 
 export const Profile: React.FC = () => {
   const navigation = useNavigation();
+  const goBack = () => navigation.goBack();
+  
   const { data: user, refetch: userRefetch } = useUser();
   const { mutateAsync: uploadImage } = useUploadUserImage();
-  const goBack = () => navigation.goBack();
+  
   const [image, setImage] = useState(user?.imageUri);
   const [error, setError] = useState("");
-  const [ logouLoading, setlogoutLoading ] = useState(false);
+  const [logouLoading, setlogoutLoading] = useState(false);
+
   const goToChangeNickname = () => NavigateTo("change_nickname", navigation, {});
   const goToChangeEmail = () => NavigateTo("change_email", navigation, {});
   
@@ -44,8 +47,6 @@ export const Profile: React.FC = () => {
       await clearStorage();
       await userRefetch(); 
     }, 2000);
-      
-   
   };
 
   return (
@@ -56,7 +57,6 @@ export const Profile: React.FC = () => {
       loadingDangerBtn={logouLoading}
       buttonDangerTitle="Exit"
     >
-      
       <ProfilePicContainer>
         <Button onPress={pickImage}>
           <UserImage source={user?.imageUri ? { uri: image} : DefaultImage} />

@@ -3,15 +3,15 @@ import { useMutation } from "react-query";
 import { queryClient, END_POINT } from "~query";
 import { getData } from "~services/general/storage";
 
-  interface Params {
-    nickname: string,
-  }
+interface Params {
+  email: string,
+}
 
-export const useUpdateNickname = () => {
+export const useUpdateEmail = () => {
   
   const mutation = gql`
-    mutation Mutation($nickname: String!) {
-        updateNickname(nickname: $nickname)
+    mutation UpdateEmail($email: String!) {
+        updateEmail(email: $email)
     }
   `;
   
@@ -22,7 +22,7 @@ export const useUpdateNickname = () => {
     return res;
   };
   
-  return useMutation("updateNickname", fetch, {
+  return useMutation("updateEmail", fetch, {
     onSuccess: async (response) => {
       if (response) {
         await queryClient.refetchQueries("user");

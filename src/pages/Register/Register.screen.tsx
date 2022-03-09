@@ -17,6 +17,7 @@ export const Register: React.FC = () => {
     passwordError: "",
     confirmPasswordError: ""
   });
+  const [logouLoading, setlogoutLoading] = useState(false);
 
   const updateData = (property: string, newData: string) => setRegisterData({ ...registerData, [property]: newData });
 
@@ -34,14 +35,17 @@ export const Register: React.FC = () => {
       else if (registerData.password.length < 6) updateData("passwordError", "This password is too shot. Minimun is 6 characters");
       else if (registerData.confirmPassword !== registerData.password) updateData("confirmPasswordError", "Passwords doesn't match");
 
-
-      else await register({
-        userRegisterInput: {
-          name: registerData.nickname,
-          email: registerData.email,
-          password: registerData.password,
-        }
-      });
+      else setTimeout(async () => {
+        setlogoutLoading(true);
+        await register({
+          userRegisterInput: {
+            name: registerData.nickname,
+            email: registerData.email,
+            password: registerData.password,
+          }
+        });
+      }, 1500); 
+      
     } catch (e: any) {
       if(e.message.includes("NAME_ALREADY_EXISTS")) setRegisterData({ ...registerData, nickNameError: "This nickname is already in use" });
       if(e.message.includes("EMAIL_ALREADY_EXISTS")) setRegisterData({ ...registerData, emailError: "This email has already been registred" });
@@ -55,6 +59,7 @@ export const Register: React.FC = () => {
       greenTitle="Math" 
       onPressGoBack={goBack}
       onPressPrimary={handleRegister}
+      loadingPrimaryBtn={logouLoading}
       onlyOneButton
       buttonPrimaryTitle="Continue"
       verticalBounce={false}

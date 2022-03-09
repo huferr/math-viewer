@@ -59,7 +59,7 @@ export const Profile: React.FC = () => {
     >
       <ProfilePicContainer>
         <Button onPress={pickImage}>
-          <UserImage source={user?.imageUri ? { uri: image} : DefaultImage} />
+          <UserImage source={user?.imageUri !== "empty" ? { uri: image } : DefaultImage} />
         </Button>
       </ProfilePicContainer>
 

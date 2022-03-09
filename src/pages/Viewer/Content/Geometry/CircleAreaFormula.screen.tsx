@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Button, InputFormula, Animation } from "~/components";
 import { circleAreaFormula, getAnimationSize } from "~/services";
-import { colors, HeadingSmall, Paragraph, Subtitle } from "~/styles";
+import { HeadingSmall, Paragraph, Subtitle } from "~/styles/typography";
+import { colors } from "~/styles";
 import { AnimViewer, InputWrapper, Spinner, ViewerContent, ViewerInfo } from "../../Viewer.styles";
 import CircleAnim from "~/assets/animations/circle.json";
 

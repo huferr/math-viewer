@@ -24,18 +24,21 @@ import { NavigateTo } from "~/services";
 // styles
 import * as Text from "~/styles/typography";
 import { ProfileIcon, SearchIcon } from "~/assets/icons";
-import { Button, Card, CardWrapper, Header } from "./Dashboard.styles";
+import { Button, Card, CardWrapper, Header, UserImage, UserInfoContainer } from "./Dashboard.styles";
 
 // types
 import { AppPagesType } from "~/typings";
+import { useUser } from "~graphql/queries/useUser";
 
 export const Dashboard: React.FC = () => {
-
+  const { data: user } = useUser();
   const [openSearchModal, setOpenSearchModal] = useState(false);
   const [searchValue, setSearchValue] = useState("");
   const navigation = useNavigation();
   const goToPage = (id: AppPagesType) => NavigateTo(id, navigation, {});
   
+  
+
   const quickSearch = (array: DashboardSearchOptions[], search: string ) => 
     array.filter((item) => item.title.toLocaleLowerCase()
       .includes(String(search.toLocaleLowerCase())));
@@ -55,11 +58,14 @@ export const Dashboard: React.FC = () => {
         <Button onPress={() => setOpenSearchModal(true)}>
           <SearchIcon />
         </Button>
-        <Text.HeadingSmall bold>
-          Hello,
-          {" "}
-          <Text.HeadingSmall green>Hugo</Text.HeadingSmall>
-        </Text.HeadingSmall>
+        <UserInfoContainer>
+          <UserImage source={user?.imageUri !== "empty" ? { uri: user?.imageUri } : DefaultImage} />
+          <Text.HeadingSmall bold>
+            Hello,
+            {" "}
+            <Text.HeadingSmall green>Hugo</Text.HeadingSmall>
+          </Text.HeadingSmall>
+        </UserInfoContainer>
         <Button onPress={() => goToPage("profile")}>
           <ProfileIcon />
         </Button>

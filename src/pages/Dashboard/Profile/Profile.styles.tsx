@@ -13,6 +13,8 @@ export const UserImage = styled.Image`
   width: 120px;
   height: 120px;
   border-radius: 100px;
+  border-width: 1px;
+  border-color: ${colors.primary};
   background-color: ${colors.primary};
 `;
 

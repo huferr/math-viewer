@@ -57,8 +57,8 @@ export const Profile: React.FC = () => {
           <UserImage source={user?.imageUri !== "empty" ? { uri: user?.imageUri } : DefaultImage} />
         </Button>
       </ProfilePicContainer>
-      <Option title="Nickname" content="Hugo" onPress={() => goToPage("change_nickname")}/>
-      <Option title="Email" content="hugo@gmail.com" onPress={() => goToPage("change_email")}/>
+      <Option title="Nickname" content={user?.name ? user.name : "Loading..." } onPress={() => goToPage("change_nickname")}/>
+      <Option title="Email" content={user?.email ? user.email : "Loading..."} onPress={() => goToPage("change_email")}/>
     </FullPage>
   );
 };

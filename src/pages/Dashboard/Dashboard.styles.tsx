@@ -1,4 +1,5 @@
 import styled from "styled-components/native";
+import { colors } from "~styles";
 
 export const Button = styled.TouchableOpacity`
   align-items: center;
@@ -22,4 +23,19 @@ export const CardWrapper = styled.View`
 export const Card = styled.TouchableOpacity`
   align-items: center;
   width: 150px;
+`;
+
+export const UserInfoContainer = styled.View`
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const UserImage = styled.Image`
+  width: 30px;
+  height: 30px;
+  border-radius: 100px;
+  border-width: 1px;
+  border-color: ${colors.primary};
+  margin-right: 10px;
+  background-color: ${colors.primary};
 `;

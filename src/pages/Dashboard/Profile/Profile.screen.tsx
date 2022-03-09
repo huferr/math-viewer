@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/core";
-import ImagePicker from "react-native-image-crop-picker";
 import { FullPage, Option } from "~/components";
 import { Button, ProfilePicContainer, UserImage } from "./Profile.styles";
 import { NavigateTo } from "~/services";
-import DefaultImage from "~/assets/images/userImage.png";
 import { useUser } from "~graphql/queries/useUser";
 import { useUploadUserImage } from "~graphql/mutations/useUploadUserImage";
 import { clearStorage } from "~services/general/storage";
+import DefaultImage from "~/assets/images/userImage.png";
+import ImagePicker from "react-native-image-crop-picker";
 
 export const Profile: React.FC = () => {
   const navigation = useNavigation();
@@ -15,13 +15,9 @@ export const Profile: React.FC = () => {
   
   const { data: user, refetch: userRefetch } = useUser();
   const { mutateAsync: uploadImage } = useUploadUserImage();
-  
-  const [image, setImage] = useState(user?.imageUri);
-  const [error, setError] = useState("");
   const [logouLoading, setlogoutLoading] = useState(false);
 
-  const goToChangeNickname = () => NavigateTo("change_nickname", navigation, {});
-  const goToChangeEmail = () => NavigateTo("change_email", navigation, {});
+  const goToPage = (page: "change_email" | "change_nickname") => NavigateTo(page, navigation, {});
   
   const pickImage = async () => {
     try {
@@ -30,13 +26,12 @@ export const Profile: React.FC = () => {
         cropperCircleOverlay: true,
         includeBase64: true,
       });
-
       await uploadImage({
         imageUri: `data:${req.mime};base64,${req.data}`
       });
-      setImage(`data:${req.mime};base64,${req.data}`);
     } catch (error: any) {
-      setError(error);
+      // eslint-disable-next-line no-console
+      console.log(error);
     }
     
   };
@@ -59,12 +54,11 @@ export const Profile: React.FC = () => {
     >
       <ProfilePicContainer>
         <Button onPress={pickImage}>
-          <UserImage source={user?.imageUri !== "empty" ? { uri: image } : DefaultImage} />
+          <UserImage source={user?.imageUri !== "empty" ? { uri: user?.imageUri } : DefaultImage} />
         </Button>
       </ProfilePicContainer>
-
-      <Option title="Nickname" content="Hugo" onPress={goToChangeNickname}/>
-      <Option title="Email" content="hugo@gmail.com" onPress={goToChangeEmail}/>
+      <Option title="Nickname" content="Hugo" onPress={() => goToPage("change_nickname")}/>
+      <Option title="Email" content="hugo@gmail.com" onPress={() => goToPage("change_email")}/>
     </FullPage>
   );
 };

@@ -25,6 +25,7 @@ import { NavigateTo } from "~/services";
 import * as Text from "~/styles/typography";
 import { ProfileIcon, SearchIcon } from "~/assets/icons";
 import { Button, Card, CardWrapper, Header, UserImage, UserInfoContainer } from "./Dashboard.styles";
+import DefaultImage from "~/assets/images/userImage.png";
 
 // types
 import { AppPagesType } from "~/typings";

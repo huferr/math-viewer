@@ -36,9 +36,7 @@ export const Dashboard: React.FC = () => {
   const [openSearchModal, setOpenSearchModal] = useState(false);
   const [searchValue, setSearchValue] = useState("");
   const navigation = useNavigation();
-  const goToPage = (id: AppPagesType) => NavigateTo(id, navigation, {});
-  
-  
+  const goToPage = (pages: AppPagesType) => NavigateTo(pages, navigation, {});
 
   const quickSearch = (array: DashboardSearchOptions[], search: string ) => 
     array.filter((item) => item.title.toLocaleLowerCase()
@@ -64,7 +62,7 @@ export const Dashboard: React.FC = () => {
           <Text.HeadingSmall bold>
             Hello,
             {" "}
-            <Text.HeadingSmall green>Hugo</Text.HeadingSmall>
+            <Text.HeadingSmall green>{user?.name ? user?.name : "User"}</Text.HeadingSmall>
           </Text.HeadingSmall>
         </UserInfoContainer>
         <Button onPress={() => goToPage("profile")}>

@@ -1,5 +1,5 @@
 import React from "react";
-import { TextInputProps } from "react-native";
+import { TextInput, TextInputProps } from "react-native";
 import { TinyCloseIcon, SearchIcon } from "~/assets";
 import { colors } from "~/styles";
 import { 
@@ -18,10 +18,11 @@ export interface InputProps extends TextInputProps {
   label?: string,
   placeholder?: string,
   errorText?: string,
+  inputRef?: React.Ref<TextInput>
 }
 
 export const Input: React.FC<InputProps> = (props) => {
-  const { style, placeholder, errorText, type, value, label, onChangeText, autoFocus, secureTextEntry, maxLength } = props;
+  const {textContentType, onSubmitEditing, inputRef, style, placeholder, errorText, type, value, label, onChangeText, autoFocus, secureTextEntry, maxLength } = props;
 
   return (
     <Container style={style}>
@@ -34,16 +35,22 @@ export const Input: React.FC<InputProps> = (props) => {
         }
        
         <InputField
+          ref={inputRef}
+          type={type}
           autoFocus={autoFocus}
           value={value}
+          onSubmitEditing={onSubmitEditing}
           onChangeText={onChangeText} 
-          type={type}
           placeholder={placeholder} 
           placeholderTextColor={colors.lightGray} 
           selectionColor={colors.primary}
           autoCapitalize="none"
           secureTextEntry={secureTextEntry}
+          textContentType={textContentType}
           maxLength={maxLength}
+          returnKeyType="done"
+          blurOnSubmit={false}
+          errorText={errorText}
         />
         {type === "search" &&       
           <CloseButton onPress={() => onChangeText && onChangeText("")}>

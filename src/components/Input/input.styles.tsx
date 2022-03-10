@@ -20,6 +20,13 @@ const mininalInput = css`
   border-bottom-width: 2px;
 `;
 
+const hasError = css`
+  border-style: solid;
+  border-color: ${colors.danger};
+  border-width: 1.5px;
+  border-radius: 12px;
+`;
+
 export const Container = styled.View`
   width: 100%;
 `;
@@ -45,6 +52,7 @@ export const InputField = styled.TextInput<InputProps>`
   font-size: 16px;
   color: ${colors.white};
   ${(p) => p.type === "minimal" && mininalInput};
+  ${(p) => p.errorText && p.type !== "minimal" && hasError};
 `;
 
 export const CloseButton = styled.TouchableOpacity`

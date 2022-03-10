@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useNavigation } from "@react-navigation/core";
 import { useRegister } from "~graphql/mutations/useRegister";
 import { FullPage, Input } from "~/components";
@@ -18,6 +18,10 @@ export const Register: React.FC = () => {
     confirmPasswordError: ""
   });
   const [logouLoading, setlogoutLoading] = useState(false);
+
+  const emailInputRef = useRef<any>(null); 
+  const passwordInputRef = useRef<any>(null);
+  const confirmInputRef = useRef<any>(null); 
 
   const updateData = (property: string, newData: string) => setRegisterData({ ...registerData, [property]: newData });
 
@@ -63,41 +67,47 @@ export const Register: React.FC = () => {
       onlyOneButton
       buttonPrimaryTitle="Continue"
       verticalBounce={false}
-      enableAvoidingView={true}
+      enableAvoidingView={false}
     >
       <TopIcon>λ</TopIcon>
-      <Input 
+      <Input
         type="primary"
         label="Nickname" 
-        style={{marginTop: 10}}
+        style={{marginTop: 5}}
         placeholder="Nickname"
         value={registerData.nickname}
         onChangeText={(n) => setRegisterData({ ...registerData, nickname: n, nickNameError: "" })} 
         errorText={registerData.nickNameError}
+        onSubmitEditing={() => emailInputRef?.current?.focus()}
       />
-      <Input 
+      <Input
+        inputRef={emailInputRef} 
         type="primary"
         label="E-mail" 
-        style={{marginTop: 10}}
+        style={{marginTop: 5}}
         placeholder="Email"
         value={registerData.email}
         onChangeText={(e) => setRegisterData({ ...registerData, email: e, emailError: "" })} 
         errorText={registerData.emailError}
+        onSubmitEditing={() => passwordInputRef?.current?.focus()}
       />
-      <Input 
+      <Input
+        inputRef={passwordInputRef} 
         type="primary"
         label="Password" 
-        style={{marginTop: 10}}
+        style={{marginTop: 5}}
         placeholder="Password"
         value={registerData.password}
         secureTextEntry
         onChangeText={(p) => setRegisterData({ ...registerData, password: p, passwordError: "" })} 
         errorText={registerData.passwordError}
+        onSubmitEditing={() => confirmInputRef?.current?.focus()}
       />
-      <Input 
+      <Input
+        inputRef={confirmInputRef} 
         type="primary"
         label="Confirm Password" 
-        style={{marginTop: 10}}
+        style={{marginTop: 5}}
         placeholder="Confirm password" 
         value={registerData.confirmPassword}
         secureTextEntry

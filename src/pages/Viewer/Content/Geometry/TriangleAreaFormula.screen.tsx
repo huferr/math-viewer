@@ -1,18 +1,35 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Button, InputFormula } from "~/components";
 import { triangleAreaFormula } from "~/services";
 import { HeadingSmall, Paragraph, Subtitle } from "~/styles/typography";
+import { useAddMathscore } from "~graphql/mutations/useAddMathscore";
 import { InputWrapper, ViewerContent } from "../../Viewer.styles";
 
 export const TriangleAreaFormula: React.FC = () => {
   const [value, setValue] = useState({ height: "", base: ""});
   const [result, setResult] = useState<string | number>();
   
+  const { mutateAsync: addMathscore } = useAddMathscore();
   const nextInputRef = useRef<any>(null);
   
   const height = Number(value.height.replace(",", "."));
   const base = Number(value.base.replace(",", "."));
   const onRun = () => setResult(triangleAreaFormula(height, base));
+
+  useEffect(() => {
+    (async () => {
+      if(typeof result === "number") {
+        try {
+          await addMathscore({
+            amount: 15
+          });
+        } catch (error) {
+          // eslint-disable-next-line no-console
+          console.log(error);
+        }
+      }
+    })();
+  }, [result]);
 
 
   return (

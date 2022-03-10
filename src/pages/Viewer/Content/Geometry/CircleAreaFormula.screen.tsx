@@ -24,6 +24,8 @@ export const CircleAreaFormula: React.FC = () => {
     setResult(circleAreaFormula(formatedValue));  
   };
 
+  const { mutateAsync: addMathscore } = useAddMathscore();
+
   useEffect(() => {
     (async () => {
       if(typeof result === "number") {
@@ -38,8 +40,6 @@ export const CircleAreaFormula: React.FC = () => {
       }
     })();
   }, [result]);
-
-  const { mutateAsync: addMathscore } = useAddMathscore();
 
   return (
     <>

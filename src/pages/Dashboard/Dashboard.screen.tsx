@@ -73,7 +73,7 @@ export const Dashboard: React.FC = () => {
       <CardWrapper>
         <Card onPress={() => goToPage("mathscore")}>
           <Text.HeadingSmall green>Mathscore</Text.HeadingSmall>
-          <Text.HeadingSmall italic>9999</Text.HeadingSmall>
+          <Text.HeadingSmall italic>{user?.mathscore}</Text.HeadingSmall>
         </Card>
       </CardWrapper>
 

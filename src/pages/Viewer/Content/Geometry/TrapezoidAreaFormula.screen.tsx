@@ -1,12 +1,15 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Button, InputFormula } from "~/components";
 import { trapezoidAreaFormula } from "~/services";
 import { HeadingSmall, Paragraph, Subtitle } from "~/styles/typography";
+import { useAddMathscore } from "~graphql/mutations/useAddMathscore";
 import { InputWrapper, ViewerContent } from "../../Viewer.styles";
 
 export const TrapezoidAreaFormula: React.FC = () => {
   const [value, setValue] = useState({ height: "", base1: "", base2: ""});
   const [result, setResult] = useState<string | number>();
+
+  const { mutateAsync: addMathscore } = useAddMathscore();
   
   const bInputRef = useRef<any>(null);
   const hInputRef = useRef<any>(null);
@@ -16,6 +19,21 @@ export const TrapezoidAreaFormula: React.FC = () => {
   const height = Number(value.height.replace(",", "."));
 
   const onRun = () => setResult(trapezoidAreaFormula(base1, base2, height));
+
+  useEffect(() => {
+    (async () => {
+      if(typeof result === "number") {
+        try {
+          await addMathscore({
+            amount: 25
+          });
+        } catch (error) {
+          // eslint-disable-next-line no-console
+          console.log(error);
+        }
+      }
+    })();
+  }, [result]);
 
   return (
     <>

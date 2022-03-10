@@ -7,6 +7,7 @@ import { InfoWrapper, MathscoreView, UserMathscore, UserName, UsersRank, UsersRa
 import { userRanking, UserRankingTypes } from "~/data";
 import { useAppDispatch, useAppSelector } from "~app/hooks";
 import { mathscoreModal, selectModalState } from "~app/slices/InfoModal.slice";
+import { useUser } from "~graphql/queries/useUser";
 
 export const Mathscore: React.FC = () => {
 
@@ -16,6 +17,7 @@ export const Mathscore: React.FC = () => {
   const navigation = useNavigation();
   const goBack = () => NavigateTo("dashboard", navigation, {}); 
 
+  const { data: user } = useUser();
   const [searchValue, setSearchValue] = useState("");
 
   const quickSearch = (array: UserRankingTypes[], search: string ) => 
@@ -43,8 +45,8 @@ export const Mathscore: React.FC = () => {
             <Text.Subtitle green>
           Mathscore
             </Text.Subtitle>
-            <Text.Subtitle>
-            9999
+            <Text.Subtitle italic>
+              {user?.mathscore}
             </Text.Subtitle>
           
           </MathscoreView>
@@ -53,7 +55,7 @@ export const Mathscore: React.FC = () => {
             <Text.Subtitle green>
           Your Position
             </Text.Subtitle>
-            <Text.Subtitle>
+            <Text.Subtitle italic>
             9999
             </Text.Subtitle>
           </MathscoreView>

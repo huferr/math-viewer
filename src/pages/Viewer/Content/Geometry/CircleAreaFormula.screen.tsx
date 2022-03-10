@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, InputFormula, Animation } from "~/components";
 import { circleAreaFormula, getAnimationSize } from "~/services";
 import { HeadingSmall, Paragraph, Subtitle } from "~/styles/typography";
 import { colors } from "~/styles";
 import { AnimViewer, InputWrapper, Spinner, ViewerContent, ViewerInfo } from "../../Viewer.styles";
+import { useAddMathscore } from "~graphql/mutations/useAddMathscore";
 import CircleAnim from "~/assets/animations/circle.json";
 
 export const CircleAreaFormula: React.FC = () => {
@@ -15,13 +16,30 @@ export const CircleAreaFormula: React.FC = () => {
 
   const formatedValue = Number(value.replace(",", "."));
   
-  const onRun = () => {
+  const onRun = async () => {
     setAnimSize(getAnimationSize(formatedValue));
     setRadius(value);
     setShowAnim(false);
     setTimeout(() => setShowAnim(true), 600);
-    setResult(circleAreaFormula(formatedValue));
+    setResult(circleAreaFormula(formatedValue));  
   };
+
+  const { mutateAsync: addMathscore } = useAddMathscore();
+
+  useEffect(() => {
+    (async () => {
+      if(typeof result === "number") {
+        try {
+          await addMathscore({
+            amount: 10
+          });
+        } catch (error) {
+          // eslint-disable-next-line no-console
+          console.log(error);
+        }
+      }
+    })();
+  }, [result]);
 
   return (
     <>

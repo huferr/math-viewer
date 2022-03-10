@@ -8,12 +8,13 @@ import { InputWrapper, ViewerContent } from "../../Viewer.styles";
 export const TriangleAreaFormula: React.FC = () => {
   const [value, setValue] = useState({ height: "", base: ""});
   const [result, setResult] = useState<string | number>();
+  const nextInputRef = useRef<any>(null);
   
   const { mutateAsync: addMathscore } = useAddMathscore();
-  const nextInputRef = useRef<any>(null);
   
   const height = Number(value.height.replace(",", "."));
   const base = Number(value.base.replace(",", "."));
+
   const onRun = () => setResult(triangleAreaFormula(height, base));
 
   useEffect(() => {

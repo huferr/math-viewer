@@ -8,6 +8,7 @@ interface UserResponseType {
     name: string,
     email: string,
     imageUri: string,
+    mathscore: number,
   }
 }
 
@@ -16,9 +17,10 @@ export const useUser = () => {
   const query = gql`
     query User {
         user {
-        name
-        email
-        imageUri
+          name
+          email
+          imageUri
+          mathscore
         }
     }
     `;

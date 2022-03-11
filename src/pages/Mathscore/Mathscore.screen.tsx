@@ -24,12 +24,21 @@ export const Mathscore: React.FC = () => {
   const [searchValue, setSearchValue] = useState("");
 
 
+  const matchUserPos = usersList?.find(({ name }) => name === user?.name );
+
+  const CurrentUser = <OptionList mathscore={matchUserPos?.mathscore} rank={matchUserPos?.position} content={String(matchUserPos?.name)} />;
+
+  const UserListWithoutCurrUser = usersList?.filter(({ name }) => name !== user?.name);
+
   const quickSearch = (array: UserListType[], search: string ) => 
     array.filter((item) => item.name.toLocaleLowerCase().includes(String(search.toLocaleLowerCase())));
 
   const handleUsers = (
-    quickSearch(usersList || [], searchValue).map((user: UserListType) => <OptionList mathscore={user.mathscore} rank={user.position} key={user.position} content={user.name} />)
+    quickSearch(UserListWithoutCurrUser || [], searchValue).map((user: UserListType) => <OptionList mathscore={user.mathscore} rank={user.position} key={user.position} content={user.name} />)
   );
+
+  const showUsersAmount = Number(usersList?.length) < 10 ? `0${usersList?.length}` : usersList?.length;
+  const showUserPosition = String(matchUserPos?.position).length < 10 ? `0${String(matchUserPos?.position)}` : matchUserPos?.position;
 
   return (
     <>
@@ -59,7 +68,7 @@ export const Mathscore: React.FC = () => {
               Your Position
             </Text.Subtitle>
             <Text.Subtitle italic>
-              9999
+              {showUserPosition}/{showUsersAmount}
             </Text.Subtitle>
           </MathscoreView>
         </InfoWrapper>
@@ -77,7 +86,7 @@ export const Mathscore: React.FC = () => {
             <Text.Paragraph>Mathscore</Text.Paragraph>  
           </UserMathscore>
         </UsersRankingInfo>
-
+        {CurrentUser}
         <RankScroll>
           {handleUsers}
         </RankScroll>

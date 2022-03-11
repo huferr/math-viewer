@@ -50,5 +50,5 @@ export const UserMathscore = styled.View`
 `;
 
 export const RankScroll = styled.ScrollView`
-  height: 300px;
+  height: 200px;
 `;

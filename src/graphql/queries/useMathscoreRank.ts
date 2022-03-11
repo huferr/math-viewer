@@ -1,11 +1,12 @@
 import request, { gql } from "graphql-request";
 import { useQuery } from "react-query";
 import { END_POINT } from "~query";
-import { clearStorage, getData } from "~services/general/storage";
+import { getData } from "~services/general/storage";
 
 export interface UserListType {
     name: string,
     mathscore: number,
+    position: number,
 }
 
 interface UserResponseType {
@@ -19,6 +20,7 @@ export const useMathscoreRank = () => {
         mathscoreRank {
         name
         mathscore
+        position
         }
     }
     `;

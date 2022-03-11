@@ -28,7 +28,7 @@ export const Mathscore: React.FC = () => {
     array.filter((item) => item.name.toLocaleLowerCase().includes(String(search.toLocaleLowerCase())));
 
   const handleUsers = (
-    quickSearch(usersList || [], searchValue).map((item: UserListType, index) => <OptionList mathscore={item.mathscore} rank={index + 1} key={index} content={item.name} />)
+    quickSearch(usersList || [], searchValue).map((user: UserListType) => <OptionList mathscore={user.mathscore} rank={user.position} key={user.position} content={user.name} />)
   );
 
   return (
@@ -46,7 +46,7 @@ export const Mathscore: React.FC = () => {
         <InfoWrapper>
           <MathscoreView>
             <Text.Subtitle green>
-          Mathscore
+              Mathscore
             </Text.Subtitle>
             <Text.Subtitle italic>
               {user?.mathscore}
@@ -56,10 +56,10 @@ export const Mathscore: React.FC = () => {
 
           <MathscoreView>
             <Text.Subtitle green>
-          Your Position
+              Your Position
             </Text.Subtitle>
             <Text.Subtitle italic>
-            9999
+              9999
             </Text.Subtitle>
           </MathscoreView>
         </InfoWrapper>
@@ -77,6 +77,7 @@ export const Mathscore: React.FC = () => {
             <Text.Paragraph>Mathscore</Text.Paragraph>  
           </UserMathscore>
         </UsersRankingInfo>
+        
         <ScrollView style={{ height: 300}}>
           {handleUsers}
         </ScrollView>

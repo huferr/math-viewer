@@ -48,3 +48,7 @@ export const UserName = styled.View`
 export const UserMathscore = styled.View`
   width: 30%;
 `;
+
+export const RankScroll = styled.ScrollView`
+  height: 200px;
+`;

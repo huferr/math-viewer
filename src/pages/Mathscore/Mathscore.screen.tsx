@@ -3,7 +3,7 @@ import { useNavigation } from "@react-navigation/core";
 import { FullPage, Input, Modal, OptionList } from "~/components";
 import { NavigateTo } from "~/services";
 import * as Text from "~/styles/typography";
-import { InfoWrapper, MathscoreView, UserMathscore, UserName, UsersRank, UsersRankingInfo } from "./Mathscore.styles";
+import { InfoWrapper, MathscoreView, RankScroll, UserMathscore, UserName, UsersRank, UsersRankingInfo } from "./Mathscore.styles";
 import { userRanking, UserRankingTypes } from "~/data";
 import { useAppDispatch, useAppSelector } from "~app/hooks";
 import { mathscoreModal, selectModalState } from "~app/slices/InfoModal.slice";
@@ -77,10 +77,10 @@ export const Mathscore: React.FC = () => {
             <Text.Paragraph>Mathscore</Text.Paragraph>  
           </UserMathscore>
         </UsersRankingInfo>
-        
-        <ScrollView style={{ height: 300}}>
+
+        <RankScroll>
           {handleUsers}
-        </ScrollView>
+        </RankScroll>
         
         <Modal isOpen={isOpenModal} onClose={() => dispatch(mathscoreModal(false))}>
           <Text.Heading bold textAlign="center">Welcome to</Text.Heading>

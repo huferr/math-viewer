@@ -9,6 +9,7 @@ import { useAppDispatch, useAppSelector } from "~app/hooks";
 import { mathscoreModal, selectModalState } from "~app/slices/InfoModal.slice";
 import { useUser } from "~graphql/queries/useUser";
 import { useMathscoreRank, UserListType } from "~graphql/queries/useMathscoreRank";
+import { ScrollView } from "react-native";
 
 export const Mathscore: React.FC = () => {
 
@@ -30,10 +31,9 @@ export const Mathscore: React.FC = () => {
     quickSearch(usersList || [], searchValue).map((item: UserListType, index) => <OptionList mathscore={item.mathscore} rank={index + 1} key={index} content={item.name} />)
   );
 
-  
   return (
     <>
-      <FullPage onPressGoBack={goBack}>
+      <FullPage onPressGoBack={goBack} verticalBounce={false}>
         <Text.HeadingSmall
           green
           italic
@@ -77,8 +77,9 @@ export const Mathscore: React.FC = () => {
             <Text.Paragraph>Mathscore</Text.Paragraph>  
           </UserMathscore>
         </UsersRankingInfo>
-        
-        {handleUsers}
+        <ScrollView style={{ height: 300}}>
+          {handleUsers}
+        </ScrollView>
         
         <Modal isOpen={isOpenModal} onClose={() => dispatch(mathscoreModal(false))}>
           <Text.Heading bold textAlign="center">Welcome to</Text.Heading>

@@ -20,7 +20,7 @@ export const OptionList: React.FC<OptionListProps> = (props) => {
         <Text.Paragraph>{content}</Text.Paragraph>
         {hasArrow && <ArrowRightIcon />}
         <Content>
-          {mathscore ? <Text.Paragraph green italic style={{marginRight: 20}}>{mathscore}</Text.Paragraph> : null}
+          <Text.Paragraph green italic style={{marginRight: 20}}>{mathscore ? mathscore : 0}</Text.Paragraph>
         </Content> 
       </ContentWrapper>
     </Container>

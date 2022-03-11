@@ -8,6 +8,7 @@ import { userRanking, UserRankingTypes } from "~/data";
 import { useAppDispatch, useAppSelector } from "~app/hooks";
 import { mathscoreModal, selectModalState } from "~app/slices/InfoModal.slice";
 import { useUser } from "~graphql/queries/useUser";
+import { useMathscoreRank, UserListType } from "~graphql/queries/useMathscoreRank";
 
 export const Mathscore: React.FC = () => {
 
@@ -18,13 +19,15 @@ export const Mathscore: React.FC = () => {
   const goBack = () => NavigateTo("dashboard", navigation, {}); 
 
   const { data: user } = useUser();
+  const { data: usersList } = useMathscoreRank();
   const [searchValue, setSearchValue] = useState("");
 
-  const quickSearch = (array: UserRankingTypes[], search: string ) => 
-    array.filter((item) => item.user.toLocaleLowerCase().includes(String(search.toLocaleLowerCase())));
+
+  const quickSearch = (array: UserListType[], search: string ) => 
+    array.filter((item) => item.name.toLocaleLowerCase().includes(String(search.toLocaleLowerCase())));
 
   const handleUsers = (
-    quickSearch(userRanking, searchValue).map((item: UserRankingTypes) => <OptionList mathscore={item.mathscore} rank={item.position} key={item.user} content={item.user} />)
+    quickSearch(usersList || [], searchValue).map((item: UserListType, index) => <OptionList mathscore={item.mathscore} rank={index + 1} key={index} content={item.name} />)
   );
 
   

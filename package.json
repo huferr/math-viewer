@@ -30,8 +30,7 @@
     "react-native-svg": "^12.1.1",
     "react-query": "^3.34.16",
     "react-redux": "^7.2.6",
-    "styled-components": "^5.3.3",
-    "yup": "^0.32.11"
+    "styled-components": "^5.3.3"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

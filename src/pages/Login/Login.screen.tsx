@@ -50,8 +50,6 @@ export const Login: React.FC = () => {
       onPressPrimary={handleLogin}
       buttonSecondaryTitle="Forgot my password"
       onPressSecondary={goToRecoveryPassword}
-      verticalBounce={false}
-      enableAvoidingView={false}
     >
       <Pi>π</Pi>
       <Input 

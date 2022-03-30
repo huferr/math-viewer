@@ -3,6 +3,7 @@ import { useNavigation } from "@react-navigation/core";
 import { useRegister } from "~graphql/mutations/useRegister";
 import { FullPage, Input } from "~/components";
 import { TopIcon } from "./Register.styles";
+import { metrics } from "~styles";
 
 export const Register: React.FC = () => {
   const navigation = useNavigation();
@@ -18,6 +19,7 @@ export const Register: React.FC = () => {
     confirmPasswordError: ""
   });
   const [logouLoading, setlogoutLoading] = useState(false);
+  const containerRef = useRef(null);
 
   const emailInputRef = useRef<any>(null); 
   const passwordInputRef = useRef<any>(null);
@@ -66,8 +68,6 @@ export const Register: React.FC = () => {
       loadingPrimaryBtn={logouLoading}
       onlyOneButton
       buttonPrimaryTitle="Continue"
-      verticalBounce={false}
-      enableAvoidingView={false}
     >
       <TopIcon>λ</TopIcon>
       <Input

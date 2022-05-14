@@ -14,11 +14,11 @@
 > Mathscore is the app score system. It allows you to know how are you doing with your formulas tests with **Viewer**. You can compare with other users by our ranking system.
 
 <br>
+<h1 align="center">Project Stack</h1>
+<h4 align="center">Math Viewer was build with:<h4>
+
 <br>
-<h2>Building Tools</h2>
   
-Math Viewer was build with:
-<br>  
 ## Front-end
   
 ### ⚛️ React Native
@@ -26,10 +26,10 @@ Math Viewer was build with:
 ### &#128133; Styled-components
   
 ## Back-end
-  
-> You can find the backend code here: [mv-server](https://github.com/huferr/mv-server)!
 
 ### &#128215; NodeJS
 ### &#128216; GraphQL
 ### &#128217; TypeORM
 ### &#128216; Apollo Server
+  
+> You can find the backend code here: [mv-server](https://github.com/huferr/mv-server)!

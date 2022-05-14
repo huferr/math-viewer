@@ -9,19 +9,24 @@ interface OptionListProps {
   hasArrow?: boolean;
   rank?: number;
   mathscore?: number;
+  rankList?: boolean;
 }
 
 export const OptionList: React.FC<OptionListProps> = (props) => {
-  const { content, onPress, hasArrow, rank, mathscore} = props;
+  const { content, onPress, hasArrow, rank, mathscore, rankList} = props;
   return (
     <Container onPress={onPress}>
       <ContentWrapper rank={Boolean(rank)}>
         {rank ? <Text.Paragraph green italic style={{marginRight: 20}}>#{rank}</Text.Paragraph> : null}
         <Text.Paragraph>{content}</Text.Paragraph>
         {hasArrow && <ArrowRightIcon />}
-        <Content>
-          <Text.Paragraph green italic style={{marginRight: 20}}>{mathscore ? mathscore : 0}</Text.Paragraph>
-        </Content> 
+
+        {rankList && (
+          <Content>
+            <Text.Paragraph green italic style={{marginRight: 20}}>{mathscore ? mathscore : 0}</Text.Paragraph>
+          </Content> 
+        )}
+        
       </ContentWrapper>
     </Container>
   );

@@ -26,7 +26,7 @@ export const Mathscore: React.FC = () => {
 
   const matchUserPos = usersList?.find(({ name }) => name === user?.name );
 
-  const CurrentUser = <OptionList mathscore={matchUserPos?.mathscore} rank={matchUserPos?.position} content={String(matchUserPos?.name)} />;
+  const CurrentUser = <OptionList rankList mathscore={matchUserPos?.mathscore} rank={matchUserPos?.position} content={String(matchUserPos?.name)} />;
 
   const UserListWithoutCurrUser = usersList?.filter(({ name }) => name !== user?.name);
 
@@ -34,7 +34,7 @@ export const Mathscore: React.FC = () => {
     array.filter((item) => item.name.toLocaleLowerCase().includes(String(search.toLocaleLowerCase())));
 
   const handleUsers = (
-    quickSearch(UserListWithoutCurrUser || [], searchValue).map((user: UserListType) => <OptionList mathscore={user.mathscore} rank={user.position} key={user.position} content={user.name} />)
+    quickSearch(UserListWithoutCurrUser || [], searchValue).map((user: UserListType) => <OptionList rankList mathscore={user.mathscore} rank={user.position} key={user.position} content={user.name} />)
   );
 
   const showUsersAmount = Number(usersList?.length) < 10 ? `0${usersList?.length}` : usersList?.length;

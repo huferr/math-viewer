@@ -30,6 +30,7 @@
 ### &#128215; NodeJS
 ### &#128216; GraphQL
 ### &#128217; TypeORM
+### &#128024; PostgreSQL
 ### &#128216; Apollo Server
   
 > You can find the backend code here: [mv-server](https://github.com/huferr/mv-server)!
